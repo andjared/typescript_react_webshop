@@ -1,0 +1,27 @@
+.header {
+  width: 100%;
+  height: 80px;
+  padding: 0px 20px;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: #303c6c;
+}
+.header nav {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+  gap: 12px;
+  color: #fbe8a6;
+}
+.header nav a {
+  color: inherit;
+  text-decoration: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+.header nav a:hover {
+  color: #f4976c;
+}/*# sourceMappingURL=header.module.css.map */

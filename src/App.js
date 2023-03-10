@@ -1,18 +1,18 @@
-import "./App.css";
+import "./styles/App.scss";
 import { Routes, Route } from "react-router-dom";
 import ProductList from "./pages/ProductList/ProductList";
 import ProductDetails from "./pages/ProductDetails/ProductDetails";
 import Cart from "./pages/Cart/Cart";
-import Header from "./components/header/header";
+import Navbar from "./components/header/header";
 
 function App() {
   return (
     <div className="App">
-      <Header />
+      <Navbar />
       <Routes>
         <Route path="/" element={<ProductList />} />
-        <Route path="productDetails" element={<ProductDetails />} />
-        <Route path="cart" element={<Cart />} />
+        <Route path="/productDetails" element={<ProductDetails />} />
+        <Route path="/cart" element={<Cart />} />
       </Routes>
     </div>
   );

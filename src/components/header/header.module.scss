@@ -1,0 +1,52 @@
+@use "../../styles/vars.scss";
+
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 116px;
+  @include vars.flexCenter(column, space-between);
+  color: vars.$clr-text-primary;
+  .announcment {
+    width: 100%;
+    height: 44px;
+    padding: vars.$space-lg;
+    background-color: vars.$clr-header;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: vars.$fm-main;
+    font-size: vars.$fs-sm;
+  }
+  nav {
+    padding: vars.$space-lg vars.$space-xl;
+    width: 100%;
+    @include vars.flexCenter(row, space-between);
+    background-color: vars.$clr-background;
+    box-shadow: 0 -1px vars.$clr-header-border inset;
+    .menu {
+      flex: 1 0 0;
+      color: vars.$clr-text-secondary;
+    }
+    .heading {
+      font-family: vars.$fm-heading;
+      display: flex;
+      padding: vars.$space-xs vars.$space-sm;
+    }
+    a {
+      color: inherit;
+      font-size: vars.$fs-lg;
+      cursor: pointer;
+    }
+    .icons {
+      flex: 1 0 0;
+      @include vars.flexCenter(row, flex-end);
+      gap: vars.$space-sm;
+      color: vars.$clr-text-secondary;
+      .search {
+        border: none;
+        background-color: transparent;
+        color: inherit;
+      }
+    }
+  }
+}

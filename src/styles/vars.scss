@@ -1,0 +1,36 @@
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap");
+
+//colors
+$clr-main-text: #5c5c5c;
+$clr-background: #ffffff;
+$clr-text-primary: #000000;
+$clr-text-secondary: #939393;
+$clr-header: #edd4e3;
+$clr-header-border: #e7e7e7;
+
+// spacing units
+$space-unit: 4px;
+$space-xs: calc(1 * $space-unit);
+$space-sm: calc(2 * $space-unit);
+$space-md: calc(3 * $space-unit);
+$space-lg: calc(4 * $space-unit);
+$space-xl: calc(5 * $space-unit);
+$space-xxl: calc(5 * $space-unit);
+
+//fonts-sizes
+$fs-sm: 12px;
+$fs-md: 16px;
+$fs-lg: 20px;
+$fs-xl: 24px;
+
+//font-family
+$fm-heading: "Dancing Script", cursive;
+$fm-main: Century, sans-serif;
+
+//mixins
+@mixin flexCenter($direction, $justify) {
+  display: flex;
+  align-items: center;
+  flex-direction: $direction;
+  justify-content: $justify;
+}
