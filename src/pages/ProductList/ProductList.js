@@ -3,7 +3,7 @@ import { products } from "../../products";
 import Product from "../../components/product/product";
 import styles from "./ProductList.module.scss";
 
-const ProductList = ({ isProductActive }) => {
+const ProductList = () => {
   // list of products, include img, title, short descr
   // abbility to add product in cart and to change number of product in cart
   //link to product details page
@@ -11,14 +11,10 @@ const ProductList = ({ isProductActive }) => {
     <section className={styles.container}>
       <div className={styles.heading}>
         <h2>The Special Collection</h2>
-      </div>{" "}
+      </div>
       <div className={styles.grid}>
         {products.map((product) => (
-          <Product
-            key={product.id}
-            data={product}
-            isProductActive={isProductActive}
-          />
+          <Product key={product.id} data={product} />
         ))}
       </div>
     </section>

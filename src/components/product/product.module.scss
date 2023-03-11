@@ -1,6 +1,6 @@
 @use "../../styles/vars.scss";
 
-.wrapper {
+.product {
   display: flex;
   flex-direction: column;
   gap: vars.$space-xs;
@@ -24,13 +24,6 @@
     }
     .info {
       font-size: vars.$fs-sm;
-    }
-    .description {
-      font-size: vars.$fs-sm;
-      text-align: justify;
-    }
-    .hidden {
-      display: none;
     }
   }
   .btns {

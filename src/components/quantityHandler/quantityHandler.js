@@ -6,7 +6,7 @@ const QuantityHandler = ({ value }) => {
   return (
     <div className={styles.wrapper}>
       <Button className={styles.decrease} content={"-"} />
-      <input value={value} />
+      <input placeholder={value} />
       <Button className={styles.increase} content={"+"} />
     </div>
   );
