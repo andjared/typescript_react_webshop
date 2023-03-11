@@ -10,12 +10,15 @@ $clr-header-border: #e7e7e7;
 
 // spacing units
 $space-unit: 4px;
+$space-xxs: calc(0.5 * $space-unit);
 $space-xs: calc(1 * $space-unit);
 $space-sm: calc(2 * $space-unit);
 $space-md: calc(3 * $space-unit);
 $space-lg: calc(4 * $space-unit);
 $space-xl: calc(5 * $space-unit);
 $space-xxl: calc(5 * $space-unit);
+$space-xxl2: calc(6 * $space-unit);
+$space-section-padding: calc(10 * $space-unit);
 
 //fonts-sizes
 $fs-sm: 12px;
@@ -34,3 +37,5 @@ $fm-main: Century, sans-serif;
   flex-direction: $direction;
   justify-content: $justify;
 }
+
+$transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);

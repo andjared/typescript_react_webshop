@@ -1,8 +1,6 @@
 @use "../../styles/vars.scss";
 
 .header {
-  position: fixed;
-  top: 0;
   width: 100%;
   height: 116px;
   @include vars.flexCenter(column, space-between);
@@ -35,7 +33,6 @@
     a {
       color: inherit;
       font-size: vars.$fs-lg;
-      cursor: pointer;
     }
     .icons {
       flex: 1 0 0;

@@ -1,0 +1,16 @@
+@use "../../styles/vars.scss";
+.wrapper {
+  display: flex;
+  border: 1px solid rgba(vars.$clr-text-secondary, 0.2);
+  button {
+    border: none;
+    padding: vars.$space-sm vars.$space-sm;
+  }
+  input {
+    color: inherit;
+    border: none;
+    border: 0;
+    max-width: 20px;
+    text-align: center;
+  }
+}
