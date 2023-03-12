@@ -1,0 +1,70 @@
+@use "../../styles/vars.scss";
+
+.item {
+  display: grid;
+  place-content: center;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: 300px;
+  gap: vars.$space-xl;
+  @media screen and (max-width: 500px) {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.item .image {
+  height: 100%;
+  width: 100%;
+  img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+}
+
+.item .content {
+  align-self: center;
+  @include vars.flexStart(column, center);
+  gap: vars.$space-xs;
+  @media screen and (max-width: 500px) {
+    align-self: auto;
+  }
+}
+
+.content .info {
+  color: vars.$clr-text-secondary;
+}
+
+.content .btns {
+  margin-top: vars.$space-xl;
+  @include vars.flexCenter(row, space-between);
+  gap: vars.$space-lg;
+  button {
+    background-color: transparent;
+    color: vars.$clr-text-secondary;
+    border: none;
+  }
+}
+
+.content .remove {
+  position: relative;
+  display: inline-block;
+  line-height: 1.5;
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: vars.$clr-text-secondary;
+    height: 1px;
+    width: 100%;
+    transform: scale(1);
+    transform-origin: left center;
+    transition: vars.$transition-transform;
+  }
+  &:hover::before,
+  &:focus::before {
+    transform: scale(0);
+    transform-origin: right left;
+  }
+}

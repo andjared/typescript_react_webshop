@@ -2,22 +2,24 @@
 
 .container {
   padding: 0 vars.$space-section-padding vars.$space-lg;
-  .heading {
-    @include vars.flexCenter(row, center);
-    margin: 35px 0;
-    padding: 0 vars.$space-xl;
-    h2 {
-      font-size: vars.$fs-xl;
-      text-align: center;
-      color: vars.$clr-main-text;
-    }
-  }
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: vars.$space-xxl;
-  }
   @media screen and (max-width: 1080px) {
     padding: 0 vars.$space-xxl;
   }
+}
+
+.heading {
+  @include vars.flexCenter(row, center);
+  margin: 35px 0;
+  padding: 0 vars.$space-xl;
+  h2 {
+    font-size: vars.$fs-xl;
+    text-align: center;
+    color: vars.$clr-main-text;
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: vars.$space-xxl;
 }

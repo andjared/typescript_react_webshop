@@ -6,103 +6,42 @@
   padding: vars.$space-section-padding vars.$space-lg;
   @include vars.flexStart(column, space-evenly);
   gap: vars.$space-xl;
-  .item {
-    display: grid;
-    place-content: center;
-    grid-template-columns: 2fr 1fr;
-    grid-template-rows: 300px;
-    gap: vars.$space-xl;
-    @media screen and (max-width: 500px) {
-      display: flex;
-      flex-direction: column;
-    }
-    .image {
-      height: 100%;
-      width: 100%;
-      img {
-        height: 100%;
-        width: 100%;
-        object-fit: cover;
-      }
-    }
-    .content {
-      align-self: center;
-      @include vars.flexStart(column, center);
-      gap: vars.$space-xs;
-      @media screen and (max-width: 500px) {
-        align-self: auto;
-      }
-      .info {
-        color: vars.$clr-text-secondary;
-      }
-      .btns {
-        margin-top: vars.$space-xl;
-        @include vars.flexCenter(row, space-between);
-        gap: vars.$space-lg;
-        button {
-          background-color: transparent;
-          color: vars.$clr-text-secondary;
-          border: none;
-        }
-        .remove {
-          position: relative;
-          display: inline-block;
-          line-height: 1.5;
-          &::before {
-            content: "";
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            background-color: vars.$clr-text-secondary;
-            height: 1px;
-            width: 100%;
-            transform: scale(1);
-            transform-origin: left center;
-            transition: vars.$transition-transform;
-          }
-          &:hover::before,
-          &:focus::before {
-            transform: scale(0);
-            transform-origin: right left;
-          }
-        }
-      }
-    }
-  }
-  .payBtn {
-    margin-top: vars.$space-lg;
-    background-color: vars.$clr-header;
+}
+
+.payBtn {
+  margin-top: vars.$space-lg;
+  background-color: vars.$clr-header;
+  color: vars.$clr-text-primary;
+  padding: vars.$space-md vars.$space-xxl;
+  position: relative;
+  border: 1px solid transparent;
+  z-index: 1;
+  font-weight: 400;
+  text-transform: uppercase;
+  &:hover {
     color: vars.$clr-text-primary;
-    padding: vars.$space-md vars.$space-xxl;
-    position: relative;
-    border: 1px solid transparent;
-    z-index: 1;
-    font-weight: 400;
-    text-transform: uppercase;
-    &:hover {
-      color: vars.$clr-text-primary;
-    }
-    &::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background-color: vars.$clr-background;
-      z-index: -1;
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: vars.$transition-transform;
-    }
-    &:hover::before,
-    &:focus::before {
-      transform: scaleX(1);
-    }
   }
-  .redirect {
-    align-self: center;
-    padding: vars.$space-lg;
-    font-size: vars.$fs-lg;
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: vars.$clr-background;
+    z-index: -1;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: vars.$transition-transform;
   }
+  &:hover::before,
+  &:focus::before {
+    transform: scaleX(1);
+  }
+}
+
+.redirect {
+  align-self: center;
+  padding: vars.$space-lg;
+  font-size: vars.$fs-lg;
 }

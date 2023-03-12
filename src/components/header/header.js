@@ -7,7 +7,7 @@ const Header = () => {
   return (
     <header className={styles.header}>
       <div className={styles.announcment}>Free world wide shipping</div>
-      <nav>
+      <nav className={styles.navbar}>
         <div className={styles.menu}>
           <Menu size={28} />
         </div>

@@ -5,9 +5,9 @@ import styles from "./quantityHandler.module.scss";
 const QuantityHandler = ({ value }) => {
   return (
     <div className={styles.wrapper}>
-      <Button className={styles.decrease} content={"-"} />
+      <Button className={styles.btn} content={"-"} />
       <input placeholder={value} />
-      <Button className={styles.increase} content={"+"} />
+      <Button className={styles.btn} content={"+"} />
     </div>
   );
 };
