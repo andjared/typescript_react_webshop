@@ -38,4 +38,11 @@ $fm-main: Century, sans-serif;
   justify-content: $justify;
 }
 
-$transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+@mixin flexStart($direction, $justify) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+}
+
+$transition-all: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+$transition-transform: transform 0.2s ease-in-out;

@@ -17,11 +17,10 @@ export const CartContextProvider = ({ children }) => {
 
   const addToCart = (id) => {
     setCartItems((prev) => ({ ...prev, [id]: prev[id] + 1 }));
-    console.log(cartItems);
   };
 
   const removeFromCart = (id) => {
-    setCartItems((prev) => ({ ...prev, [id]: prev[id] - 1 }));
+    setCartItems((prev) => ({ ...prev, [id]: 0 }));
   };
 
   const contextValue = {

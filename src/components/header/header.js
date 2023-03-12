@@ -6,9 +6,7 @@ import styles from "./header.module.scss";
 const Header = () => {
   return (
     <header className={styles.header}>
-      <div className={styles.announcment}>
-        Free world wide shipping only today
-      </div>
+      <div className={styles.announcment}>Free world wide shipping</div>
       <nav>
         <div className={styles.menu}>
           <Menu size={28} />

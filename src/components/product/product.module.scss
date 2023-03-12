@@ -1,8 +1,7 @@
 @use "../../styles/vars.scss";
 
 .product {
-  display: flex;
-  flex-direction: column;
+  @include vars.flexStart(column, space-around);
   gap: vars.$space-xs;
   .image {
     height: 100%;
@@ -15,8 +14,7 @@
     }
   }
   .content {
-    display: flex;
-    flex-direction: column;
+    @include vars.flexStart(column, space-around);
     gap: vars.$space-xs;
     .title {
       font-weight: 600;
@@ -28,8 +26,7 @@
   }
   .btns {
     margin-top: vars.$space-xs;
-    display: flex;
-    justify-content: space-between;
+    @include vars.flexStart(row, space-between);
     gap: vars.$space-sm;
     button {
       background-color: transparent;
@@ -53,7 +50,7 @@
         z-index: -1;
         transform: scaleX(0);
         transform-origin: left;
-        transition: transform 300ms ease-in-out;
+        transition: vars.$transition-transform;
       }
       &:hover::before,
       &:focus::before {
