@@ -23,10 +23,21 @@ export const CartContextProvider = ({ children }) => {
     setCartItems((prev) => ({ ...prev, [id]: 0 }));
   };
 
+  const cartItemsAmount = () => {
+    let totalAmount = 0;
+    for (const item in cartItems) {
+      if (cartItems[item] > 0) {
+        totalAmount += cartItems[item];
+      }
+    }
+    return totalAmount;
+  };
+
   const contextValue = {
     addToCart,
     removeFromCart,
     cartItems,
+    cartItemsAmount,
   };
 
   return (

@@ -100,4 +100,9 @@
       transform: scaleX(1);
     }
   }
+  .redirect {
+    align-self: center;
+    padding: vars.$space-lg;
+    font-size: vars.$fs-lg;
+  }
 }

@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { Link } from "react-router-dom";
 import CartContext from "../../CartContext";
 import Button from "../../components/button/button";
 import QuantityHandler from "../../components/quantityHandler/quantityHandler";
@@ -6,11 +7,11 @@ import { products } from "../../products";
 import styles from "./Cart.module.scss";
 
 const Cart = () => {
-  const { cartItems, removeFromCart } = useContext(CartContext);
+  const { cartItems, removeFromCart, cartItemsAmount } =
+    useContext(CartContext);
 
   return (
     <section className={styles.cart}>
-      {/* if no items in cart return "no items in cart" */}
       {products
         .filter((product) => cartItems[product.id] !== 0)
         .map((product) => {
@@ -35,7 +36,13 @@ const Cart = () => {
             </article>
           );
         })}
-      <Button className={styles.payBtn} content={"Continue with payment"} />
+      {cartItemsAmount() > 0 ? (
+        <Button className={styles.payBtn} content={"Continue with payment"} />
+      ) : (
+        <div className={styles.redirect}>
+          Your cart is empty. Browse products <Link to="/">here</Link>.
+        </div>
+      )}
     </section>
   );
 };
