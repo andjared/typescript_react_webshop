@@ -15,15 +15,26 @@ const initialCart = () => {
 export const CartContextProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState(initialCart());
 
-  const addToCart = (id) => {
-    setCartItems((prev) => ({ ...prev, [id]: prev[id] + 1 }));
+  const addToCart = (id, quantity) => {
+    setCartItems((prev) => ({ ...prev, [id]: quantity }));
   };
 
   const removeFromCart = (id) => {
     setCartItems((prev) => ({ ...prev, [id]: 0 }));
   };
 
-  const cartItemsAmount = () => {
+  const getCartItemQuantity = (id) => {
+    let itemAmount = 0;
+
+    for (const item in cartItems) {
+      if (Number(item) === id && cartItems[item] > 0) {
+        itemAmount += cartItems[item];
+      }
+    }
+    return itemAmount;
+  };
+
+  const totalCartItemsAmount = () => {
     let totalAmount = 0;
     for (const item in cartItems) {
       if (cartItems[item] > 0) {
@@ -37,7 +48,8 @@ export const CartContextProvider = ({ children }) => {
     addToCart,
     removeFromCart,
     cartItems,
-    cartItemsAmount,
+    totalCartItemsAmount,
+    getCartItemQuantity,
   };
 
   return (

@@ -1,12 +1,14 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import CartContext from "../../CartContext";
 import QuantityHandler from "../quantityHandler/quantityHandler";
 import Button from "../button/button";
 import styles from "./cartItem.module.scss";
 
 const CartItem = ({ data }) => {
-  const { removeFromCart } = useContext(CartContext);
+  const { removeFromCart, getCartItemQuantity } = useContext(CartContext);
   const { id, img, title, info } = data;
+  const [quantity, setQuantity] = useState(getCartItemQuantity(id));
+
   return (
     <article className={styles.item}>
       <div className={styles.image}>
@@ -16,7 +18,7 @@ const CartItem = ({ data }) => {
         <h4 className={title}>{title}</h4>
         <p className={styles.info}>{info}</p>
         <div className={styles.btns}>
-          <QuantityHandler value={1} />
+          <QuantityHandler quantity={quantity} setQuantity={setQuantity} />
           <Button
             className={styles.remove}
             content={"Remove"}

@@ -7,8 +7,7 @@ import { products } from "../../products";
 import styles from "./Cart.module.scss";
 
 const Cart = () => {
-  const { cartItems, cartItemsAmount } = useContext(CartContext);
-
+  const { cartItems, totalCartItemsAmount } = useContext(CartContext);
   return (
     <section className={styles.cart}>
       {products
@@ -16,7 +15,7 @@ const Cart = () => {
         .map((product) => {
           return <CartItem data={product} key={product.id} />;
         })}
-      {cartItemsAmount() > 0 ? (
+      {totalCartItemsAmount() > 0 ? (
         <Button className={styles.payBtn} content={"Continue with payment"} />
       ) : (
         <div className={styles.redirect}>

@@ -1,10 +1,11 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import CartContext from "../../CartContext";
 import Button from "../button/button";
 import QuantityHandler from "../quantityHandler/quantityHandler";
 import styles from "./product.module.scss";
 
 const Product = ({ data }) => {
+  const [quantity, setQuantity] = useState(1);
   const { addToCart } = useContext(CartContext);
   const { id, img, title, info } = data;
 
@@ -20,11 +21,10 @@ const Product = ({ data }) => {
       <div className={styles.btns}>
         <Button
           className={styles.addToCart}
-          //add cart item amount
           content={"Add to Cart"}
-          handleClick={() => addToCart(id)}
+          handleClick={() => addToCart(id, quantity)}
         />
-        <QuantityHandler value={1} />
+        <QuantityHandler quantity={quantity} setQuantity={setQuantity} />
       </div>
     </article>
   );
