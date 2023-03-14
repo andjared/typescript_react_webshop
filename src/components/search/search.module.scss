@@ -1,0 +1,36 @@
+@use "../../styles/vars.scss";
+
+.wrapper {
+  position: absolute;
+  @include vars.flexCenter(row, center);
+
+  top: 100%;
+  width: 100%;
+  height: 86px;
+  padding: vars.$space-md vars.$space-xl;
+  z-index: 1;
+  background-color: vars.$clr-background;
+  color: vars.$clr-text-secondary;
+}
+
+.inner {
+  @include vars.flexCenter(row, space-between);
+  gap: vars.$space-sm;
+  width: 100%;
+  padding: vars.$space-sm;
+}
+
+.inner input {
+  width: 100%;
+  outline: none;
+  border: none;
+  &::placeholder {
+    font-size: vars.$fs-md;
+  }
+}
+.closeBtn {
+  color: inherit;
+  border: none;
+  background-color: transparent;
+  @include vars.flexCenter(row, center);
+}

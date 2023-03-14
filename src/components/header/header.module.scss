@@ -5,6 +5,7 @@
   height: 116px;
   @include vars.flexCenter(column, space-between);
   color: vars.$clr-text-primary;
+  position: relative;
 }
 
 .header .announcment {

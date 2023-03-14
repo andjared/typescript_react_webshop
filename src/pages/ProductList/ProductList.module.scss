@@ -9,7 +9,7 @@
 
 .heading {
   @include vars.flexCenter(row, center);
-  margin: 35px 0;
+  margin: vars.$space-lg 0;
   padding: 0 vars.$space-xl;
   h2 {
     font-size: vars.$fs-xl;
