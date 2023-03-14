@@ -5,9 +5,19 @@ import QuantityHandler from "../quantityHandler/quantityHandler";
 import styles from "./product.module.scss";
 
 const Product = ({ data }) => {
-  const [quantity, setQuantity] = useState(1);
   const { addToCart } = useContext(CartContext);
   const { id, img, title, info } = data;
+  const [quantity, setQuantity] = useState(1);
+
+  const increaseQuantity = () => {
+    setQuantity((prev) => prev + 1);
+  };
+
+  const decreaseQuantity = () => {
+    if (quantity > 1) {
+      setQuantity((prev) => prev - 1);
+    }
+  };
 
   return (
     <article className={styles.product}>
@@ -24,7 +34,11 @@ const Product = ({ data }) => {
           content={"Add to Cart"}
           handleClick={() => addToCart(id, quantity)}
         />
-        <QuantityHandler quantity={quantity} setQuantity={setQuantity} />
+        <QuantityHandler
+          quantity={quantity}
+          increaseQuantity={increaseQuantity}
+          decreaseQuantity={decreaseQuantity}
+        />
       </div>
     </article>
   );

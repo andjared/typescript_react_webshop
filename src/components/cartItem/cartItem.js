@@ -5,9 +5,22 @@ import Button from "../button/button";
 import styles from "./cartItem.module.scss";
 
 const CartItem = ({ data }) => {
-  const { removeFromCart, getCartItemQuantity } = useContext(CartContext);
+  const { removeFromCart, getCartItemQuantity, addToCart } =
+    useContext(CartContext);
   const { id, img, title, info } = data;
   const [quantity, setQuantity] = useState(getCartItemQuantity(id));
+
+  const increaseQuantity = (id, quantity) => {
+    setQuantity((prev) => prev + 1);
+    //not getting updated state, fix
+    addToCart(id, quantity);
+  };
+
+  const decreaseQuantity = (id, quantity) => {
+    setQuantity((prev) => prev - 1);
+    //not getting updated state, fix
+    removeFromCart(id, quantity);
+  };
 
   return (
     <article className={styles.item}>
@@ -18,11 +31,15 @@ const CartItem = ({ data }) => {
         <h4 className={title}>{title}</h4>
         <p className={styles.info}>{info}</p>
         <div className={styles.btns}>
-          <QuantityHandler quantity={quantity} setQuantity={setQuantity} />
+          <QuantityHandler
+            quantity={quantity}
+            increaseQuantity={() => increaseQuantity(id, quantity)}
+            decreaseQuantity={() => decreaseQuantity(id, quantity)}
+          />
           <Button
             className={styles.remove}
             content={"Remove"}
-            handleClick={() => removeFromCart(id)}
+            handleClick={() => removeFromCart(id, 0)}
           />
         </div>
       </div>

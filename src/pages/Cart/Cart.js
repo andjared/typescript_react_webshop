@@ -8,6 +8,7 @@ import styles from "./Cart.module.scss";
 
 const Cart = () => {
   const { cartItems, totalCartItemsAmount } = useContext(CartContext);
+  console.log(totalCartItemsAmount());
   return (
     <section className={styles.cart}>
       {products
@@ -16,7 +17,12 @@ const Cart = () => {
           return <CartItem data={product} key={product.id} />;
         })}
       {totalCartItemsAmount() > 0 ? (
-        <Button className={styles.payBtn} content={"Continue with payment"} />
+        <div>
+          <Button
+            className={styles.payBtn}
+            content={`Continue with payment for ${totalCartItemsAmount()} products`}
+          />
+        </div>
       ) : (
         <div className={styles.redirect}>
           Your cart is empty. Browse products <Link to="/">here</Link>.

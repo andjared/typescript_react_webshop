@@ -19,8 +19,11 @@ export const CartContextProvider = ({ children }) => {
     setCartItems((prev) => ({ ...prev, [id]: quantity }));
   };
 
-  const removeFromCart = (id) => {
-    setCartItems((prev) => ({ ...prev, [id]: 0 }));
+  const removeFromCart = (id, quantity) => {
+    setCartItems((prev) => ({
+      ...prev,
+      [id]: quantity > 0 ? prev[id] - 1 : quantity,
+    }));
   };
 
   const getCartItemQuantity = (id) => {

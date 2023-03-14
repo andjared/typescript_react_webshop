@@ -2,17 +2,7 @@ import React from "react";
 import Button from "../button/button";
 import styles from "./quantityHandler.module.scss";
 
-const QuantityHandler = ({ quantity, setQuantity }) => {
-  const increaseQuantity = () => {
-    setQuantity((prev) => prev + 1);
-  };
-
-  const decreaseQuantity = () => {
-    if (quantity > 1) {
-      setQuantity((prev) => prev - 1);
-    }
-  };
-
+const QuantityHandler = ({ quantity, increaseQuantity, decreaseQuantity }) => {
   return (
     <div className={styles.wrapper}>
       <Button
