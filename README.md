@@ -1,3 +1,13 @@
+<div>
+<h2>React Webshop </h2>
+<p><b>Tech Stack: React, SCSS </p> 
+
+---
+
+<p>Published on GH Pages: https://andjared.github.io/react_webshop/ </p>
+</div>
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
