@@ -17,10 +17,7 @@ const Cart = () => {
         })}
       {totalCartItemsAmount() > 0 ? (
         <div>
-          <Button
-            className={styles.payBtn}
-            content={`Continue with payment for ${totalCartItemsAmount()} products`}
-          />
+          <Button className={styles.payBtn} content={`Continue with payment`} />
         </div>
       ) : (
         <div className={styles.redirect}>

@@ -1,11 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { ShoppingBag, Menu, Search as SearchIcon } from "react-feather";
+import CartContext from "../../CartContext";
 import Button from "../button/button";
 import Search from "../search/search";
 import styles from "./header.module.scss";
 
 const Header = ({ isSearchActive, setIsSearchActive }) => {
+  const { totalCartItemsAmount } = useContext(CartContext);
+  const total = totalCartItemsAmount();
+
   const handleSearch = () => {
     setIsSearchActive(!isSearchActive);
   };
@@ -26,9 +30,16 @@ const Header = ({ isSearchActive, setIsSearchActive }) => {
             content={<SearchIcon size={28} />}
             handleClick={handleSearch}
           />
-          <Link to="/cart">
-            <ShoppingBag size={28} />
-          </Link>
+          <div className={styles.cart}>
+            {total > 0 && (
+              <div className={styles.total}>
+                <span className={styles.value}>{total}</span>
+              </div>
+            )}
+            <Link to="/cart">
+              <ShoppingBag size={28} />
+            </Link>
+          </div>
         </div>
       </nav>
       {isSearchActive && <Search handleSearch={handleSearch} />}
