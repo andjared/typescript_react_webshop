@@ -1,6 +1,6 @@
 @use "../../styles/vars.scss";
 .wrapper {
-  display: flex;
+  display: inline-block;
   border: 1px solid rgba(vars.$clr-text-secondary, 0.2);
 
   input {
@@ -15,4 +15,5 @@
 .btn {
   border: none;
   padding: vars.$space-sm vars.$space-sm;
+  color: inherit;
 }

@@ -1,0 +1,55 @@
+@use "../../styles/vars.scss";
+
+.page {
+  height: 100%;
+  margin: vars.$space-xxl2 auto;
+  max-width: 860px;
+  padding: vars.$space-section-padding vars.$space-lg;
+  @include vars.flexStart(column, space-evenly);
+  gap: vars.$space-xl;
+}
+
+.product {
+  display: grid;
+  place-content: center;
+  grid-template-columns: 2fr 1fr;
+  gap: vars.$space-xl;
+  @media screen and (max-width: 500px) {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.image {
+  height: 100%;
+  width: 100%;
+  img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+}
+
+.content {
+  @include vars.flexStart(column, space-between);
+}
+
+.content .info {
+  color: vars.$clr-text-secondary;
+}
+
+.content .description {
+  align-self: center;
+  margin-top: vars.$space-lg;
+  text-align: justify;
+  word-break: break-all;
+}
+
+.content .btns {
+  margin-top: vars.$space-xl;
+  @include vars.flexStart(column, space-between);
+  gap: vars.$space-lg;
+  button {
+    background-color: transparent;
+  }
+}

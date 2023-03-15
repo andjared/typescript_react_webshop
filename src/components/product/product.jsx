@@ -30,7 +30,7 @@ const Product = ({ data }) => {
       </div>
       <div className={styles.btns}>
         <Button
-          className={styles.addToCart}
+          className="addToCart"
           content={"Add to Cart"}
           handleClick={() => addToCart(id, quantity)}
         />

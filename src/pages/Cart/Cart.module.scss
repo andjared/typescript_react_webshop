@@ -9,6 +9,7 @@
 }
 
 .payBtn {
+  width: 100%;
   margin-top: vars.$space-lg;
   background-color: vars.$clr-header;
   color: vars.$clr-text-primary;
@@ -44,4 +45,7 @@
   align-self: center;
   padding: vars.$space-lg;
   font-size: vars.$fs-lg;
+  a {
+    color: vars.$clr-text-secondary;
+  }
 }

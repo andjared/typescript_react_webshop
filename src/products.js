@@ -73,7 +73,7 @@ export const products = [
   },
   {
     id: 8,
-    title: "Godl necklace",
+    title: "Gold necklace",
     info: "Gold necklace with details",
     description:
       "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloribus voluptates at deleniti iure. Tenetur, cum minima dolores pariatur maxime, consequuntur ipsam necessitatibus molestiae, aperiam facere perferendis iste! Velit, unde ex.",

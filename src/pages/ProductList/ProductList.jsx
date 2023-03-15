@@ -1,12 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { products } from "../../products";
 import Product from "../../components/product/product";
 import styles from "./ProductList.module.scss";
 
 const ProductList = () => {
-  // list of products, include img, title, short descr
-  // abbility to add product in cart and to change number of product in cart
-  //link to product details page
   return (
     <section className={styles.container}>
       <div className={styles.heading}>

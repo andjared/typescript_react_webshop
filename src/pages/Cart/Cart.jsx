@@ -8,7 +8,6 @@ import styles from "./Cart.module.scss";
 
 const Cart = () => {
   const { cartItems, totalCartItemsAmount } = useContext(CartContext);
-  console.log(totalCartItemsAmount());
   return (
     <section className={styles.cart}>
       {products
