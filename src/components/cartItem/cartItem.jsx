@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import CartContext from "../../CartContext";
 import QuantityHandler from "../quantityHandler/quantityHandler";
 import Button from "../button/button";
@@ -8,17 +8,14 @@ const CartItem = ({ data }) => {
   const { removeFromCart, getCartItemQuantity, addToCart } =
     useContext(CartContext);
   const { id, img, title, info } = data;
-  const [quantity, setQuantity] = useState(getCartItemQuantity(id));
 
-  const increaseQuantity = (id, quantity) => {
-    setQuantity((prev) => prev + 1);
-    //not getting updated state, fix
+  const increaseQuantity = (id) => {
+    const quantity = getCartItemQuantity(id) + 1;
     addToCart(id, quantity);
   };
 
-  const decreaseQuantity = (id, quantity) => {
-    setQuantity((prev) => prev - 1);
-    //not getting updated state, fix
+  const decreaseQuantity = (id) => {
+    const quantity = getCartItemQuantity(id) - 1;
     removeFromCart(id, quantity);
   };
 
@@ -32,9 +29,9 @@ const CartItem = ({ data }) => {
         <p className={styles.info}>{info}</p>
         <div className={styles.btns}>
           <QuantityHandler
-            quantity={quantity}
-            increaseQuantity={() => increaseQuantity(id, quantity)}
-            decreaseQuantity={() => decreaseQuantity(id, quantity)}
+            quantity={getCartItemQuantity(id)}
+            increaseQuantity={() => increaseQuantity(id)}
+            decreaseQuantity={() => decreaseQuantity(id)}
           />
           <Button
             className={styles.remove}
