@@ -13,7 +13,7 @@ const Search = ({ handleSearch }) => {
   };
 
   const filtered = products.filter((product) =>
-    product.title.toLocaleLowerCase().includes(searchQuery)
+    product.title.toLocaleLowerCase().includes(searchQuery.toLocaleLowerCase())
   );
 
   return (
