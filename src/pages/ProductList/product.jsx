@@ -1,12 +1,12 @@
 import React, { useContext, useState } from "react";
 import CartContext from "../../CartContext";
-import Button from "../button/button";
-import QuantityHandler from "../quantityHandler/quantityHandler";
+import Button from "../../components/button/button";
+import QuantityHandler from "../../components/quantityHandler/quantityHandler";
 import styles from "./product.module.scss";
 
-const Product = ({ data }) => {
+const Product = ({ product }) => {
   const { addToCart } = useContext(CartContext);
-  const { id, img, title, info } = data;
+  const { id, img, title, info } = product;
   const [quantity, setQuantity] = useState(1);
 
   const increaseQuantity = () => {

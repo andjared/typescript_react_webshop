@@ -1,6 +1,6 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { products } from "../../products";
-import Product from "../../components/product/product";
+import Product from "./product";
 import styles from "./ProductList.module.scss";
 
 const ProductList = () => {
@@ -11,7 +11,7 @@ const ProductList = () => {
       </div>
       <div className={styles.grid}>
         {products.map((product) => (
-          <Product key={product.id} data={product} />
+          <Product key={product.id} product={product} />
         ))}
       </div>
     </section>

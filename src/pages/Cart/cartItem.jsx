@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import CartContext from "../../CartContext";
-import QuantityHandler from "../quantityHandler/quantityHandler";
-import Button from "../button/button";
+import QuantityHandler from "../../components/quantityHandler/quantityHandler";
+import Button from "../../components/button/button";
 import styles from "./cartItem.module.scss";
 
 const CartItem = ({ data }) => {

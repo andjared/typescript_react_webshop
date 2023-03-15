@@ -6,14 +6,15 @@ import styles from "./search.module.scss";
 import { Link } from "react-router-dom";
 
 const Search = ({ handleSearch }) => {
-  const [searchResults, setSearchResults] = useState([]);
+  const [searchQuery, setSearchQuery] = useState("");
 
-  const handleFilter = (e) => {
-    const filtered = products.filter((product) =>
-      product.title.toLowerCase().includes(e.target.value.toLowerCase())
-    );
-    setSearchResults(filtered);
+  const handleSearchQuery = (e) => {
+    setSearchQuery(e.target.value);
   };
+
+  const filtered = products.filter((product) =>
+    product.title.toLocaleLowerCase().includes(searchQuery)
+  );
 
   return (
     <div className={styles.wrapper}>
@@ -22,7 +23,7 @@ const Search = ({ handleSearch }) => {
         <input
           type="text"
           placeholder="Search..."
-          onChange={(e) => handleFilter(e)}
+          onChange={(e) => handleSearchQuery(e)}
         />
         <Button
           className={styles.closeBtn}
@@ -30,23 +31,29 @@ const Search = ({ handleSearch }) => {
           handleClick={handleSearch}
         />
       </div>
-      {searchResults.length > 0 &&
-        searchResults.map((result) => {
-          const { title, id } = result;
-          return (
-            <div key={id} className={styles.results}>
-              <Button
-                className={styles.result}
-                content={
-                  <Link to={"/productDetails"} state={{ title }}>
-                    {title}
-                  </Link>
-                }
-                handleClick={handleSearch}
-              />
+      {filtered.length > 0 && searchQuery !== ""
+        ? filtered.slice(0, 5).map((result) => {
+            const { title, id } = result;
+            return (
+              <div key={id} className={styles.results}>
+                <Button
+                  className={styles.result}
+                  content={
+                    <Link to={"/productDetails"} state={{ title }}>
+                      {title}
+                    </Link>
+                  }
+                  handleClick={handleSearch}
+                />
+              </div>
+            );
+          })
+        : !filtered.length &&
+          searchQuery !== "" && (
+            <div className={styles.result}>
+              No search results for <span>{searchQuery}</span>
             </div>
-          );
-        })}
+          )}
     </div>
   );
 };

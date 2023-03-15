@@ -2,8 +2,8 @@
 .wrapper {
   display: inline-block;
   border: 1px solid rgba(vars.$clr-text-secondary, 0.2);
-
   input {
+    outline: none;
     color: inherit;
     border: none;
     border: 0;
