@@ -17,16 +17,17 @@ const Search = ({ handleSearch }) => {
   );
 
   return (
-    <div className={styles.wrapper}>
-      <div className={styles.inner}>
+    <div className={styles.search}>
+      <div className={styles.searchInner}>
         <SearchIcon size={28} />
         <input
+          className={styles.searchInput}
           type="text"
           placeholder="Search..."
           onChange={(e) => handleSearchQuery(e)}
         />
         <Button
-          className={styles.closeBtn}
+          className="searchCloseBtn"
           content={<X size={28} />}
           handleClick={handleSearch}
         />
@@ -35,9 +36,9 @@ const Search = ({ handleSearch }) => {
         ? filtered.slice(0, 5).map((result) => {
             const { title, id } = result;
             return (
-              <div key={id} className={styles.results}>
+              <div key={id} className={styles.searchResults}>
                 <Button
-                  className={styles.result}
+                  className="searchResultBtn"
                   content={
                     <Link to={"/productDetails"} state={{ title }}>
                       {title}
@@ -50,7 +51,7 @@ const Search = ({ handleSearch }) => {
           })
         : !filtered.length &&
           searchQuery !== "" && (
-            <div className={styles.result}>
+            <div className={styles.searchResults}>
               No search results for <span>{searchQuery}</span>
             </div>
           )}

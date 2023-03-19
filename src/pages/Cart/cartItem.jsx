@@ -20,21 +20,21 @@ const CartItem = ({ data }) => {
   };
 
   return (
-    <article className={styles.item}>
-      <div className={styles.image}>
+    <article className={styles.cartItem}>
+      <div className={styles.cartItemImage}>
         <img src={img} alt={title} />
       </div>
-      <div className={styles.content}>
+      <div className={styles.cartItemContent}>
         <h4 className={title}>{title}</h4>
-        <p className={styles.info}>{info}</p>
-        <div className={styles.btns}>
+        <p className={styles.cartItemInfo}>{info}</p>
+        <div className={styles.cartItemQuantity}>
           <QuantityHandler
             quantity={getCartItemQuantity(id)}
             increaseQuantity={() => increaseQuantity(id)}
             decreaseQuantity={() => decreaseQuantity(id)}
           />
           <Button
-            className={styles.remove}
+            className="removeFromCartBtn"
             content={"Remove"}
             handleClick={() => removeFromCart(id, 0)}
           />

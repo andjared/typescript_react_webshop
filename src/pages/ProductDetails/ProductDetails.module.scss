@@ -1,6 +1,6 @@
 @use "../../styles/vars.scss";
 
-.page {
+.productDetails {
   height: 100%;
   margin: vars.$space-xxl2 auto;
   max-width: 860px;
@@ -20,36 +20,34 @@
   }
 }
 
-.image {
+.productImage {
   height: 100%;
   width: 100%;
-  img {
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-  }
 }
 
-.content {
+.productImage img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.productContent {
   @include vars.flexStart(column, space-between);
 }
 
-.content .info {
+.productInfo {
   color: vars.$clr-text-secondary;
 }
 
-.content .description {
+.productDescription {
   align-self: center;
   margin-top: vars.$space-lg;
   text-align: justify;
   word-break: break-all;
 }
 
-.content .btns {
+.productBtns {
   margin-top: vars.$space-xl;
   @include vars.flexStart(column, space-between);
   gap: vars.$space-lg;
-  button {
-    background-color: transparent;
-  }
 }

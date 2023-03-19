@@ -21,16 +21,16 @@ const Product = ({ product }) => {
 
   return (
     <article className={styles.product}>
-      <div className={styles.image}>
+      <div className={styles.productImage}>
         <img src={img} alt={title} />
       </div>
-      <div className={styles.content}>
-        <h3 className={styles.title}>{title}</h3>
-        <p className={styles.info}>{info}</p>
+      <div className={styles.productContent}>
+        <h3 className={styles.productTitle}>{title}</h3>
+        <p className={styles.productInfo}>{info}</p>
       </div>
-      <div className={styles.btns}>
+      <div className={styles.productBtns}>
         <Button
-          className="addToCart"
+          className="addToCartBtn"
           content={"Add to Cart"}
           handleClick={() => addToCart(id, quantity)}
         />

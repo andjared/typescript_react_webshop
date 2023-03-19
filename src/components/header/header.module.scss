@@ -8,7 +8,7 @@
   position: relative;
 }
 
-.header .announcment {
+.headerAnnouncment {
   width: 100%;
   height: 44px;
   padding: vars.$space-lg;
@@ -19,47 +19,39 @@
   font-size: vars.$fs-sm;
 }
 
-.navbar {
+.headerNavbar {
   padding: vars.$space-lg vars.$space-xl;
   width: 100%;
   @include vars.flexCenter(row, space-between);
   background-color: vars.$clr-background;
   box-shadow: 0 -1px vars.$clr-header-border inset;
-  a {
-    color: inherit;
-    font-size: vars.$fs-lg;
-  }
+  font-size: vars.$fs-lg;
 }
 
-.navbar .heading {
+.navbarTitle {
   font-family: vars.$fm-heading;
   display: flex;
   padding: vars.$space-xs vars.$space-sm;
 }
 
-.navbar .menu {
+.navbarMenu {
   flex: 1 0 0;
   color: vars.$clr-text-secondary;
 }
 
-.navbar .icons {
+.navbarIcons {
   flex: 1 0 0;
   @include vars.flexCenter(row, flex-end);
   gap: vars.$space-sm;
   color: vars.$clr-text-secondary;
-  .search {
-    border: none;
-    background-color: transparent;
-    color: inherit;
-  }
 }
 
-.icons .cart {
+.navbarCartIcon {
   position: relative;
   cursor: pointer;
 }
 
-.cart .total {
+.cartTotal {
   pointer-events: none;
   width: 16px;
   height: 16px;
@@ -72,7 +64,7 @@
   @include vars.flexCenter(row, center);
 }
 
-.total .value {
+.cartTotalValue {
   display: inline-block;
   align-self: center;
   text-align: center;

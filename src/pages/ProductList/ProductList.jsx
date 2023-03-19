@@ -5,11 +5,11 @@ import styles from "./ProductList.module.scss";
 
 const ProductList = () => {
   return (
-    <section className={styles.container}>
-      <div className={styles.heading}>
-        <h2>The Special Collection</h2>
+    <section className={styles.productList}>
+      <div className={styles.productListHeading}>
+        <h2 className={styles.productListTitle}>The Special Collection</h2>
       </div>
-      <div className={styles.grid}>
+      <div className={styles.productListGrid}>
         {products.map((product) => (
           <Product key={product.id} product={product} />
         ))}

@@ -1,8 +1,9 @@
 import React from "react";
+import styles from "./button.module.scss";
 
 const Button = ({ className, content, handleClick }) => {
   return (
-    <button className={className} onClick={handleClick}>
+    <button className={styles[className]} onClick={handleClick}>
       {content}
     </button>
   );

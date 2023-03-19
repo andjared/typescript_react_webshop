@@ -1,6 +1,6 @@
 @use "../../styles/vars.scss";
 
-.item {
+.cartItem {
   display: grid;
   place-content: center;
   grid-template-columns: 2fr 1fr;
@@ -12,17 +12,18 @@
   }
 }
 
-.item .image {
+.cartItemImage {
   height: 100%;
   width: 100%;
-  img {
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-  }
 }
 
-.item .content {
+.cartItemImage img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.cartItemContent {
   align-self: center;
   @include vars.flexStart(column, center);
   gap: vars.$space-xs;
@@ -31,40 +32,12 @@
   }
 }
 
-.content .info {
+.cartItemInfo {
   color: vars.$clr-text-secondary;
 }
 
-.content .btns {
+.cartItemQuantity {
   margin-top: vars.$space-xl;
   @include vars.flexCenter(row, space-between);
   gap: vars.$space-lg;
-  button {
-    background-color: transparent;
-    color: vars.$clr-text-secondary;
-    border: none;
-  }
-}
-
-.content .remove {
-  position: relative;
-  display: inline-block;
-  line-height: 1.5;
-  &::before {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    background-color: vars.$clr-text-secondary;
-    height: 1px;
-    width: 100%;
-    transform: scale(1);
-    transform-origin: left center;
-    transition: vars.$transition-transform;
-  }
-  &:hover::before,
-  &:focus::before {
-    transform: scale(0);
-    transform-origin: right left;
-  }
 }

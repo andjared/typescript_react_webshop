@@ -4,15 +4,15 @@ import styles from "./quantityHandler.module.scss";
 
 const QuantityHandler = ({ quantity, increaseQuantity, decreaseQuantity }) => {
   return (
-    <div className={styles.wrapper}>
+    <div className={styles.quantityHandler}>
       <Button
-        className={styles.btn}
+        className="quantityHandlerBtn"
         content={"-"}
         handleClick={decreaseQuantity}
       />
-      <input placeholder={quantity} />
+      <input placeholder={quantity} className={styles.quantityHandlerInput} />
       <Button
-        className={styles.btn}
+        className="quantityHandlerBtn"
         content={"+"}
         handleClick={increaseQuantity}
       />

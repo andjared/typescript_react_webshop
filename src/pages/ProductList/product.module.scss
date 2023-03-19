@@ -5,35 +5,34 @@
   gap: vars.$space-xs;
 }
 
-.image {
+.productImage {
   height: 100%;
   width: 100%;
-  img {
-    height: 100%;
-    width: 100%;
-    aspect-ratio: 1/1.3;
-    object-fit: cover;
-  }
 }
 
-.content {
+.productImage img {
+  height: 100%;
+  width: 100%;
+  aspect-ratio: 1/1.3;
+  object-fit: cover;
+}
+
+.productContent {
   @include vars.flexStart(column, space-around);
   gap: vars.$space-xs;
-  .title {
-    font-weight: 600;
-    font-size: vars.$fs-lg;
-  }
-  .info {
-    font-size: vars.$fs-sm;
-  }
 }
 
-.btns {
+.productTitle {
+  font-weight: 600;
+  font-size: vars.$fs-lg;
+}
+
+.productInfo {
+  font-size: vars.$fs-sm;
+}
+
+.productBtns {
   margin-top: vars.$space-xs;
   @include vars.flexStart(row, space-between);
   gap: vars.$space-sm;
-  button {
-    background-color: transparent;
-    color: vars.$clr-text-secondary;
-  }
 }

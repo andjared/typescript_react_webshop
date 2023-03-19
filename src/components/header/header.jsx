@@ -18,24 +18,24 @@ const Header = () => {
 
   return (
     <header className={styles.header}>
-      <div className={styles.announcment}>Free world wide shipping</div>
-      <nav className={styles.navbar}>
-        <div className={styles.menu}>
+      <div className={styles.headerAnnouncment}>Free world wide shipping</div>
+      <nav className={styles.headerNavbar}>
+        <div className={styles.navbarMenu}>
           <Menu size={28} />
         </div>
-        <div className={styles.heading}>
+        <div className={styles.navbarTitle}>
           <Link to="/">Jewelry Store</Link>
         </div>
-        <div className={styles.icons}>
+        <div className={styles.navbarIcons}>
           <Button
-            className={styles.search}
+            className="navbarSearchBtn"
             content={<SearchIcon size={28} />}
             handleClick={handleSearch}
           />
-          <div className={styles.cart}>
+          <div className={styles.navbarCartIcon}>
             {total > 0 && (
-              <div className={styles.total}>
-                <span className={styles.value}>{total}</span>
+              <div className={styles.cartTotal}>
+                <span className={styles.cartTotalValue}>{total}</span>
               </div>
             )}
             <Link to="/cart">

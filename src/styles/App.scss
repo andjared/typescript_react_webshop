@@ -32,6 +32,7 @@ img {
 
 a {
   cursor: pointer;
+  color: inherit;
   text-decoration: none;
 }
 
@@ -40,29 +41,7 @@ button {
   cursor: pointer;
 }
 
-.addToCart {
-  padding: vars.$space-sm vars.$space-xl;
-  position: relative;
-  border: 1px solid rgba(vars.$clr-text-secondary, 0.2);
-  color: vars.$clr-text-secondary;
-  &:hover {
-    color: vars.$clr-text-primary;
-  }
-  &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: vars.$clr-header;
-    z-index: -1;
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: vars.$transition-transform;
-  }
-  &:hover::before,
-  &:focus::before {
-    transform: scaleX(1);
-  }
+input {
+  outline: none;
+  color: inherit;
 }

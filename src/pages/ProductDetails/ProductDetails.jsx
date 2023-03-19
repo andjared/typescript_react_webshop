@@ -24,27 +24,26 @@ const ProductDetails = () => {
   };
 
   return (
-    <section className={styles.page}>
+    <section className={styles.productDetails}>
       <article className={styles.product}>
-        <div className={styles.image}>
+        <div className={styles.productImage}>
           <img src={img} alt={title} />
         </div>
-        <div className={styles.content}>
-          <h3 className={styles.title}>{title}</h3>
-          <div className={styles.info}>{info}</div>
-          <div className={styles.description}>{description}</div>
+        <div className={styles.productContent}>
+          <h3 className={styles.productTitle}>{title}</h3>
+          <div className={styles.productInfo}>{info}</div>
+          <div className={styles.productDescription}>{description}</div>
 
-          <div className={styles.btns}>
-            <div className={styles.quantity}>
+          <div className={styles.productBtns}>
+            <div>
               <QuantityHandler
                 quantity={quantity}
                 increaseQuantity={increaseQuantity}
                 decreaseQuantity={decreaseQuantity}
               />
             </div>
-
             <Button
-              className="addToCart"
+              className="addToCartBtn"
               content={"Add to Cart"}
               handleClick={() => addToCart(id, quantity)}
             />

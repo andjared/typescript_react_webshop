@@ -1,19 +1,13 @@
 @use "../../styles/vars.scss";
-.wrapper {
+
+.quantityHandler {
   display: inline-block;
   border: 1px solid rgba(vars.$clr-text-secondary, 0.2);
-  input {
-    outline: none;
-    color: inherit;
-    border: none;
-    border: 0;
-    max-width: 20px;
-    text-align: center;
-  }
 }
 
-.btn {
+.quantityHandlerInput {
   border: none;
-  padding: vars.$space-sm vars.$space-sm;
-  color: inherit;
+  border: 0;
+  max-width: 20px;
+  text-align: center;
 }

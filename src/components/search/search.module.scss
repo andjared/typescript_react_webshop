@@ -1,6 +1,6 @@
 @use "../../styles/vars.scss";
 
-.wrapper {
+.search {
   position: absolute;
   @include vars.flexCenter(column, center);
   top: 100%;
@@ -12,47 +12,22 @@
   box-shadow: 0 -1px #e7e7e7 inset;
 }
 
-.inner {
+.searchInner {
   @include vars.flexCenter(row, space-between);
   gap: vars.$space-sm;
   width: 100%;
   padding: vars.$space-sm;
 }
 
-.inner input {
+.searchInput {
   width: 100%;
-  outline: none;
   border: none;
   &::placeholder {
     font-size: vars.$fs-md;
   }
 }
 
-.closeBtn {
-  color: inherit;
-  border: none;
-  background-color: transparent;
-  @include vars.flexCenter(row, center);
-}
-
-.results {
+.searchResults {
   align-self: flex-start;
   padding: vars.$space-xxs vars.$space-md;
-}
-
-.result {
-  padding: vars.$space-sm;
-  width: 100%;
-  border: none;
-  outline: none;
-  color: vars.$clr-text-secondary;
-  background-color: transparent;
-  transition: vars.$transition-all;
-  a {
-    color: inherit;
-    font-size: vars.$fs-md;
-  }
-  &:hover {
-    color: vars.$clr-main-text;
-  }
 }

@@ -17,10 +17,13 @@ const Cart = () => {
         })}
       {totalCartItemsAmount() > 0 ? (
         <div>
-          <Button className={styles.payBtn} content={`Continue with payment`} />
+          <Button
+            className="cartPaymentBtn"
+            content={`Continue with payment`}
+          />
         </div>
       ) : (
-        <div className={styles.redirect}>
+        <div className={styles.cartRedirect}>
           Your cart is empty. Browse products <Link to="/">here</Link>.
         </div>
       )}
