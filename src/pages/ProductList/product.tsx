@@ -1,12 +1,20 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, FC } from "react";
 import CartContext from "../../CartContext";
 import Button from "../../components/button/button";
 import QuantityHandler from "../../components/quantityHandler/quantityHandler";
 import styles from "./product.module.scss";
 
-const Product = ({ product }) => {
+interface ProductProps {
+  product: {
+    img: string,
+    title: string,
+    id: number,
+    info: string
+  }
+}
+
+const Product: FC<ProductProps> = ({product: {id, img, title, info}}) => {
   const { addToCart } = useContext(CartContext);
-  const { id, img, title, info } = product;
   const [quantity, setQuantity] = useState(1);
 
   const increaseQuantity = () => {
