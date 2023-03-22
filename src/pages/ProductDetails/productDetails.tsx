@@ -4,12 +4,14 @@ import { products } from "../../products";
 import Button from "../../components/button/button";
 import QuantityHandler from "../../components/quantityHandler/quantityHandler";
 import CartContext from "../../CartContext";
-import styles from "./ProductDetails.module.scss";
+import styles from "./productDetails.module.scss";
 
 const ProductDetails = () => {
   const { title } = useLocation().state;
   const product = products.find((product) => product.title === title);
-  const { img, info, description, id } = product;
+  
+  // const {img, id, title, info, description} = product;
+
   const { addToCart } = useContext(CartContext);
   const [quantity, setQuantity] = useState(1);
 
@@ -25,14 +27,14 @@ const ProductDetails = () => {
 
   return (
     <section className={styles.productDetails}>
-      <article className={styles.product}>
+       <article className={styles.product}>
         <div className={styles.productImage}>
-          <img src={img} alt={title} />
+          <img src={product?.img} alt={title} />
         </div>
         <div className={styles.productContent}>
-          <h3 className={styles.productTitle}>{title}</h3>
-          <div className={styles.productInfo}>{info}</div>
-          <div className={styles.productDescription}>{description}</div>
+          <h3 className={styles.productTitle}>{product?.title}</h3>
+          <div className={styles.productInfo}>{product?.info}</div>
+          <div className={styles.productDescription}>{product?.description}</div>
 
           <div className={styles.productBtns}>
             <div>
@@ -45,11 +47,11 @@ const ProductDetails = () => {
             <Button
               className="addToCartBtn"
               content={"Add to Cart"}
-              handleClick={() => addToCart(id, quantity)}
+              handleClick={() => addToCart(product?.id, quantity)}
             />
           </div>
         </div>
-      </article>
+      </article> 
     </section>
   );
 };

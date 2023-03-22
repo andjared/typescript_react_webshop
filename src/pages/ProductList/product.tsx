@@ -9,7 +9,7 @@ interface ProductProps {
     img: string,
     title: string,
     id: number,
-    info: string
+    info: string,
   }
 }
 

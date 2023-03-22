@@ -1,7 +1,7 @@
 import React from "react";
 import { products } from "../../products";
 import Product from "./product";
-import styles from "./ProductList.module.scss";
+import styles from "./productList.module.scss";
 
 const ProductList = () => {
   return (

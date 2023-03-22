@@ -4,7 +4,7 @@ import CartContext from "../../CartContext";
 import Button from "../../components/button/button";
 import CartItem from "./cartItem";
 import { products } from "../../products";
-import styles from "./Cart.module.scss";
+import styles from "./cart.module.scss";
 
 const Cart = () => {
   const { cartItems, totalCartItemsAmount } = useContext(CartContext);
