@@ -13,7 +13,7 @@ const Cart = () => {
       {products
         .filter((product) => cartItems[product.id] !== 0)
         .map((product) => {
-          return <CartItem data={product} key={product.id} />;
+          return <CartItem product={product} key={product.id} />;
         })}
       {totalCartItemsAmount() > 0 ? (
         <div>

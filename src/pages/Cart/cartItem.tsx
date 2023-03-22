@@ -1,20 +1,28 @@
-import React, { useContext } from "react";
+import React, { useContext, FC } from "react";
 import CartContext from "../../CartContext";
 import QuantityHandler from "../../components/quantityHandler/quantityHandler";
 import Button from "../../components/button/button";
 import styles from "./cartItem.module.scss";
 
-const CartItem = ({ data }) => {
+interface cartItemProps {
+    product: {
+    img: string,
+    title: string,
+    id: number,
+    info: string,
+  }
+}
+
+const CartItem: FC<cartItemProps> = ({product: { id, img, title, info }}) => {
   const { removeFromCart, getCartItemQuantity, addToCart } =
     useContext(CartContext);
-  const { id, img, title, info } = data;
 
-  const increaseQuantity = (id) => {
+  const increaseQuantity = (id: number) => {
     const quantity = getCartItemQuantity(id) + 1;
     addToCart(id, quantity);
   };
 
-  const decreaseQuantity = (id) => {
+  const decreaseQuantity = (id: number) => {
     const quantity = getCartItemQuantity(id) - 1;
     removeFromCart(id, quantity);
   };
