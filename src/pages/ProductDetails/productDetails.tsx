@@ -39,7 +39,7 @@ const ProductDetails = () => {
           <div className={styles.productBtns}>
             <div>
               <QuantityHandler
-                quantity={quantity}
+                quantity={String(quantity)}
                 increaseQuantity={increaseQuantity}
                 decreaseQuantity={decreaseQuantity}
               />

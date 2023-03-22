@@ -43,7 +43,7 @@ const Product: FC<ProductProps> = ({product: {id, img, title, info}}) => {
           handleClick={() => addToCart(id, quantity)}
         />
         <QuantityHandler
-          quantity={quantity}
+          quantity={String(quantity)}
           increaseQuantity={increaseQuantity}
           decreaseQuantity={decreaseQuantity}
         />
