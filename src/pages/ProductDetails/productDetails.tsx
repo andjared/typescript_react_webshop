@@ -1,9 +1,9 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
 import { products } from "../../products";
 import Button from "../../components/button/button";
 import QuantityHandler from "../../components/quantityHandler/quantityHandler";
-import CartContext from "../../CartContext";
+import {useCartContext} from "../../context/CartContext";
 import styles from "./productDetails.module.scss";
 
 const ProductDetails = () => {
@@ -12,7 +12,7 @@ const ProductDetails = () => {
   
   // const {img, id, title, info, description} = product;
 
-  const { addToCart } = useContext(CartContext);
+  const { addToCart } = useCartContext();
   const [quantity, setQuantity] = useState(1);
 
   const increaseQuantity = () => {
@@ -47,7 +47,7 @@ const ProductDetails = () => {
             <Button
               className="addToCartBtn"
               content={"Add to Cart"}
-              handleClick={() => addToCart(product?.id, quantity)}
+              handleClick={() => addToCart(product?.id!, quantity)}
             />
           </div>
         </div>

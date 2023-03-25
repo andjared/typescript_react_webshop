@@ -1,32 +1,41 @@
-import { createContext, useState } from "react";
-import { products } from "./products";
+import React, { FC, createContext, useContext, useState } from "react";
+import { initialCart } from "./initialCart";
 
-const CartContext = createContext();
+interface ICartContext {
+  addToCart: (id:number, quantity: number) => void;
+  removeFromCart: (id:number, quantity: number) => void;
+  getCartItemQuantity: (id: number) => number;
+  totalCartItemsAmount: () => number,
+  cartItems: {[key: number]: number}
+} 
 
-const initialCart = () => {
-  //set for each item initial value of 0
-  let cart = {};
-  for (let i = 1; i < products.length + 1; i++) {
-    cart[i] = 0;
-  }
-  return cart;
-};
+interface ICartContextProvider  {
+   children: React.ReactNode,
+}
 
-export const CartContextProvider = ({ children }) => {
+
+export const CartContext = createContext<ICartContext>(null!);
+
+//custom hook for consuming context
+export const useCartContext = () => useContext(CartContext)
+
+
+
+export const CartContextProvider: FC<ICartContextProvider> = ({ children }) => {
   const [cartItems, setCartItems] = useState(initialCart());
 
-  const addToCart = (id, quantity) => {
+  const addToCart = (id: number, quantity: number) => {
     setCartItems((prev) => ({ ...prev, [id]: quantity }));
   };
 
-  const removeFromCart = (id, quantity) => {
+  const removeFromCart = (id: number, quantity: number) => {
     setCartItems((prev) => ({
       ...prev,
       [id]: quantity > 0 ? prev[id] - 1 : quantity,
     }));
   };
 
-  const getCartItemQuantity = (id) => {
+  const getCartItemQuantity = (id: number) => {
     let itemAmount = 0;
 
     for (const item in cartItems) {

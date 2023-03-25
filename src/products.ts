@@ -14,7 +14,7 @@ import product13 from "./assets/images/product13.jpg";
 import product14 from "./assets/images/product14.jpg";
 import product15 from "./assets/images/product15.jpg";
 
-interface Product {
+type Product = {
   id: number,
   title: string, 
   info: string,

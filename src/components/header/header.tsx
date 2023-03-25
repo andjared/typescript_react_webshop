@@ -1,7 +1,7 @@
-import React, { useContext, useState } from "react";
+import React, {  useState } from "react";
+import { useCartContext } from "../../context/CartContext";
 import { Link } from "react-router-dom";
 import { ShoppingBag, Menu, Search as SearchIcon } from "react-feather";
-import CartContext from "../../CartContext";
 import Button from "../button/button";
 import Search from "../search/search";
 import styles from "./header.module.scss";
@@ -9,7 +9,8 @@ import styles from "./header.module.scss";
 const Header = () => {
   const [isSearchActive, setIsSearchActive] = useState(false);
 
-  const { totalCartItemsAmount } = useContext(CartContext);
+
+  const { totalCartItemsAmount} = useCartContext();
   const total = totalCartItemsAmount();
 
   const handleSearch = () => {

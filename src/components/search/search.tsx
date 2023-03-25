@@ -5,11 +5,11 @@ import { products } from "../../products";
 import styles from "./search.module.scss";
 import { Link } from "react-router-dom";
 
-interface searchProps{
+interface Isearch {
   handleSearch: () => void;
 }
 
-const Search: FC<searchProps> = ({ handleSearch }) => {
+const Search: FC<Isearch> = ({ handleSearch }) => {
   const [searchQuery, setSearchQuery] = useState("");
 
   const handleSearchQuery = (e: React.ChangeEvent<HTMLInputElement>) => {

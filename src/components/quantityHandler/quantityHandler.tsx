@@ -2,14 +2,14 @@ import React, {FC} from "react";
 import Button from "../button/button";
 import styles from "./quantityHandler.module.scss";
 
-interface quantityHandlerProps {
+interface IQuantityHandler {
   quantity: string,
   increaseQuantity: (arg: number) => void,
   decreaseQuantity: (arg: number) => void,
 
 }
 
-const QuantityHandler: FC<quantityHandlerProps> = ({ quantity, increaseQuantity, decreaseQuantity }) => {
+const QuantityHandler: FC<IQuantityHandler> = ({ quantity, increaseQuantity, decreaseQuantity }) => {
   return (
     <div className={styles.quantityHandler}>
       <Button

@@ -1,10 +1,10 @@
-import React, { useContext, FC } from "react";
-import CartContext from "../../CartContext";
+import React, {  FC } from "react";
+import {useCartContext} from "../../context/CartContext";
 import QuantityHandler from "../../components/quantityHandler/quantityHandler";
 import Button from "../../components/button/button";
 import styles from "./cartItem.module.scss";
 
-interface cartItemProps {
+interface ICartItem {
     product: {
     img: string,
     title: string,
@@ -13,9 +13,8 @@ interface cartItemProps {
   }
 }
 
-const CartItem: FC<cartItemProps> = ({product: { id, img, title, info }}) => {
-  const { removeFromCart, getCartItemQuantity, addToCart } =
-    useContext(CartContext);
+const CartItem: FC<ICartItem> = ({product: { id, img, title, info }}) => {
+  const { removeFromCart, getCartItemQuantity, addToCart } = useCartContext();
 
   const increaseQuantity = (id: number) => {
     const quantity = getCartItemQuantity(id) + 1;
@@ -37,7 +36,7 @@ const CartItem: FC<cartItemProps> = ({product: { id, img, title, info }}) => {
         <p className={styles.cartItemInfo}>{info}</p>
         <div className={styles.cartItemQuantity}>
           <QuantityHandler
-            quantity={getCartItemQuantity(id)}
+            quantity={String(getCartItemQuantity(id))}
             increaseQuantity={() => increaseQuantity(id)}
             decreaseQuantity={() => decreaseQuantity(id)}
           />

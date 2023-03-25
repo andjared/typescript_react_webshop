@@ -1,13 +1,13 @@
-import React, { useContext } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import CartContext from "../../CartContext";
+import {useCartContext} from "../../context/CartContext";
 import Button from "../../components/button/button";
 import CartItem from "./cartItem";
 import { products } from "../../products";
 import styles from "./cart.module.scss";
 
 const Cart = () => {
-  const { cartItems, totalCartItemsAmount } = useContext(CartContext);
+  const { cartItems, totalCartItemsAmount } = useCartContext();
   return (
     <section className={styles.cart}>
       {products

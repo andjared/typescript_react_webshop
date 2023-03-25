@@ -6,7 +6,7 @@ import ProductList from "./pages/ProductList/productList";
 import ProductDetails from "./pages/ProductDetails/productDetails";
 import Cart from "./pages/Cart/cart";
 import Header from "./components/header/header";
-import { CartContextProvider } from "./CartContext";
+import { CartContextProvider } from "./context/CartContext";
 
 const App: FC = () => {
   return (
