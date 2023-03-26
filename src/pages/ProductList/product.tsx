@@ -3,14 +3,11 @@ import {useCartContext} from "../../context/CartContext";
 import Button from "../../components/button/button";
 import QuantityHandler from "../../components/quantityHandler/quantityHandler";
 import styles from "./product.module.scss";
+import {  IProduct } from "../../products";
+
 
 interface ProductProps {
-  product: {
-    img: string,
-    title: string,
-    id: number,
-    info: string,
-  }
+  product: IProduct
 }
 
 const Product: FC<ProductProps> = ({product: {id, img, title, info}}) => {

@@ -9,7 +9,6 @@ import styles from "./header.module.scss";
 const Header = () => {
   const [isSearchActive, setIsSearchActive] = useState(false);
 
-
   const { totalCartItemsAmount} = useCartContext();
   const total = totalCartItemsAmount();
 

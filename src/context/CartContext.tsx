@@ -1,7 +1,7 @@
 import React, { FC, createContext, useContext, useState } from "react";
 import { initialCart } from "./initialCart";
 
-interface ICartContext {
+type CartContextProps = {
   addToCart: (id:number, quantity: number) => void;
   removeFromCart: (id:number, quantity: number) => void;
   getCartItemQuantity: (id: number) => number;
@@ -9,19 +9,16 @@ interface ICartContext {
   cartItems: {[key: number]: number}
 } 
 
-interface ICartContextProvider  {
+type CartContextProviderProps =  {
    children: React.ReactNode,
 }
 
 
-export const CartContext = createContext<ICartContext>(null!);
-
+export const CartContext = createContext<CartContextProps>(null!);
 //custom hook for consuming context
 export const useCartContext = () => useContext(CartContext)
 
-
-
-export const CartContextProvider: FC<ICartContextProvider> = ({ children }) => {
+export const CartContextProvider: FC<CartContextProviderProps> = ({ children }) => {
   const [cartItems, setCartItems] = useState(initialCart());
 
   const addToCart = (id: number, quantity: number) => {
