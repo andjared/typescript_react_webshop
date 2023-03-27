@@ -1,6 +1,5 @@
 import "./styles/App.scss";
 import React, {  FC } from "react";
-
 import { Routes, Route } from "react-router-dom";
 import ProductList from "./pages/ProductList/productList";
 import ProductDetails from "./pages/ProductDetails/productDetails";

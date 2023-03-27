@@ -9,8 +9,8 @@ import styles from "./productDetails.module.scss";
 const ProductDetails = () => {
   const { title } = useLocation().state;
   const product = products.find((product) => product.title === title);
-  
-  // const {img, id, title, info, description} = product;
+  //destructure product properties
+  const {img, id, info, description} = product!;
 
   const { addToCart } = useCartContext();
   const [quantity, setQuantity] = useState(1);
@@ -29,12 +29,12 @@ const ProductDetails = () => {
     <section className={styles.productDetails}>
        <article className={styles.product}>
         <div className={styles.productImage}>
-          <img src={product?.img} alt={title} />
+          <img src={img} alt={title} />
         </div>
         <div className={styles.productContent}>
-          <h3 className={styles.productTitle}>{product?.title}</h3>
-          <div className={styles.productInfo}>{product?.info}</div>
-          <div className={styles.productDescription}>{product?.description}</div>
+          <h3 className={styles.productTitle}>{title}</h3>
+          <div className={styles.productInfo}>{info}</div>
+          <div className={styles.productDescription}>{description}</div>
 
           <div className={styles.productBtns}>
             <div>
@@ -47,7 +47,7 @@ const ProductDetails = () => {
             <Button
               className="addToCartBtn"
               content={"Add to Cart"}
-              handleClick={() => addToCart(product?.id!, quantity)}
+              handleClick={() => addToCart(id, quantity)}
             />
           </div>
         </div>
