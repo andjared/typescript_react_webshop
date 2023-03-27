@@ -5,7 +5,7 @@ import { BrowserRouter } from "react-router-dom";
 
 const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement);
 root.render(
-  <BrowserRouter basename="/react_webshop">
+  <BrowserRouter basename="/typescript_react_webshop">
     <App />
   </BrowserRouter>
 );

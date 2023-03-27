@@ -1,12 +1,12 @@
 <div>
-<h2>React Webshop </h2>
-<p><b>Tech Stack: React, SCSS </p> 
+<h2>TypeScript React Webshop </h2>
+<p><b>Tech Stack: TypeScript, React, SCSS </p>
+<p>State Managment: React Context</p>
 
 ---
 
 <p>Published on GH Pages: https://andjared.github.io/react_webshop/ </p>
 </div>
-
 
 # Getting Started with Create React App
 
