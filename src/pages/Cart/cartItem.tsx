@@ -1,51 +1,51 @@
-import React, {  FC } from "react";
-import {useCartContext} from "../../context/CartContext";
-import QuantityHandler from "../../components/quantityHandler/quantityHandler";
-import Button from "../../components/button/button";
-import styles from "./cartItem.module.scss";
-import {  IProduct } from "../../products";
-
+import React, { FC } from 'react';
+import { useCartContext } from '../../context/CartContext';
+import QuantityHandler from '../../components/quantityHandler/quantityHandler';
+import Button from '../../components/button/button';
+import styles from './cartItem.module.scss';
+import { IProduct } from '../../products';
 
 interface ICartItem {
-    product: IProduct
+	product: IProduct;
 }
 
-const CartItem: FC<ICartItem> = ({product: { id, img, title, info }}) => {
-  const { removeFromCart, getCartItemQuantity, addToCart } = useCartContext();
+const CartItem: FC<ICartItem> = ({ product: { id, img, title, info } }) => {
+	const { removeFromCart, getCartItemQuantity, addToCart } = useCartContext();
 
-  const increaseQuantity = (id: number) => {
-    const quantity = getCartItemQuantity(id) + 1;
-    addToCart(id, quantity);
-  };
+	const increaseQuantity = (id: number) => {
+		const quantity = getCartItemQuantity(id) + 1;
+		addToCart(id, quantity);
+	};
 
-  const decreaseQuantity = (id: number) => {
-    const quantity = getCartItemQuantity(id) - 1;
-    removeFromCart(id, quantity);
-  };
+	const decreaseQuantity = (id: number) => {
+		const quantity = getCartItemQuantity(id) - 1;
+		removeFromCart(id, quantity);
+	};
 
-  return (
-    <article className={styles.cartItem}>
-      <div className={styles.cartItemImage}>
-        <img src={img} alt={title} />
-      </div>
-      <div className={styles.cartItemContent}>
-        <h4 className={title}>{title}</h4>
-        <p className={styles.cartItemInfo}>{info}</p>
-        <div className={styles.cartItemQuantity}>
-          <QuantityHandler
-            quantity={String(getCartItemQuantity(id))}
-            increaseQuantity={() => increaseQuantity(id)}
-            decreaseQuantity={() => decreaseQuantity(id)}
-          />
-          <Button
-            className="removeFromCartBtn"
-            content={"Remove"}
-            handleClick={() => removeFromCart(id, 0)}
-          />
-        </div>
-      </div>
-    </article>
-  );
+	return (
+		<article className={styles.cartItem}>
+			<div className={styles.cartItemImage}>
+				<img src={img} alt={title} />
+			</div>
+			<div className={styles.cartItemContent}>
+				<h4 className={title}>{title}</h4>
+				<p className={styles.cartItemInfo}>{info}</p>
+				<div className={styles.cartItemQuantity}>
+					<QuantityHandler
+						quantity={String(getCartItemQuantity(id))}
+						increaseQuantity={() => increaseQuantity(id)}
+						decreaseQuantity={() => decreaseQuantity(id)}
+					/>
+					<Button
+						className='removeFromCartBtn'
+						onClick={() => removeFromCart(id, 0)}
+					>
+						Remove
+					</Button>
+				</div>
+			</div>
+		</article>
+	);
 };
 
 export default CartItem;

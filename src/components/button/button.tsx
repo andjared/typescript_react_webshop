@@ -1,18 +1,17 @@
-import React, {FC} from "react";
-import styles from "./button.module.scss";
+import React from 'react';
+import styles from './button.module.scss';
 
-type ButtonProps = {
-  className: string,
-  content: string | React.ReactNode,
-  handleClick?: (arg: any) => void
+export interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+	className: string;
+	children: string | React.ReactNode;
 }
 
-const Button: FC<ButtonProps> = ({ className, content, handleClick }) => {
-  return (
-    <button className={styles[className]} onClick={handleClick}>
-      {content}
-    </button>
-  );
-};
+function Button({ className, children, ...atributes }: Props) {
+	return (
+		<button className={styles[className]} {...atributes}>
+			{children}
+		</button>
+	);
+}
 
 export default Button;
