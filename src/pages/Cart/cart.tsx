@@ -15,14 +15,14 @@ const Cart = () => {
 					Your cart is empty. Browse products <Link to='/'>here</Link>.
 				</div>
 			) : (
-				<div>
+				<>
 					{products
-						.filter((product) => cartItems[product.id] !== 0)
+						.filter((product) => Boolean(cartItems[product.id]))
 						.map((product) => {
 							return <CartItem product={product} key={product.id} />;
 						})}
 					<Button className='cartPaymentBtn'>Continue with payment</Button>
-				</div>
+				</>
 			)}
 		</section>
 	);
