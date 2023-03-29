@@ -4,8 +4,8 @@ import styles from './quantityHandler.module.scss';
 
 export type Props = {
 	quantity: string;
-	increaseQuantity: (arg: number) => void;
-	decreaseQuantity: (arg: number) => void;
+	increaseQuantity: (e: React.MouseEvent) => void;
+	decreaseQuantity: (e: React.MouseEvent) => void;
 };
 
 function QuantityHandler({
