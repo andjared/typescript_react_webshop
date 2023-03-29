@@ -1,9 +1,9 @@
-export type cartType = {
+export type Props = {
 	[key: number]: number;
 };
 
 export const initialCart = () => {
-	const cart: cartType = {};
+	const cart: Props = {};
 
 	return cart;
 };

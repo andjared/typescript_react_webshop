@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState } from 'react';
-import { cartType, initialCart } from './initialCart';
+import { Props as cartProps, initialCart } from './initialCart';
 
 type CartContextProps = {
 	addToCart: (id: number, quantity: number) => void;
@@ -18,7 +18,7 @@ export const CartContext = createContext<CartContextProps>(null!);
 export const useCartContext = () => useContext(CartContext);
 
 export function CartContextProvider({ children }: CartContextProviderProps) {
-	const [cartItems, setCartItems] = useState<cartType>(initialCart());
+	const [cartItems, setCartItems] = useState<cartProps>(initialCart());
 
 	const addToCart = (id: number, quantity: number) => {
 		setCartItems((prev) => ({ ...prev, [id]: quantity }));

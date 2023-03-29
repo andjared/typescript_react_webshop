@@ -6,7 +6,7 @@ import CartItem from './cartItem';
 import { products } from '../../products';
 import styles from './cart.module.scss';
 
-const Cart = () => {
+function Cart() {
 	const { cartItems, totalCartItemsAmount } = useCartContext();
 	return (
 		<section className={styles.cart}>
@@ -26,6 +26,6 @@ const Cart = () => {
 			)}
 		</section>
 	);
-};
+}
 
 export default Cart;

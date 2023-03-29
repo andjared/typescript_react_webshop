@@ -1,15 +1,15 @@
-import React, { FC } from 'react';
+import React from 'react';
 import { useCartContext } from '../../context/CartContext';
 import QuantityHandler from '../../components/quantityHandler/quantityHandler';
 import Button from '../../components/button/button';
 import styles from './cartItem.module.scss';
 import { IProduct } from '../../products';
 
-interface ICartItem {
+interface Props {
 	product: IProduct;
 }
 
-const CartItem: FC<ICartItem> = ({ product: { id, img, title, info } }) => {
+function CartItem({ product: { id, img, title, info } }: Props) {
 	const { removeFromCart, getCartItemQuantity, addToCart } = useCartContext();
 
 	const increaseQuantity = (id: number) => {
@@ -46,6 +46,6 @@ const CartItem: FC<ICartItem> = ({ product: { id, img, title, info } }) => {
 			</div>
 		</article>
 	);
-};
+}
 
 export default CartItem;
