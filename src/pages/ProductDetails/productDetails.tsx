@@ -6,7 +6,7 @@ import QuantityHandler from '../../components/quantityHandler/quantityHandler';
 import { useCartContext } from '../../context/CartContext';
 import styles from './productDetails.module.scss';
 
-const ProductDetails = () => {
+function ProductDetails() {
 	const { title } = useLocation().state;
 	const product = products.find((product) => product.title === title);
 	//destructure product properties
@@ -55,6 +55,6 @@ const ProductDetails = () => {
 			</article>
 		</section>
 	);
-};
+}
 
 export default ProductDetails;

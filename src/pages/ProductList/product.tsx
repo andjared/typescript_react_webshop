@@ -1,15 +1,15 @@
-import React, { useState, FC } from 'react';
+import React, { useState } from 'react';
 import { useCartContext } from '../../context/CartContext';
 import Button from '../../components/button/button';
 import QuantityHandler from '../../components/quantityHandler/quantityHandler';
 import styles from './product.module.scss';
 import { IProduct } from '../../products';
 
-interface ProductProps {
+export interface Props {
 	product: IProduct;
 }
 
-const Product: FC<ProductProps> = ({ product: { id, img, title, info } }) => {
+function Product({ product: { id, img, title, info } }: Props) {
 	const { addToCart } = useCartContext();
 	const [quantity, setQuantity] = useState<number>(1);
 
@@ -47,6 +47,6 @@ const Product: FC<ProductProps> = ({ product: { id, img, title, info } }) => {
 			</div>
 		</article>
 	);
-};
+}
 
 export default Product;

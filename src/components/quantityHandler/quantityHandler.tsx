@@ -2,17 +2,17 @@ import React from 'react';
 import Button from '../button/button';
 import styles from './quantityHandler.module.scss';
 
-type QuantityHandlerProps = {
+export type Props = {
 	quantity: string;
 	increaseQuantity: (arg: number) => void;
 	decreaseQuantity: (arg: number) => void;
 };
 
-const QuantityHandler = ({
+function QuantityHandler({
 	quantity,
 	increaseQuantity,
 	decreaseQuantity,
-}: QuantityHandlerProps) => {
+}: Props) {
 	return (
 		<div className={styles.quantityHandler}>
 			<Button className='quantityHandlerBtn' onClick={decreaseQuantity}>
@@ -24,6 +24,6 @@ const QuantityHandler = ({
 			</Button>
 		</div>
 	);
-};
+}
 
 export default QuantityHandler;
