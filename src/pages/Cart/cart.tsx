@@ -10,18 +10,18 @@ const Cart = () => {
 	const { cartItems, totalCartItemsAmount } = useCartContext();
 	return (
 		<section className={styles.cart}>
-			{products
-				.filter((product) => cartItems[product.id] !== 0)
-				.map((product) => {
-					return <CartItem product={product} key={product.id} />;
-				})}
-			{totalCartItemsAmount() > 0 ? (
-				<div>
-					<Button className='cartPaymentBtn'>Continue with payment</Button>
-				</div>
-			) : (
+			{totalCartItemsAmount() === 0 ? (
 				<div className={styles.cartRedirect}>
 					Your cart is empty. Browse products <Link to='/'>here</Link>.
+				</div>
+			) : (
+				<div>
+					{products
+						.filter((product) => cartItems[product.id] !== 0)
+						.map((product) => {
+							return <CartItem product={product} key={product.id} />;
+						})}
+					<Button className='cartPaymentBtn'>Continue with payment</Button>
 				</div>
 			)}
 		</section>
