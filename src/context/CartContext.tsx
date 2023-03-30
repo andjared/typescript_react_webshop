@@ -1,12 +1,15 @@
 import React, { createContext, useContext, useState } from 'react';
-import { Props as cartProps, initialCart } from './initialCart';
+
+export type CartProps = {
+	[key: number]: number;
+};
 
 type CartContextProps = {
 	addToCart: (id: number, quantity: number) => void;
 	removeFromCart: (id: number, quantity: number) => void;
 	getCartItemQuantity: (id: number) => number;
 	totalCartItemsAmount: () => number;
-	cartItems: { [key: number]: number };
+	cartItems: CartProps;
 };
 
 type CartContextProviderProps = {
@@ -18,7 +21,7 @@ export const CartContext = createContext<CartContextProps>(null!);
 export const useCartContext = () => useContext(CartContext);
 
 export function CartContextProvider({ children }: CartContextProviderProps) {
-	const [cartItems, setCartItems] = useState<cartProps>(initialCart());
+	const [cartItems, setCartItems] = useState<CartProps>({});
 
 	const addToCart = (id: number, quantity: number) => {
 		setCartItems((prev) => ({ ...prev, [id]: quantity }));
