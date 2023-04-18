@@ -32,7 +32,7 @@ function ProductDetails({ products }: Props) {
 		<section className={styles.productDetails}>
 			<article className={styles.product}>
 				<div className={styles.productImage}>
-					<img src={img} alt={title} />
+					<img src={require(`../../assets${img}`)} alt={title} />
 				</div>
 				<div className={styles.productContent}>
 					<h3 className={styles.productTitle}>{title}</h3>

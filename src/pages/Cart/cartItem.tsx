@@ -24,7 +24,7 @@ function CartItem({ product: { id, img, title, info } }: Props) {
 	return (
 		<article className={styles.cartItem}>
 			<div className={styles.cartItemImage}>
-				<img src={img} alt={title} />
+				<img src={require(`../../assets${img}`)} alt={title} />
 			</div>
 			<div className={styles.cartItemContent}>
 				<h4 className={title}>{title}</h4>
