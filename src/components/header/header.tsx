@@ -5,8 +5,9 @@ import { ShoppingBag, Menu, Search as SearchIcon } from 'react-feather';
 import Button from '../button/button';
 import Search from '../search/search';
 import styles from './header.module.scss';
+import { Props } from '../../pages/ProductList/productList';
 
-function Header() {
+function Header({ products }: Props) {
 	const [isSearchActive, setIsSearchActive] = useState<boolean>(false);
 
 	const { totalCartItemsAmount } = useCartContext();
@@ -42,7 +43,9 @@ function Header() {
 					</div>
 				</div>
 			</nav>
-			{isSearchActive && <Search handleSearch={handleSearch} />}
+			{isSearchActive && (
+				<Search handleSearch={handleSearch} products={products} />
+			)}
 		</header>
 	);
 }

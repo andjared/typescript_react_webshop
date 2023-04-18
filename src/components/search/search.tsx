@@ -1,15 +1,16 @@
 import React, { useState } from 'react';
 import { Search as SearchIcon, X } from 'react-feather';
 import Button from '../button/button';
-import { products } from '../../products';
+import { IProduct } from '../../products';
 import styles from './search.module.scss';
 import { Link } from 'react-router-dom';
 
-type Props = {
+export interface Props {
 	handleSearch: () => void;
-};
+	products: IProduct[];
+}
 
-function Search({ handleSearch }: Props) {
+function Search({ handleSearch, products }: Props) {
 	const [searchQuery, setSearchQuery] = useState<string>('');
 
 	const handleSearchQuery = (e: React.ChangeEvent<HTMLInputElement>) => {

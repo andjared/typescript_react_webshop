@@ -27,7 +27,7 @@ const App = () => {
 	return (
 		<div className='App'>
 			<CartContextProvider>
-				<Header />
+				<Header products={products} />
 				<main>
 					<Routes>
 						<Route path='/' element={<ProductList products={products} />} />
