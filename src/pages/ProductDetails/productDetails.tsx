@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import { products } from '../../products';
 import Button from '../../components/button/button';
 import QuantityHandler from '../../components/quantityHandler/quantityHandler';
 import { useCartContext } from '../../context/CartContext';
 import styles from './productDetails.module.scss';
+import { Props } from '../ProductList/productList';
 
-function ProductDetails() {
+function ProductDetails({ products }: Props) {
 	const { title } = useLocation().state;
 	const product = products.find((product) => product.title === title);
 	//destructure product properties
