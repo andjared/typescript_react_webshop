@@ -8,7 +8,7 @@ interface Props {
 	product: Product;
 }
 
-function CartItem({ product: { id, img, title, info } }: Props) {
+function CartItem({ product: { id, img, title, info, price } }: Props) {
 	const { removeFromCart, getCartItemQuantity, addToCart } = useCartContext();
 
 	const increaseQuantity = (id: number) => {
@@ -27,7 +27,8 @@ function CartItem({ product: { id, img, title, info } }: Props) {
 				<img src={require(`../../assets${img}`)} alt={title} />
 			</div>
 			<div className={styles.cartItemContent}>
-				<h4 className={title}>{title}</h4>
+				<h4>{title}</h4>
+				<span className={styles.cartItemPrice}>${price}</span>
 				<p className={styles.cartItemInfo}>{info}</p>
 				<div className={styles.cartItemQuantity}>
 					<QuantityHandler

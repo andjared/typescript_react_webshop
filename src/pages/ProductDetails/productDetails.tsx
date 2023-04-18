@@ -13,7 +13,7 @@ function ProductDetails({ products }: Props) {
 	const { title } = useLocation().state;
 	const product = products.find((product) => product.title === title);
 	//destructure product properties
-	const { img, id, info, description } = product!;
+	const { img, id, info, description, price } = product!;
 
 	const { addToCart } = useCartContext();
 	const [quantity, setQuantity] = useState<number>(1);
@@ -38,14 +38,14 @@ function ProductDetails({ products }: Props) {
 					<h3 className={styles.productTitle}>{title}</h3>
 					<div className={styles.productInfo}>{info}</div>
 					<div className={styles.productDescription}>{description}</div>
-
 					<div className={styles.productBtns}>
-						<div>
+						<div className={styles.additional}>
 							<QuantityHandler
 								quantity={String(quantity)}
 								increaseQuantity={increaseQuantity}
 								decreaseQuantity={decreaseQuantity}
 							/>
+							<span>${price}</span>
 						</div>
 						<Button
 							className='addToCartBtn'

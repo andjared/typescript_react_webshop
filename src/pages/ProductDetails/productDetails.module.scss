@@ -1,53 +1,59 @@
-@use "../../styles/vars.scss";
+@use '../../styles/vars.scss';
 
 .productDetails {
-  height: 100%;
-  margin: vars.$space-xxl2 auto;
-  max-width: 860px;
-  padding: vars.$space-section-padding vars.$space-lg;
-  @include vars.flexStart(column, space-evenly);
-  gap: vars.$space-xl;
+	height: 100%;
+	margin: vars.$space-xxl2 auto;
+	max-width: 860px;
+	padding: vars.$space-section-padding vars.$space-lg;
+	@include vars.flexStart(column, space-evenly);
+	gap: vars.$space-xl;
 }
 
 .product {
-  display: grid;
-  place-content: center;
-  grid-template-columns: 2fr 1fr;
-  gap: vars.$space-xl;
-  @media screen and (max-width: 500px) {
-    display: flex;
-    flex-direction: column;
-  }
+	display: grid;
+	place-content: center;
+	grid-template-columns: 2fr 1fr;
+	gap: vars.$space-xl;
+	@media screen and (max-width: 500px) {
+		display: flex;
+		flex-direction: column;
+	}
 }
 
 .productImage {
-  height: 100%;
-  width: 100%;
+	height: 100%;
+	width: 100%;
 }
 
 .productImage img {
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
+	height: 100%;
+	width: 100%;
+	object-fit: cover;
 }
 
 .productContent {
-  @include vars.flexStart(column, space-between);
+	@include vars.flexStart(column, space-between);
 }
 
 .productInfo {
-  color: vars.$clr-text-secondary;
+	color: vars.$clr-text-secondary;
 }
 
 .productDescription {
-  align-self: center;
-  margin-top: vars.$space-lg;
-  text-align: justify;
-  word-break: break-all;
+	align-self: center;
+	margin-top: vars.$space-lg;
+	text-align: justify;
+	word-break: break-all;
+}
+
+.additional {
+	@include vars.flexStart(row, space-between);
+	align-items: center;
+	color: vars.$clr-text-secondary;
 }
 
 .productBtns {
-  margin-top: vars.$space-xl;
-  @include vars.flexStart(column, space-between);
-  gap: vars.$space-lg;
+	margin-top: vars.$space-xl;
+	@include vars.flexStart(column, space-between);
+	gap: vars.$space-lg;
 }

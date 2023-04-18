@@ -8,7 +8,7 @@ export interface Props {
 	product: Product;
 }
 
-function Product({ product: { id, img, title, info } }: Props) {
+function Product({ product: { id, img, title, info, price } }: Props) {
 	const { addToCart } = useCartContext();
 	const [quantity, setQuantity] = useState<number>(1);
 
@@ -29,7 +29,10 @@ function Product({ product: { id, img, title, info } }: Props) {
 			</div>
 			<div className={styles.productContent}>
 				<h3 className={styles.productTitle}>{title}</h3>
-				<p className={styles.productInfo}>{info}</p>
+				<div className={styles.additional}>
+					<p>{info}</p>
+					<span>${price}</span>
+				</div>
 			</div>
 			<div className={styles.productBtns}>
 				<Button
