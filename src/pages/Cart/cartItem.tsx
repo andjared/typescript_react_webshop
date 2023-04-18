@@ -3,10 +3,9 @@ import { useCartContext } from '../../context/CartContext';
 import QuantityHandler from '../../components/quantityHandler/quantityHandler';
 import Button from '../../components/button/button';
 import styles from './cartItem.module.scss';
-import { IProduct } from '../../products';
 
 interface Props {
-	product: IProduct;
+	product: Product;
 }
 
 function CartItem({ product: { id, img, title, info } }: Props) {

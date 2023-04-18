@@ -1,14 +1,12 @@
 import React from 'react';
 import Product from './product';
 import styles from './productList.module.scss';
-import { IProduct } from '../../products';
 
 export interface Props {
-	products: IProduct[];
+	products: Product[];
 }
 
 function ProductList({ products }: Props) {
-	console.log(products);
 	return (
 		<section className={styles.productList}>
 			<div className={styles.productListHeading}>

@@ -6,10 +6,9 @@ import ProductDetails from './pages/ProductDetails/productDetails';
 import Cart from './pages/Cart/cart';
 import Header from './components/header/header';
 import { CartContextProvider } from './context/CartContext';
-import { IProduct } from './products';
 
 const App = () => {
-	const [products, setProducts] = useState<IProduct[]>([]);
+	const [products, setProducts] = useState<Product[]>([]);
 
 	useEffect(() => {
 		const getData = async () => {

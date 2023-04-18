@@ -5,7 +5,10 @@ import { ShoppingBag, Menu, Search as SearchIcon } from 'react-feather';
 import Button from '../button/button';
 import Search from '../search/search';
 import styles from './header.module.scss';
-import { Props } from '../../pages/ProductList/productList';
+
+export interface Props {
+	products: Product[];
+}
 
 function Header({ products }: Props) {
 	const [isSearchActive, setIsSearchActive] = useState<boolean>(false);

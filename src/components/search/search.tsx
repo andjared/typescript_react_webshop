@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
 import { Search as SearchIcon, X } from 'react-feather';
 import Button from '../button/button';
-import { IProduct } from '../../products';
 import styles from './search.module.scss';
 import { Link } from 'react-router-dom';
 
 export interface Props {
 	handleSearch: () => void;
-	products: IProduct[];
+	products: Product[];
 }
 
 function Search({ handleSearch, products }: Props) {

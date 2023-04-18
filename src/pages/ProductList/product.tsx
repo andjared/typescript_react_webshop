@@ -3,10 +3,9 @@ import { useCartContext } from '../../context/CartContext';
 import Button from '../../components/button/button';
 import QuantityHandler from '../../components/quantityHandler/quantityHandler';
 import styles from './product.module.scss';
-import { IProduct } from '../../products';
 
 export interface Props {
-	product: IProduct;
+	product: Product;
 }
 
 function Product({ product: { id, img, title, info } }: Props) {
@@ -26,7 +25,7 @@ function Product({ product: { id, img, title, info } }: Props) {
 	return (
 		<article className={styles.product}>
 			<div className={styles.productImage}>
-				<img src={img} alt={title} />
+				<img src={require(`../../assets${img}`)} alt={title} />
 			</div>
 			<div className={styles.productContent}>
 				<h3 className={styles.productTitle}>{title}</h3>
