@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom';
 import { useCartContext } from '../../context/CartContext';
 import Button from '../../components/button/button';
 import CartItem from './cartItem';
-import { products } from '../../products';
+import { Props } from '../ProductList/productList';
 import styles from './cart.module.scss';
 
-function Cart() {
+function Cart({ products }: Props) {
 	const { cartItems, totalCartItemsAmount } = useCartContext();
 	return (
 		<section className={styles.cart}>

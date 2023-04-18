@@ -35,7 +35,7 @@ const App = () => {
 							path='/productDetails'
 							element={<ProductDetails products={products} />}
 						/>
-						<Route path='/cart' element={<Cart />} />
+						<Route path='/cart' element={<Cart products={products} />} />
 					</Routes>
 				</main>
 			</CartContextProvider>
