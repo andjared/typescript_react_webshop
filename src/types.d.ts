@@ -6,3 +6,10 @@ interface Product {
 	price: string;
 	img: string;
 }
+
+interface Comments {
+	title: string;
+	message: string;
+	user: string;
+	rating: number;
+}

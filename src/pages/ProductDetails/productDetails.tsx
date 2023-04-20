@@ -4,6 +4,7 @@ import Button from '../../components/button/button';
 import QuantityHandler from '../../components/quantityHandler/quantityHandler';
 import { useCartContext } from '../../context/CartContext';
 import styles from './productDetails.module.scss';
+import CommentsForm from '../../components/comments/commentsForm';
 
 export interface Props {
 	products: Product[];
@@ -55,6 +56,7 @@ function ProductDetails({ products }: Props) {
 						</Button>
 					</div>
 				</div>
+				<CommentsForm />
 			</article>
 		</section>
 	);

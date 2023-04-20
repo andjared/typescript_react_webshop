@@ -1,0 +1,50 @@
+@use '../../styles/vars.scss';
+
+.container {
+	margin-top: vars.$space-md;
+	@include vars.flexStart(column, space-around);
+	grid-column: 1 / -1;
+}
+
+.heading {
+	font-size: fs-md;
+}
+
+.commentsForm {
+	margin-top: vars.$space-md;
+	@include vars.flexStart(column, space-between);
+	gap: vars.$space-sm;
+}
+
+.commentsForm input,
+.commentsForm textarea {
+	padding: vars.$space-sm vars.$space-md;
+	border: 1px solid rgba(vars.$clr-text-secondary, 0.2);
+	outline: none;
+}
+
+.rating {
+	margin-top: vars.$space-md;
+	@include vars.flexStart(column, space-around);
+}
+
+.rating button {
+	background-color: transparent;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	font-size: vars.$fs-lg;
+	transition: vars.$transition-all;
+}
+
+.starOn {
+	color: vars.$clr-header;
+}
+
+.starOff {
+	color: #ccc;
+}
+
+.submit {
+	font-size: vars.$fs-md;
+}
