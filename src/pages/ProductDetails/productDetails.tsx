@@ -12,9 +12,11 @@ export interface Props {
 
 function ProductDetails({ products }: Props) {
 	const { title } = useLocation().state;
-	const product = products.find((product) => product.title === title);
+
+	const product = products.find((product: Product) => product.title === title);
+
 	//destructure product properties
-	const { img, id, info, description, price } = product!;
+	const { id, info, description, price, img } = product!;
 
 	const { addToCart } = useCartContext();
 	const [quantity, setQuantity] = useState<number>(1);
@@ -56,7 +58,7 @@ function ProductDetails({ products }: Props) {
 						</Button>
 					</div>
 				</div>
-				<CommentsForm />
+				<CommentsForm id={id} />
 			</article>
 		</section>
 	);

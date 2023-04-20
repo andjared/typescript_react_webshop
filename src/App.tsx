@@ -32,7 +32,9 @@ const App = () => {
 						<Route path='/' element={<ProductList products={products} />} />
 						<Route
 							path='/productDetails'
-							element={<ProductDetails products={products} />}
+							element={
+								products.length && <ProductDetails products={products} />
+							}
 						/>
 						<Route path='/cart' element={<Cart products={products} />} />
 					</Routes>

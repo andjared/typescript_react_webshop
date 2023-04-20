@@ -2,7 +2,11 @@ import React, { useState } from 'react';
 import styles from './commentsForm.module.scss';
 import Button from '../button/button';
 
-export default function CommentsForm() {
+interface Props {
+	id: number;
+}
+
+export default function CommentsForm({ id }: Props) {
 	//initial values
 	const formData = {
 		title: '',
@@ -24,10 +28,25 @@ export default function CommentsForm() {
 		});
 	};
 
-	const createComment = (e: React.MouseEvent, data: Comments) => {
+	const postComment = async (id: number, data: Comments) => {
+		await fetch(`http://localhost:3000/api/products/${id}/comments`, {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify(data),
+		});
+	};
+
+	const createComment = async (
+		e: React.MouseEvent,
+		id: number,
+		data: Comments
+	) => {
 		e.preventDefault();
 		data.rating = rating;
-		console.log(data);
+
+		await postComment(id, data);
 	};
 
 	return (
@@ -69,7 +88,7 @@ export default function CommentsForm() {
 				<textarea name='message' rows={3} onChange={handleChange} />
 				<Button
 					className='addToCartBtn'
-					onClick={(e) => createComment(e, data)}
+					onClick={(e) => createComment(e, id, data)}
 				>
 					<span className={styles.submit}>Submit</span>
 				</Button>
