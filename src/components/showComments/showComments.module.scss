@@ -1,0 +1,51 @@
+@use '../../styles/vars.scss';
+
+.container {
+	@include vars.flexStart(column, space-around);
+}
+
+.comment {
+	@include vars.flexStart(column, space-around);
+	gap: vars.$space-md;
+	padding: vars.$space-sm vars.$space-md;
+	border: 1px solid rgba(vars.$clr-text-secondary, 0.2);
+	outline: none;
+}
+
+.commentHeading {
+	@include vars.flexStart(row, space-between);
+}
+
+.commentTitle {
+	color: vars.$clr-main-text;
+	font-weight: 600;
+}
+
+.commentMessage {
+	color: vars.$clr-text-secondary;
+}
+
+.commentUser {
+	color: vars.$clr-text-secondary;
+	font-style: italic;
+}
+
+.rating button {
+	background-color: transparent;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	transition: vars.$transition-all;
+}
+
+.star {
+	font-size: vars.$fs-lg;
+}
+
+.starOn {
+	color: vars.$clr-header;
+}
+
+.starOff {
+	color: #ccc;
+}

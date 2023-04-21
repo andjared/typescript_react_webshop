@@ -1,131 +1,140 @@
-@use "../../styles/vars.scss";
+@use '../../styles/vars.scss';
 
 .navbarSearchBtn {
-  border: none;
-  background-color: transparent;
-  color: inherit;
+	border: none;
+	background-color: transparent;
+	color: inherit;
 }
 
 .searchCloseBtn {
-  color: inherit;
-  border: none;
-  background-color: transparent;
-  @include vars.flexCenter(row, center);
+	color: inherit;
+	border: none;
+	background-color: transparent;
+	@include vars.flexCenter(row, center);
 }
 
 .searchResultBtn {
-  padding: vars.$space-sm;
-  width: 100%;
-  border: none;
-  outline: none;
-  color: vars.$clr-text-secondary;
-  background-color: transparent;
-  transition: vars.$transition-all;
-  font-size: vars.$fs-md;
+	padding: vars.$space-sm;
+	width: 100%;
+	border: none;
+	outline: none;
+	color: vars.$clr-text-secondary;
+	background-color: transparent;
+	transition: vars.$transition-all;
+	font-size: vars.$fs-md;
 }
 
 .searchResultBtn:hover {
-  color: vars.$clr-main-text;
+	color: vars.$clr-main-text;
 }
 
 .quantityHandlerBtn {
-  background-color: transparent;
-  color: vars.$clr-text-secondary;
-  border: none;
-  padding: vars.$space-sm vars.$space-sm;
+	background-color: transparent;
+	color: vars.$clr-text-secondary;
+	border: none;
+	padding: vars.$space-sm vars.$space-sm;
 }
 
-.addToCartBtn {
-  padding: vars.$space-sm vars.$space-xl;
-  position: relative;
-  border: 1px solid rgba(vars.$clr-text-secondary, 0.2);
-  background-color: transparent;
-  color: vars.$clr-text-secondary;
+.btnFillToRight {
+	padding: vars.$space-sm vars.$space-xl;
+	position: relative;
+	border: 1px solid rgba(vars.$clr-text-secondary, 0.2);
+	background-color: transparent;
+	color: vars.$clr-text-secondary;
 }
 
-.addToCartBtn:hover {
-  color: vars.$clr-text-primary;
+.btnFillToRight:hover {
+	color: vars.$clr-text-primary;
 }
 
-.addToCartBtn::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: vars.$clr-header;
-  z-index: -1;
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: vars.$transition-transform;
+.btnFillToRight::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: vars.$clr-header;
+	z-index: -1;
+	transform: scaleX(0);
+	transform-origin: left;
+	transition: vars.$transition-transform;
 }
 
-.addToCartBtn:hover::before,
-.addToCartBtn:focus::before {
-  transform: scaleX(1);
+.btnFillToRight:hover::before,
+.btnFillToRight:focus::before {
+	transform: scaleX(1);
 }
 
 .removeFromCartBtn {
-  background-color: transparent;
-  color: inherit;
-  border: none;
-  position: relative;
-  display: inline-block;
-  line-height: 1.5;
+	background-color: transparent;
+	color: inherit;
+	border: none;
+	position: relative;
+	display: inline-block;
+	line-height: 1.5;
 }
 
 .removeFromCartBtn::before {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  background-color: vars.$clr-text-secondary;
-  height: 1px;
-  width: 100%;
-  transform: scale(1);
-  transform-origin: left center;
-  transition: vars.$transition-transform;
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	background-color: vars.$clr-text-secondary;
+	height: 1px;
+	width: 100%;
+	transform: scale(1);
+	transform-origin: left center;
+	transition: vars.$transition-transform;
 }
 
 .removeFromCartBtn:hover::before,
 .removeFromCartBtn:focus::before {
-  transform: scale(0);
-  transform-origin: right left;
+	transform: scale(0);
+	transform-origin: right left;
 }
 
 .cartPaymentBtn {
-  width: 100%;
-  margin-top: vars.$space-lg;
-  background-color: vars.$clr-header;
-  color: vars.$clr-text-primary;
-  padding: vars.$space-md vars.$space-xxl;
-  position: relative;
-  border: 1px solid transparent;
-  z-index: 1;
-  font-weight: 400;
-  text-transform: uppercase;
+	width: 100%;
+	margin-top: vars.$space-lg;
+	background-color: vars.$clr-header;
+	color: vars.$clr-text-primary;
+	padding: vars.$space-md vars.$space-xxl;
+	position: relative;
+	border: 1px solid transparent;
+	z-index: 1;
+	font-weight: 400;
+	text-transform: uppercase;
 }
 
 .cartPaymentBtn:hover {
-  color: vars.$clr-text-primary;
+	color: vars.$clr-text-primary;
 }
 
 .cartPaymentBtn::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: vars.$clr-background;
-  z-index: -1;
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: vars.$transition-transform;
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: vars.$clr-background;
+	z-index: -1;
+	transform: scaleX(0);
+	transform-origin: left;
+	transition: vars.$transition-transform;
 }
 
 .cartPaymentBtn:hover::before,
 .cartPaymentBtn:focus::before {
-  transform: scaleX(1);
+	transform: scaleX(1);
+}
+
+.handleCommentsFormBtn {
+	background-color: vars.$clr-header;
+	color: vars.$clr-main-text;
+	padding: vars.$space-md vars.$space-xxl;
+	border: 1px solid transparent;
+	font-weight: 600;
+	text-transform: capitalize;
 }

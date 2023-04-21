@@ -68,7 +68,7 @@ export default function CommentsForm({ id }: Props) {
 								onMouseEnter={() => setHover(index)}
 								onMouseLeave={() => setHover(rating)}
 							>
-								<span className='star'>&#9733;</span>
+								<span>&#9733;</span>
 							</button>
 						);
 					})}
@@ -87,7 +87,7 @@ export default function CommentsForm({ id }: Props) {
 				<label htmlFor='message'>Tell Us More</label>
 				<textarea name='message' rows={3} onChange={handleChange} />
 				<Button
-					className='addToCartBtn'
+					className='btnFillToRight'
 					onClick={(e) => createComment(e, id, data)}
 				>
 					<span className={styles.submit}>Submit</span>

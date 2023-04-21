@@ -8,6 +8,7 @@ interface Product {
 }
 
 interface Comments {
+	id?: number;
 	title: string;
 	message: string;
 	user: string;

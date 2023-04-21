@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import Button from '../../components/button/button';
 import QuantityHandler from '../../components/quantityHandler/quantityHandler';
 import { useCartContext } from '../../context/CartContext';
 import styles from './productDetails.module.scss';
 import CommentsForm from '../../components/comments/commentsForm';
+import ShowComments from '../../components/showComments/showComments';
 
 export interface Props {
 	products: Product[];
@@ -12,11 +13,27 @@ export interface Props {
 
 function ProductDetails({ products }: Props) {
 	const { title } = useLocation().state;
-
+	const [isFormVisible, setIsFormVisible] = useState(false);
 	const product = products.find((product: Product) => product.title === title);
 
 	//destructure product properties
 	const { id, info, description, price, img } = product!;
+	const [comments, setComments] = useState<Comments[]>([]);
+
+	useEffect(() => {
+		const getComments = async (id: number) => {
+			try {
+				const res = await fetch(
+					`http://localhost:3000/api/products/${id}/comments`
+				);
+				const data = await res.json();
+				setComments(data);
+			} catch (err) {
+				console.log(err);
+			}
+		};
+		getComments(id);
+	}, [id]);
 
 	const { addToCart } = useCartContext();
 	const [quantity, setQuantity] = useState<number>(1);
@@ -51,15 +68,35 @@ function ProductDetails({ products }: Props) {
 							<span>${price}</span>
 						</div>
 						<Button
-							className='addToCartBtn'
+							className='btnFillToRight'
 							onClick={() => addToCart(id, quantity)}
 						>
 							Add to Cart
 						</Button>
 					</div>
 				</div>
-				<CommentsForm id={id} />
 			</article>
+			<div className={styles.reviews}>
+				<h4>Reviews</h4>
+				{/* add average rating here */}
+				{comments.length ? (
+					<div>
+						<ShowComments comments={comments} />
+					</div>
+				) : (
+					!isFormVisible && <div>There is no reviews for this product</div>
+				)}
+			</div>
+
+			<div>
+				<Button
+					onClick={() => setIsFormVisible(!isFormVisible)}
+					className='handleCommentsFormBtn'
+				>
+					<span>{isFormVisible ? 'Close' : 'Write New Review'}</span>
+				</Button>
+				{isFormVisible && <CommentsForm id={id} />}
+			</div>
 		</section>
 	);
 }

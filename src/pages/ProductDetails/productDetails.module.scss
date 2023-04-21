@@ -57,3 +57,9 @@
 	@include vars.flexStart(column, space-between);
 	gap: vars.$space-lg;
 }
+
+.reviews {
+	margin-top: vars.$space-md;
+	@include vars.flexStart(column, space-around);
+	gap: vars.$space-md;
+}
