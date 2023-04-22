@@ -50,7 +50,7 @@ export default function CommentsForm({ id }: Props) {
 	};
 
 	return (
-		<section className={styles.container}>
+		<section>
 			<h4 className={styles.heading}>We appreaciate your feedback!</h4>
 			<div className={styles.rating}>
 				<span>Rate this product </span>

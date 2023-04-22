@@ -63,3 +63,17 @@
 	@include vars.flexStart(column, space-around);
 	gap: vars.$space-md;
 }
+
+.form {
+	margin-bottom: vars.$space-md;
+	@include vars.flexStart(column, space-around);
+	grid-column: 1 / -1;
+	opacity: 0;
+	transform: translateY(0);
+	transition: opacity 0.01s ease-in-out, transform 1s ease;
+}
+
+.form.in.visible {
+	opacity: 1;
+	transform: translateY(15px);
+}

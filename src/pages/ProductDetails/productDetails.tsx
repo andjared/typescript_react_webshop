@@ -6,6 +6,7 @@ import { useCartContext } from '../../context/CartContext';
 import styles from './productDetails.module.scss';
 import CommentsForm from '../../components/comments/commentsForm';
 import ShowComments from '../../components/showComments/showComments';
+import useMountTransition from '../../useMountTransition';
 
 export interface Props {
 	products: Product[];
@@ -19,6 +20,7 @@ function ProductDetails({ products }: Props) {
 	//destructure product properties
 	const { id, info, description, price, img } = product!;
 	const [comments, setComments] = useState<Comments[]>([]);
+	const hasTransitionedIn = useMountTransition(isFormVisible, 500);
 
 	useEffect(() => {
 		const getComments = async (id: number) => {
@@ -47,6 +49,7 @@ function ProductDetails({ products }: Props) {
 			setQuantity((prev) => prev - 1);
 		}
 	};
+	console.log(hasTransitionedIn);
 
 	return (
 		<section className={styles.productDetails}>
@@ -79,23 +82,38 @@ function ProductDetails({ products }: Props) {
 			<div className={styles.reviews}>
 				<h4>Reviews</h4>
 				{/* add average rating here */}
-				{comments.length ? (
+				{comments.length && !isFormVisible ? (
 					<div>
 						<ShowComments comments={comments} />
 					</div>
 				) : (
 					!isFormVisible && <div>There is no reviews for this product</div>
 				)}
-			</div>
 
-			<div>
-				<Button
-					onClick={() => setIsFormVisible(!isFormVisible)}
-					className='handleCommentsFormBtn'
-				>
-					<span>{isFormVisible ? 'Close' : 'Write New Review'}</span>
-				</Button>
-				{isFormVisible && <CommentsForm id={id} />}
+				<div>
+					<Button
+						onClick={() => setIsFormVisible(!isFormVisible)}
+						className='handleCommentsFormBtn'
+					>
+						<span>
+							{isFormVisible
+								? 'Close'
+								: comments.length
+								? 'Write New Review'
+								: 'Be the first to write a review'}
+						</span>
+					</Button>
+
+					{(hasTransitionedIn || isFormVisible) && (
+						<div
+							className={`${styles.form} ${hasTransitionedIn && styles.in} ${
+								isFormVisible && styles.visible
+							}`}
+						>
+							<CommentsForm id={id} />
+						</div>
+					)}
+				</div>
 			</div>
 		</section>
 	);
