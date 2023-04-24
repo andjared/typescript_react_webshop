@@ -32,12 +32,10 @@ export default function AverageRating({ id }: Props) {
 		getComments(id);
 	}, [id]);
 
-	console.log(rating);
-
-	return (
-		<div className={styles.rating}>
-			{rating > 0 &&
-				[...Array(5)].map((_, index) => {
+	if (numberOfReviews > 0) {
+		return (
+			<div className={styles.rating}>
+				{[...Array(5)].map((_, index) => {
 					index += 1;
 					return (
 						<span
@@ -48,7 +46,10 @@ export default function AverageRating({ id }: Props) {
 						</span>
 					);
 				})}
-			<span className={styles.numOfReviews}> ({numberOfReviews})</span>
-		</div>
-	);
+				<span className={styles.numOfReviews}> ({numberOfReviews})</span>
+			</div>
+		);
+	} else {
+		return null;
+	}
 }

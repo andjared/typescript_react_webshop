@@ -7,6 +7,7 @@ import styles from './productDetails.module.scss';
 import CommentsForm from '../../components/comments/commentsForm';
 import ShowComments from '../../components/showComments/showComments';
 import useMountTransition from '../../useMountTransition';
+import AverageRating from '../../components/averageRating/averageRating';
 
 export interface Props {
 	products: Product[];
@@ -59,6 +60,7 @@ function ProductDetails({ products }: Props) {
 				</div>
 				<div className={styles.productContent}>
 					<h3 className={styles.productTitle}>{title}</h3>
+					<AverageRating id={id} />
 					<div className={styles.productInfo}>{info}</div>
 					<div className={styles.productDescription}>{description}</div>
 					<div className={styles.productBtns}>
