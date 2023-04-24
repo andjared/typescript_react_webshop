@@ -30,12 +30,8 @@
 	font-style: italic;
 }
 
-.rating button {
-	background-color: transparent;
-	border: none;
-	outline: none;
-	cursor: pointer;
-	transition: vars.$transition-all;
+.rating {
+	@include vars.flexStart(row, space-around);
 }
 
 .star {
