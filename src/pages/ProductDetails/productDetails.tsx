@@ -50,7 +50,6 @@ function ProductDetails({ products }: Props) {
 			setQuantity((prev) => prev - 1);
 		}
 	};
-	console.log(hasTransitionedIn);
 
 	return (
 		<section className={styles.productDetails}>

@@ -1,6 +1,7 @@
 import React from 'react';
 import Product from './product';
 import styles from './productList.module.scss';
+import { Link } from 'react-router-dom';
 
 export interface Props {
 	products: Product[];
@@ -13,9 +14,14 @@ function ProductList({ products }: Props) {
 				<h2 className={styles.productListTitle}>The Special Collection</h2>
 			</div>
 			<div className={styles.productListGrid}>
-				{products.map((product) => (
-					<Product key={product.id} product={product} />
-				))}
+				{products.map((product) => {
+					const { title, id } = product;
+					return (
+						<Link to={'/productDetails'} state={{ title }} key={id}>
+							<Product product={product} />
+						</Link>
+					);
+				})}
 			</div>
 		</section>
 	);
