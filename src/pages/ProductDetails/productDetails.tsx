@@ -82,7 +82,6 @@ function ProductDetails({ products }: Props) {
 			</article>
 			<div className={styles.reviews}>
 				<h4>Reviews</h4>
-				{/* add average rating here */}
 				{comments.length && !isFormVisible ? (
 					<div>
 						<ShowComments comments={comments} />

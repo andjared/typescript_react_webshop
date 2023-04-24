@@ -11,6 +11,17 @@ export interface Props {
 
 function Cart({ products }: Props) {
 	const { cartItems, totalCartItemsAmount } = useCartContext();
+
+	const items = products.filter((product) => Boolean(cartItems[product.id]));
+
+	const totalPrice = () => {
+		//extract price for each item based on amount in cart and then calculate sum
+		const total = items
+			.map((item) => Number(item.price) * cartItems[item.id])
+			.reduce((acc, curr) => acc + curr, 0);
+		return total;
+	};
+
 	return (
 		<section className={styles.cart}>
 			{totalCartItemsAmount() === 0 ? (
@@ -19,12 +30,14 @@ function Cart({ products }: Props) {
 				</div>
 			) : (
 				<>
-					{products
-						.filter((product) => Boolean(cartItems[product.id]))
-						.map((product) => {
-							return <CartItem product={product} key={product.id} />;
-						})}
-					<Button className='cartPaymentBtn'>Continue with payment</Button>
+					{items.map((product) => {
+						return <CartItem product={product} key={product.id} />;
+					})}
+					<Button className='cartPaymentBtn'>
+						<span>Checkout</span>
+						<span className={styles.separatorDot}></span>
+						<span>${totalPrice()}</span>
+					</Button>
 				</>
 			)}
 		</section>
