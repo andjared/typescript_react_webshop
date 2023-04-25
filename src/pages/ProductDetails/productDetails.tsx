@@ -4,7 +4,7 @@ import Button from '../../components/button/button';
 import QuantityHandler from '../../components/quantityHandler/quantityHandler';
 import { useCartContext } from '../../context/CartContext';
 import styles from './productDetails.module.scss';
-import CommentsForm from '../../components/comments/commentsForm';
+import CommentsForm from '../../components/commentsForm/commentsForm';
 import ShowComments from '../../components/showComments/showComments';
 import useMountTransition from '../../useMountTransition';
 import AverageRating from '../../components/averageRating/averageRating';
