@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap');
 
 //colors
 $clr-main-text: #5c5c5c;
@@ -7,6 +7,7 @@ $clr-text-primary: #000000;
 $clr-text-secondary: #939393;
 $clr-header: #edd4e3;
 $clr-header-border: #e7e7e7;
+$clr-stars: #e0aa3e;
 
 // spacing units
 $space-unit: 4px;
@@ -27,21 +28,21 @@ $fs-lg: 20px;
 $fs-xl: 24px;
 
 //font-family
-$fm-heading: "Dancing Script", cursive;
+$fm-heading: 'Dancing Script', cursive;
 $fm-main: Century, sans-serif;
 
 //mixins
 @mixin flexCenter($direction, $justify) {
-  display: flex;
-  align-items: center;
-  flex-direction: $direction;
-  justify-content: $justify;
+	display: flex;
+	align-items: center;
+	flex-direction: $direction;
+	justify-content: $justify;
 }
 
 @mixin flexStart($direction, $justify) {
-  display: flex;
-  flex-direction: $direction;
-  justify-content: $justify;
+	display: flex;
+	flex-direction: $direction;
+	justify-content: $justify;
 }
 
 $transition-all: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
