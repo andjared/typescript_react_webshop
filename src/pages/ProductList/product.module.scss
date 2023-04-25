@@ -2,7 +2,30 @@
 
 .product {
 	@include vars.flexStart(column, space-around);
+	gap: vars.$space-sm;
+}
+
+.productContent {
+	display: grid;
+	grid-template-columns: 2fr 1fr;
 	gap: vars.$space-xs;
+	white-space: nowrap;
+}
+
+.productHeading {
+	@include vars.flexStart(row, space-between);
+}
+
+.productTitle {
+	font-weight: 600;
+	font-size: vars.$fs-md;
+	grid-column: 1/-1;
+	overflow: clip;
+	text-overflow: ellipsis;
+}
+
+.productRating {
+	grid-column: -1/-1;
 }
 
 .productImage {
@@ -17,24 +40,21 @@
 	object-fit: cover;
 }
 
-.productContent {
-	@include vars.flexStart(column, space-around);
-	gap: vars.$space-xs;
-}
-
-.additional {
-	@include vars.flexStart(row, space-between);
-	align-items: center;
-	font-size: vars.$fs-sm;
+.productInfo {
+	grid-column: 1 / -1;
+	overflow: clip;
+	text-overflow: ellipsis;
 	color: vars.$clr-text-secondary;
 }
 
-.productTitle {
-	font-weight: 600;
-	font-size: vars.$fs-lg;
+.productPrice {
+	grid-column: -1 / -1;
+	text-align: right;
+	color: vars.$clr-text-secondary;
 }
 
 .productBtns {
+	grid-column: 1/-1;
 	margin-top: vars.$space-xs;
 	@include vars.flexStart(row, space-between);
 	gap: vars.$space-sm;

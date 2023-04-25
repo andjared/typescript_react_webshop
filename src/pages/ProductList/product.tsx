@@ -4,6 +4,7 @@ import Button from '../../components/button/button';
 import QuantityHandler from '../../components/quantityHandler/quantityHandler';
 import styles from './product.module.scss';
 import { Link } from 'react-router-dom';
+import AverageRating from '../../components/averageRating/averageRating';
 
 export interface Props {
 	product: Product;
@@ -32,10 +33,11 @@ function Product({ product: { id, img, title, info, price } }: Props) {
 			</div>
 			<div className={styles.productContent}>
 				<h3 className={styles.productTitle}>{title}</h3>
-				<div className={styles.additional}>
-					<p>{info}</p>
-					<span>${price}</span>
+				<div className={styles.productRating}>
+					<AverageRating id={id} />
 				</div>
+				<p className={styles.productInfo}>{info}</p>
+				<span className={styles.productPrice}>${price}</span>
 			</div>
 			<div className={styles.productBtns}>
 				<Button
