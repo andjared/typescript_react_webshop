@@ -3,6 +3,7 @@ import { useCartContext } from '../../context/CartContext';
 import Button from '../../components/button/button';
 import QuantityHandler from '../../components/quantityHandler/quantityHandler';
 import styles from './product.module.scss';
+import { Link } from 'react-router-dom';
 
 export interface Props {
 	product: Product;
@@ -25,7 +26,9 @@ function Product({ product: { id, img, title, info, price } }: Props) {
 	return (
 		<article className={styles.product}>
 			<div className={styles.productImage}>
-				<img src={require(`../../assets${img}`)} alt={title} />
+				<Link to={'/productDetails'} state={{ title }} key={id}>
+					<img src={require(`../../assets${img}`)} alt={title} />
+				</Link>
 			</div>
 			<div className={styles.productContent}>
 				<h3 className={styles.productTitle}>{title}</h3>

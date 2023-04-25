@@ -1,7 +1,6 @@
 import React from 'react';
 import Product from './product';
 import styles from './productList.module.scss';
-import { Link } from 'react-router-dom';
 
 export interface Props {
 	products: Product[];
@@ -15,12 +14,7 @@ function ProductList({ products }: Props) {
 			</div>
 			<div className={styles.productListGrid}>
 				{products.map((product) => {
-					const { title, id } = product;
-					return (
-						<Link to={'/productDetails'} state={{ title }} key={id}>
-							<Product product={product} />
-						</Link>
-					);
+					return <Product product={product} key={product.id} />;
 				})}
 			</div>
 		</section>
