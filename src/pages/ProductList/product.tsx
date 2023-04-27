@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { useCartContext } from '../../context/CartContext';
+import { Link } from 'react-router-dom';
 import Button from '../../components/button/button';
 import QuantityHandler from '../../components/quantityHandler/quantityHandler';
-import styles from './product.module.scss';
-import { Link } from 'react-router-dom';
 import AverageRating from '../../components/averageRating/averageRating';
+import { useCartContext } from '../../context/CartContext';
+import styles from './product.module.scss';
 
 export interface Props {
 	product: IProduct;
@@ -14,11 +14,11 @@ function IProduct({ product: { id, img, title, info, price } }: Props) {
 	const { addToCart } = useCartContext();
 	const [quantity, setQuantity] = useState<number>(1);
 
-	const increaseQuantity = () => {
+	const increaseQuantity = (): void => {
 		setQuantity((prev) => prev + 1);
 	};
 
-	const decreaseQuantity = () => {
+	const decreaseQuantity = (): void => {
 		if (quantity > 1) {
 			setQuantity((prev) => prev - 1);
 		}

@@ -1,4 +1,3 @@
-import './styles/App.scss';
 import React, { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import ProductList from './pages/ProductList/productList';
@@ -6,6 +5,7 @@ import ProductDetails from './pages/ProductDetails/productDetails';
 import Cart from './pages/Cart/cart';
 import Header from './components/header/header';
 import { CartContextProvider } from './context/CartContext';
+import './styles/App.scss';
 
 const App = () => {
 	const [products, setProducts] = useState<IProduct[]>([]);
@@ -20,6 +20,7 @@ const App = () => {
 				console.log(error);
 			}
 		};
+
 		getData();
 	}, []);
 

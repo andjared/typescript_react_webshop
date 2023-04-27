@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
 function useMountTransition(isFormVisible: boolean, unmountDelay: number) {
-	const [hasTransitionedIn, setHasTransitionedIn] = useState(false);
+	const [hasTransitionedIn, setHasTransitionedIn] = useState<boolean>(false);
 
 	useEffect(() => {
 		let timeoutId: ReturnType<typeof setTimeout>;
