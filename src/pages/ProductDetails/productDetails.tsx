@@ -2,12 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import Button from '../../components/button/button';
 import QuantityHandler from '../../components/quantityHandler/quantityHandler';
-import { useCartContext } from '../../context/CartContext';
-import styles from './productDetails.module.scss';
 import CommentsForm from '../../components/commentsForm/commentsForm';
-import ShowComments from '../../components/showComments/showComments';
-import useMountTransition from '../../useMountTransition';
 import AverageRating from '../../components/averageRating/averageRating';
+import ShowComments from '../../components/showComments/showComments';
+import { useCartContext } from '../../context/CartContext';
+import useMountTransition from '../../useMountTransition';
+import styles from './productDetails.module.scss';
 
 export interface Props {
 	products: IProduct[];
@@ -15,7 +15,7 @@ export interface Props {
 
 function ProductDetails({ products }: Props) {
 	const { title } = useLocation().state;
-	const [isFormVisible, setIsFormVisible] = useState(false);
+	const [isFormVisible, setIsFormVisible] = useState<boolean>(false);
 	const product = products.find((product: IProduct) => product.title === title);
 
 	//destructure product properties
@@ -29,19 +29,22 @@ function ProductDetails({ products }: Props) {
 				const res = await fetch(
 					`http://localhost:3000/api/products/${id}/comments`
 				);
+
 				const data = await res.json();
+
 				setComments(data);
 			} catch (err) {
 				console.log(err);
 			}
 		};
+
 		getComments(id);
 	}, [id]);
 
 	const { addToCart } = useCartContext();
 	const [quantity, setQuantity] = useState<number>(1);
 
-	const increaseQuantity = () => {
+	const increaseQuantity = (): void => {
 		setQuantity((prev) => prev + 1);
 	};
 
@@ -49,6 +52,14 @@ function ProductDetails({ products }: Props) {
 		if (quantity > 1) {
 			setQuantity((prev) => prev - 1);
 		}
+	};
+
+	const handleAddInCart = (): void => {
+		addToCart(id, quantity);
+	};
+
+	const handleFormVisibility = (): void => {
+		setIsFormVisible(!isFormVisible);
 	};
 
 	return (
@@ -71,10 +82,7 @@ function ProductDetails({ products }: Props) {
 							/>
 							<span>${price}</span>
 						</div>
-						<Button
-							className='btnFillToRight'
-							onClick={() => addToCart(id, quantity)}
-						>
+						<Button className='btnFillToRight' onClick={handleAddInCart}>
 							Add to Cart
 						</Button>
 					</div>
@@ -92,7 +100,7 @@ function ProductDetails({ products }: Props) {
 
 				<div>
 					<Button
-						onClick={() => setIsFormVisible(!isFormVisible)}
+						onClick={handleFormVisibility}
 						className='handleCommentsFormBtn'
 					>
 						<span>
