@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './showComments.module.scss';
 
 export interface Props {
-	comments: Comments[];
+	comments: IComments[];
 }
 
 export default function ShowComments({ comments }: Props) {

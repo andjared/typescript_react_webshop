@@ -1,9 +1,9 @@
 import React from 'react';
-import Product from './product';
+import IProduct from './product';
 import styles from './productList.module.scss';
 
 export interface Props {
-	products: Product[];
+	products: IProduct[];
 }
 
 function ProductList({ products }: Props) {
@@ -14,7 +14,7 @@ function ProductList({ products }: Props) {
 			</div>
 			<div className={styles.productListGrid}>
 				{products.map((product) => {
-					return <Product product={product} key={product.id} />;
+					return <IProduct product={product} key={product.id} />;
 				})}
 			</div>
 		</section>

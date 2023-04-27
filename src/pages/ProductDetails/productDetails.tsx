@@ -10,17 +10,17 @@ import useMountTransition from '../../useMountTransition';
 import AverageRating from '../../components/averageRating/averageRating';
 
 export interface Props {
-	products: Product[];
+	products: IProduct[];
 }
 
 function ProductDetails({ products }: Props) {
 	const { title } = useLocation().state;
 	const [isFormVisible, setIsFormVisible] = useState(false);
-	const product = products.find((product: Product) => product.title === title);
+	const product = products.find((product: IProduct) => product.title === title);
 
 	//destructure product properties
 	const { id, info, description, price, img } = product!;
-	const [comments, setComments] = useState<Comments[]>([]);
+	const [comments, setComments] = useState<IComments[]>([]);
 	const hasTransitionedIn = useMountTransition(isFormVisible, 500);
 
 	useEffect(() => {

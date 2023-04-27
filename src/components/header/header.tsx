@@ -7,7 +7,7 @@ import Search from '../search/search';
 import styles from './header.module.scss';
 
 export interface Props {
-	products: Product[];
+	products: IProduct[];
 }
 
 function Header({ products }: Props) {

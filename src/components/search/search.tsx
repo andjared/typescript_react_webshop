@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 export interface Props {
 	handleSearch: () => void;
-	products: Product[];
+	products: IProduct[];
 }
 
 function Search({ handleSearch, products }: Props) {

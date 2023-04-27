@@ -6,7 +6,7 @@ import CartItem from './cartItem';
 import styles from './cart.module.scss';
 
 export interface Props {
-	products: Product[];
+	products: IProduct[];
 }
 
 function Cart({ products }: Props) {

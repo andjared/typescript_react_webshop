@@ -21,8 +21,10 @@ export default function AverageRating({ id }: Props) {
 					setNumberOfReviews(data.length);
 
 					const averageRating =
-						data.reduce((acc: number, curr: Comments) => acc + curr.rating, 0) /
-						data.length;
+						data.reduce(
+							(acc: number, curr: IComments) => acc + curr.rating,
+							0
+						) / data.length;
 
 					setRating(averageRating);
 				}

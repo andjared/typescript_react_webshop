@@ -1,4 +1,4 @@
-interface Product {
+interface IProduct {
 	id: number;
 	title: string;
 	info: string;
@@ -7,7 +7,7 @@ interface Product {
 	img: string;
 }
 
-interface Comments {
+interface IComments {
 	id?: number;
 	title: string;
 	message: string;

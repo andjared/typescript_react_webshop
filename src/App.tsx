@@ -8,7 +8,7 @@ import Header from './components/header/header';
 import { CartContextProvider } from './context/CartContext';
 
 const App = () => {
-	const [products, setProducts] = useState<Product[]>([]);
+	const [products, setProducts] = useState<IProduct[]>([]);
 
 	useEffect(() => {
 		const getData = async () => {

@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import styles from './commentsForm.module.scss';
 import Button from '../button/button';
+import styles from './commentsForm.module.scss';
 
-interface Props {
+export interface Props {
 	id: number;
 }
 
@@ -15,7 +15,7 @@ export default function CommentsForm({ id }: Props) {
 		rating: 0,
 	};
 
-	const [data, setData] = useState<Comments>(formData);
+	const [data, setData] = useState<IComments>(formData);
 	const [rating, setRating] = useState(0);
 	const [hover, setHover] = useState(0);
 
@@ -28,7 +28,7 @@ export default function CommentsForm({ id }: Props) {
 		});
 	};
 
-	const postComment = async (id: number, data: Comments) => {
+	const postComment = async (id: number, data: IComments) => {
 		await fetch(`http://localhost:3000/api/products/${id}/comments`, {
 			method: 'POST',
 			headers: {
@@ -38,11 +38,7 @@ export default function CommentsForm({ id }: Props) {
 		});
 	};
 
-	const createComment = async (
-		e: React.MouseEvent,
-		id: number,
-		data: Comments
-	) => {
+	const createComment = async (e: React.MouseEvent) => {
 		e.preventDefault();
 		data.rating = rating;
 
@@ -86,10 +82,7 @@ export default function CommentsForm({ id }: Props) {
 				<input type='text' name='user' onChange={handleChange} />
 				<label htmlFor='message'>Tell Us More</label>
 				<textarea name='message' rows={3} onChange={handleChange} />
-				<Button
-					className='btnFillToRight'
-					onClick={(e) => createComment(e, id, data)}
-				>
+				<Button className='btnFillToRight' onClick={createComment}>
 					<span className={styles.submit}>Submit</span>
 				</Button>
 			</form>

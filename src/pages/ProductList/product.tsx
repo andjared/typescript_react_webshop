@@ -7,10 +7,10 @@ import { Link } from 'react-router-dom';
 import AverageRating from '../../components/averageRating/averageRating';
 
 export interface Props {
-	product: Product;
+	product: IProduct;
 }
 
-function Product({ product: { id, img, title, info, price } }: Props) {
+function IProduct({ product: { id, img, title, info, price } }: Props) {
 	const { addToCart } = useCartContext();
 	const [quantity, setQuantity] = useState<number>(1);
 
@@ -56,4 +56,4 @@ function Product({ product: { id, img, title, info, price } }: Props) {
 	);
 }
 
-export default Product;
+export default IProduct;

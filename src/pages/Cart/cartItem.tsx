@@ -6,7 +6,7 @@ import styles from './cartItem.module.scss';
 import AverageRating from '../../components/averageRating/averageRating';
 
 interface Props {
-	product: Product;
+	product: IProduct;
 }
 
 function CartItem({ product: { id, img, title, info, price } }: Props) {
