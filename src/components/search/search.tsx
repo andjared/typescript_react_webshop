@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Search as SearchIcon, X } from 'react-feather';
 import Button from '../button/button';
 import styles from './search.module.scss';
-import { Link } from 'react-router-dom';
 
 export interface Props {
 	handleSearch: () => void;
@@ -16,7 +16,7 @@ function Search({ handleSearch, products }: Props) {
 		setSearchQuery(e.target.value);
 	};
 
-	const filtered = products.filter((product) =>
+	const filtered: IProduct[] = products.filter((product) =>
 		product.title.toLocaleLowerCase().includes(searchQuery.toLocaleLowerCase())
 	);
 

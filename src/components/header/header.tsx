@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { useCartContext } from '../../context/CartContext';
 import { Link } from 'react-router-dom';
 import { ShoppingBag, Menu, Search as SearchIcon } from 'react-feather';
+import { useCartContext } from '../../context/CartContext';
 import Button from '../button/button';
 import Search from '../search/search';
 import styles from './header.module.scss';
