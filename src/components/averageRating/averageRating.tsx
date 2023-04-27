@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styles from './averageRating.module.scss';
 
-interface Props {
+export interface Props {
 	id: number;
 }
 
@@ -17,7 +17,9 @@ export default function AverageRating({ id }: Props) {
 				);
 				if (res.ok) {
 					const data = await res.json();
+
 					setNumberOfReviews(data.length);
+
 					const averageRating =
 						data.reduce((acc: number, curr: Comments) => acc + curr.rating, 0) /
 						data.length;
@@ -32,7 +34,9 @@ export default function AverageRating({ id }: Props) {
 		getComments(id);
 	}, [id]);
 
-	if (numberOfReviews > 0) {
+	if (!numberOfReviews) {
+		return null;
+	} else {
 		return (
 			<div className={styles.rating}>
 				{[...Array(5)].map((_, index) => {
@@ -49,7 +53,5 @@ export default function AverageRating({ id }: Props) {
 				<span className={styles.numOfReviews}> ({numberOfReviews})</span>
 			</div>
 		);
-	} else {
-		return null;
 	}
 }
