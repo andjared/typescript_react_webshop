@@ -17,7 +17,9 @@ function Search({ handleSearch, products }: Props) {
 	};
 
 	const filtered: IProduct[] = products.filter((product) =>
-		product.title.toLocaleLowerCase().includes(searchQuery.toLocaleLowerCase())
+		product.title
+			.toLocaleLowerCase()
+			.includes(searchQuery.toLocaleLowerCase())
 	);
 
 	return (
@@ -39,8 +41,14 @@ function Search({ handleSearch, products }: Props) {
 						const { title, id } = result;
 						return (
 							<div key={id} className={styles.searchResults}>
-								<Button className='searchResultBtn' onClick={handleSearch}>
-									<Link to={'/productDetails'} state={{ title }}>
+								<Button
+									className='searchResultBtn'
+									onClick={handleSearch}
+								>
+									<Link
+										to={'/productDetails'}
+										state={{ title }}
+									>
 										{title}
 									</Link>
 								</Button>

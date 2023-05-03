@@ -64,7 +64,9 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
 	};
 
 	return (
-		<CartContext.Provider value={contextValue}>{children}</CartContext.Provider>
+		<CartContext.Provider value={contextValue}>
+			{children}
+		</CartContext.Provider>
 	);
 }
 

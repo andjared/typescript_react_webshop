@@ -46,13 +46,18 @@ export default function AverageRating({ id }: Props) {
 					return (
 						<span
 							key={index}
-							className={`${index <= rating ? styles.starOn : styles.starOff}`}
+							className={`${
+								index <= rating ? styles.starOn : styles.starOff
+							}`}
 						>
 							<span className={styles.star}>&#9733;</span>
 						</span>
 					);
 				})}
-				<span className={styles.numOfReviews}> ({numberOfReviews})</span>
+				<span className={styles.numOfReviews}>
+					{' '}
+					({numberOfReviews})
+				</span>
 			</div>
 		);
 	}

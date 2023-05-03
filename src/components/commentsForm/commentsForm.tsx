@@ -58,7 +58,9 @@ export default function CommentsForm({ id }: Props) {
 								type='button'
 								key={index}
 								className={`${
-									index <= (hover || rating) ? styles.starOn : styles.starOff
+									index <= (hover || rating)
+										? styles.starOn
+										: styles.starOff
 								}`}
 								onClick={() => setRating(index)}
 								onMouseEnter={() => setHover(index)}

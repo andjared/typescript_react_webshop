@@ -22,7 +22,9 @@ function Header({ products }: Props) {
 
 	return (
 		<header className={styles.header}>
-			<div className={styles.headerAnnouncment}>Free world wide shipping</div>
+			<div className={styles.headerAnnouncment}>
+				Free world wide shipping
+			</div>
 			<nav className={styles.headerNavbar}>
 				<div className={styles.navbarMenu}>
 					<Menu size={28} />
@@ -37,7 +39,9 @@ function Header({ products }: Props) {
 					<div className={styles.navbarCartIcon}>
 						{total > 0 && (
 							<div className={styles.cartTotal}>
-								<span className={styles.cartTotalValue}>{total}</span>
+								<span className={styles.cartTotalValue}>
+									{total}
+								</span>
 							</div>
 						)}
 						<Link to='/cart'>
