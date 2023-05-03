@@ -5,16 +5,15 @@ import styles from './commentsForm.module.scss';
 export interface Props {
 	id: number;
 }
+//initial values
+const formData = {
+	title: '',
+	message: '',
+	user: '',
+	rating: 0,
+};
 
 export default function CommentsForm({ id }: Props) {
-	//initial values
-	const formData = {
-		title: '',
-		message: '',
-		user: '',
-		rating: 0,
-	};
-
 	const [data, setData] = useState<IComments>(formData);
 	const [rating, setRating] = useState(0);
 	const [hover, setHover] = useState(0);
