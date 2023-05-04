@@ -16,9 +16,7 @@ export interface Props {
 function ProductDetails({ products }: Props) {
 	const { title } = useLocation().state;
 	const [isFormVisible, setIsFormVisible] = useState<boolean>(false);
-	const product = products.find(
-		(product: IProduct) => product.title === title
-	);
+	const product = products.find((product: IProduct) => product.title === title);
 
 	//destructure product properties
 	const { id, info, description, price, img } = product!;
@@ -74,9 +72,7 @@ function ProductDetails({ products }: Props) {
 					<h3 className={styles.productTitle}>{title}</h3>
 					<AverageRating id={id} />
 					<div className={styles.productInfo}>{info}</div>
-					<div className={styles.productDescription}>
-						{description}
-					</div>
+					<div className={styles.productDescription}>{description}</div>
 					<div className={styles.productBtns}>
 						<div className={styles.additional}>
 							<QuantityHandler
@@ -86,10 +82,7 @@ function ProductDetails({ products }: Props) {
 							/>
 							<span>${price}</span>
 						</div>
-						<Button
-							className='btnFillToRight'
-							onClick={handleAddInCart}
-						>
+						<Button className='btnFillToRight' onClick={handleAddInCart}>
 							Add to Cart
 						</Button>
 					</div>
@@ -102,9 +95,7 @@ function ProductDetails({ products }: Props) {
 						<ShowComments comments={comments} />
 					</div>
 				) : (
-					!isFormVisible && (
-						<div>There is no reviews for this product</div>
-					)
+					!isFormVisible && <div>There is no reviews for this product</div>
 				)}
 
 				<div>
@@ -123,9 +114,9 @@ function ProductDetails({ products }: Props) {
 
 					{(hasTransitionedIn || isFormVisible) && (
 						<div
-							className={`${styles.form} ${
-								hasTransitionedIn && styles.in
-							} ${isFormVisible && styles.visible}`}
+							className={`${styles.form} ${hasTransitionedIn && styles.in} ${
+								isFormVisible && styles.visible
+							}`}
 						>
 							<CommentsForm id={id} />
 						</div>

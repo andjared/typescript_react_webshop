@@ -18,10 +18,7 @@ function QuantityHandler({
 			<Button className='quantityHandlerBtn' onClick={decreaseQuantity}>
 				-
 			</Button>
-			<input
-				placeholder={quantity}
-				className={styles.quantityHandlerInput}
-			/>
+			<input placeholder={quantity} className={styles.quantityHandlerInput} />
 			<Button className='quantityHandlerBtn' onClick={increaseQuantity}>
 				+
 			</Button>

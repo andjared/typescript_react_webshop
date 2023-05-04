@@ -10,9 +10,7 @@ function ProductList({ products }: Props) {
 	return (
 		<section className={styles.productList}>
 			<div className={styles.productListHeading}>
-				<h2 className={styles.productListTitle}>
-					The Special Collection
-				</h2>
+				<h2 className={styles.productListTitle}>The Special Collection</h2>
 			</div>
 			<div className={styles.productListGrid}>
 				{products.map((product) => {

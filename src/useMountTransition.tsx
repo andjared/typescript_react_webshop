@@ -9,10 +9,7 @@ function useMountTransition(isFormVisible: boolean, unmountDelay: number) {
 		if (isFormVisible && !hasTransitionedIn) {
 			setHasTransitionedIn(true);
 		} else if (!isFormVisible && hasTransitionedIn) {
-			timeoutId = setTimeout(
-				() => setHasTransitionedIn(false),
-				unmountDelay
-			);
+			timeoutId = setTimeout(() => setHasTransitionedIn(false), unmountDelay);
 		}
 
 		return () => {

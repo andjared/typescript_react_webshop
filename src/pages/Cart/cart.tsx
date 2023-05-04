@@ -29,8 +29,7 @@ function Cart({ products }: Props) {
 		<section className={styles.cart}>
 			{totalCartItemsAmount() === 0 ? (
 				<div className={styles.cartRedirect}>
-					Your cart is empty. Browse products <Link to='/'>here</Link>
-					.
+					Your cart is empty. Browse products <Link to='/'>here</Link>.
 				</div>
 			) : (
 				<>
