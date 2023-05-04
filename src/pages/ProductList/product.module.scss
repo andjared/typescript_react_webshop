@@ -1,61 +1,61 @@
 @use '../../styles/vars.scss';
 
 .product {
-	@include vars.flexStart(column, space-around);
-	gap: vars.$space-sm;
+    @include vars.flexStart(column, space-around);
+    gap: vars.$space-sm;
 }
 
 .productContent {
-	display: grid;
-	grid-template-columns: 2fr 1fr;
-	gap: vars.$space-xs;
-	white-space: nowrap;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: vars.$space-xs;
+    white-space: nowrap;
 }
 
 .productHeading {
-	@include vars.flexStart(row, space-between);
+    @include vars.flexStart(row, space-between);
 }
 
 .productTitle {
-	font-weight: 600;
-	font-size: vars.$fs-md;
-	grid-column: 1/-1;
-	overflow: clip;
-	text-overflow: ellipsis;
+    font-weight: 600;
+    font-size: vars.$fs-md;
+    grid-column: 1/-1;
+    overflow: clip;
+    text-overflow: ellipsis;
 }
 
 .productRating {
-	grid-column: -1/-1;
+    grid-column: -1/-1;
 }
 
 .productImage {
-	height: 100%;
-	width: 100%;
+    height: 100%;
+    width: 100%;
 }
 
 .productImage img {
-	height: 100%;
-	width: 100%;
-	aspect-ratio: 1/1.3;
-	object-fit: cover;
+    height: 100%;
+    width: 100%;
+    aspect-ratio: 1/1.3;
+    object-fit: cover;
 }
 
 .productInfo {
-	grid-column: 1 / -1;
-	overflow: clip;
-	text-overflow: ellipsis;
-	color: vars.$clr-text-secondary;
+    grid-column: 1 / -1;
+    overflow: clip;
+    text-overflow: ellipsis;
+    color: vars.$clr-text-secondary;
 }
 
 .productPrice {
-	grid-column: -1 / -1;
-	text-align: right;
-	color: vars.$clr-text-secondary;
+    grid-column: -1 / -1;
+    text-align: right;
+    color: vars.$clr-text-secondary;
 }
 
 .productBtns {
-	grid-column: 1/-1;
-	margin-top: vars.$space-xs;
-	@include vars.flexStart(row, space-between);
-	gap: vars.$space-sm;
+    grid-column: 1/-1;
+    margin-top: vars.$space-xs;
+    @include vars.flexStart(row, space-between);
+    gap: vars.$space-sm;
 }

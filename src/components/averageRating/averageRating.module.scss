@@ -1,24 +1,24 @@
 @use '../../styles/vars.scss';
 
 .rating {
-	grid-column: -1/-1;
-	justify-self: end;
-	@include vars.flexStart(row, flex-start);
+    grid-column: -1/-1;
+    justify-self: end;
+    @include vars.flexStart(row, flex-start);
 }
 
 .numOfReviews {
-	margin-left: vars.$space-xs;
-	color: vars.$clr-text-secondary;
+    margin-left: vars.$space-xs;
+    color: vars.$clr-text-secondary;
 }
 
 .star {
-	font-size: vars.$fs-md;
+    font-size: vars.$fs-md;
 }
 
 .starOn {
-	color: vars.$clr-stars;
+    color: vars.$clr-stars;
 }
 
 .starOff {
-	color: #ccc;
+    color: #ccc;
 }

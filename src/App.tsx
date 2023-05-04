@@ -8,41 +8,49 @@ import { CartContextProvider } from './context/CartContext';
 import './styles/App.scss';
 
 const App = () => {
-	const [products, setProducts] = useState<IProduct[]>([]);
+    const [products, setProducts] = useState<IProduct[]>([]);
 
-	useEffect(() => {
-		const getData = async () => {
-			try {
-				const res = await fetch('http://localhost:3000/api/products');
-				const products = await res.json();
-				setProducts(products);
-			} catch (error) {
-				console.log(error);
-			}
-		};
+    useEffect(() => {
+        const getData = async () => {
+            try {
+                const res = await fetch('http://localhost:3000/api/products');
+                const products = await res.json();
+                setProducts(products);
+            } catch (error) {
+                console.log(error);
+            }
+        };
 
-		getData();
-	}, []);
+        getData();
+    }, []);
 
-	return (
-		<div className='App'>
-			<CartContextProvider>
-				<Header products={products} />
-				<main>
-					<Routes>
-						<Route path='/' element={<ProductList products={products} />} />
-						<Route
-							path='/productDetails'
-							element={
-								products.length && <ProductDetails products={products} />
-							}
-						/>
-						<Route path='/cart' element={<Cart products={products} />} />
-					</Routes>
-				</main>
-			</CartContextProvider>
-		</div>
-	);
+    return (
+        <div className='App'>
+            <CartContextProvider>
+                <Header products={products} />
+                <main>
+                    <Routes>
+                        <Route
+                            path='/'
+                            element={<ProductList products={products} />}
+                        />
+                        <Route
+                            path='/productDetails'
+                            element={
+                                products.length && (
+                                    <ProductDetails products={products} />
+                                )
+                            }
+                        />
+                        <Route
+                            path='/cart'
+                            element={<Cart products={products} />}
+                        />
+                    </Routes>
+                </main>
+            </CartContextProvider>
+        </div>
+    );
 };
 
 export default App;

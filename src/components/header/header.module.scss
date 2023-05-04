@@ -1,73 +1,73 @@
 @use '../../styles/vars.scss';
 
 .header {
-	width: 100%;
-	min-height: 116px;
-	@include vars.flexCenter(column, space-between);
-	color: vars.$clr-text-primary;
-	position: relative;
+    width: 100%;
+    min-height: 116px;
+    @include vars.flexCenter(column, space-between);
+    color: vars.$clr-text-primary;
+    position: relative;
 }
 
 .headerAnnouncment {
-	width: 100%;
-	height: 44px;
-	padding: vars.$space-lg;
-	background-color: vars.$clr-header;
-	text-align: center;
-	text-transform: uppercase;
-	font-family: vars.$fm-main;
-	font-size: vars.$fs-sm;
+    width: 100%;
+    height: 44px;
+    padding: vars.$space-lg;
+    background-color: vars.$clr-header;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: vars.$fm-main;
+    font-size: vars.$fs-sm;
 }
 
 .headerNavbar {
-	padding: vars.$space-lg vars.$space-xl;
-	width: 100%;
-	@include vars.flexCenter(row, space-between);
-	background-color: vars.$clr-background;
-	box-shadow: 0 -1px vars.$clr-header-border inset;
-	font-size: vars.$fs-lg;
+    padding: vars.$space-lg vars.$space-xl;
+    width: 100%;
+    @include vars.flexCenter(row, space-between);
+    background-color: vars.$clr-background;
+    box-shadow: 0 -1px vars.$clr-header-border inset;
+    font-size: vars.$fs-lg;
 }
 
 .navbarTitle {
-	font-family: vars.$fm-heading;
-	display: flex;
-	padding: vars.$space-xs vars.$space-sm;
+    font-family: vars.$fm-heading;
+    display: flex;
+    padding: vars.$space-xs vars.$space-sm;
 }
 
 .navbarMenu {
-	flex: 1 0 0;
-	color: vars.$clr-text-secondary;
+    flex: 1 0 0;
+    color: vars.$clr-text-secondary;
 }
 
 .navbarIcons {
-	flex: 1 0 0;
-	@include vars.flexCenter(row, flex-end);
-	gap: vars.$space-sm;
-	color: vars.$clr-text-secondary;
+    flex: 1 0 0;
+    @include vars.flexCenter(row, flex-end);
+    gap: vars.$space-sm;
+    color: vars.$clr-text-secondary;
 }
 
 .navbarCartIcon {
-	position: relative;
-	cursor: pointer;
+    position: relative;
+    cursor: pointer;
 }
 
 .cartTotal {
-	pointer-events: none;
-	width: 16px;
-	height: 16px;
-	position: absolute;
-	top: 0;
-	right: -2px;
-	background-color: vars.$clr-main-text;
-	border-radius: 100%;
-	box-shadow: 0 0 0 2px vars.$clr-header-border;
-	@include vars.flexCenter(row, center);
+    pointer-events: none;
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    top: 0;
+    right: -2px;
+    background-color: vars.$clr-main-text;
+    border-radius: 100%;
+    box-shadow: 0 0 0 2px vars.$clr-header-border;
+    @include vars.flexCenter(row, center);
 }
 
 .cartTotalValue {
-	display: inline-block;
-	align-self: center;
-	text-align: center;
-	color: vars.$clr-background;
-	font-size: vars.$fs-sm;
+    display: inline-block;
+    align-self: center;
+    text-align: center;
+    color: vars.$clr-background;
+    font-size: vars.$fs-sm;
 }

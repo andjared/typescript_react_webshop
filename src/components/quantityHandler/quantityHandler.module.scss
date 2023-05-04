@@ -1,13 +1,13 @@
 @use '../../styles/vars.scss';
 
 .quantityHandler {
-	display: inline-block;
-	border: 1px solid rgba(vars.$clr-text-secondary, 0.2);
+    display: inline-block;
+    border: 1px solid rgba(vars.$clr-text-secondary, 0.2);
 }
 
 .quantityHandlerInput {
-	border: none;
-	border: 0;
-	max-width: 20px;
-	text-align: center;
+    border: none;
+    border: 0;
+    max-width: 20px;
+    text-align: center;
 }

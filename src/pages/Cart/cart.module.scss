@@ -1,29 +1,29 @@
 @use '../../styles/vars.scss';
 
 .cart {
-	margin: 0 auto;
-	max-width: 860px;
-	padding: vars.$space-section-padding vars.$space-lg;
-	@include vars.flexStart(column, space-evenly);
-	gap: vars.$space-xl;
+    margin: 0 auto;
+    max-width: 860px;
+    padding: vars.$space-section-padding vars.$space-lg;
+    @include vars.flexStart(column, space-evenly);
+    gap: vars.$space-xl;
 }
 
 .cartRedirect {
-	align-self: center;
-	padding: vars.$space-lg;
-	font-size: vars.$fs-lg;
+    align-self: center;
+    padding: vars.$space-lg;
+    font-size: vars.$fs-lg;
 }
 
 .cartRedirect a {
-	color: vars.$clr-text-secondary;
+    color: vars.$clr-text-secondary;
 }
 
 .separatorDot {
-	display: inline-block;
-	margin: 0 18px;
-	content: '';
-	height: 3px;
-	width: 3px;
-	border-radius: 100%;
-	background: currentColor;
+    display: inline-block;
+    margin: 0 18px;
+    content: '';
+    height: 3px;
+    width: 3px;
+    border-radius: 100%;
+    background: currentColor;
 }

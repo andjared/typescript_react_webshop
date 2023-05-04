@@ -33,16 +33,16 @@ $fm-main: Century, sans-serif;
 
 //mixins
 @mixin flexCenter($direction, $justify) {
-	display: flex;
-	align-items: center;
-	flex-direction: $direction;
-	justify-content: $justify;
+    display: flex;
+    align-items: center;
+    flex-direction: $direction;
+    justify-content: $justify;
 }
 
 @mixin flexStart($direction, $justify) {
-	display: flex;
-	flex-direction: $direction;
-	justify-content: $justify;
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
 }
 
 $transition-all: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);

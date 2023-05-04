@@ -1,44 +1,44 @@
 @use '../../styles/vars.scss';
 
 .heading {
-	font-size: fs-md;
+    font-size: fs-md;
 }
 
 .commentsForm {
-	margin-top: vars.$space-md;
-	@include vars.flexStart(column, space-between);
-	gap: vars.$space-sm;
+    margin-top: vars.$space-md;
+    @include vars.flexStart(column, space-between);
+    gap: vars.$space-sm;
 }
 
 .commentsForm input,
 .commentsForm textarea {
-	padding: vars.$space-sm vars.$space-md;
-	border: 1px solid rgba(vars.$clr-text-secondary, 0.2);
-	outline: none;
+    padding: vars.$space-sm vars.$space-md;
+    border: 1px solid rgba(vars.$clr-text-secondary, 0.2);
+    outline: none;
 }
 
 .rating {
-	margin-top: vars.$space-md;
-	@include vars.flexStart(column, space-around);
+    margin-top: vars.$space-md;
+    @include vars.flexStart(column, space-around);
 }
 
 .rating button {
-	background-color: transparent;
-	border: none;
-	outline: none;
-	cursor: pointer;
-	font-size: vars.$fs-lg;
-	transition: vars.$transition-all;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: vars.$fs-lg;
+    transition: vars.$transition-all;
 }
 
 .starOn {
-	color: vars.$clr-stars;
+    color: vars.$clr-stars;
 }
 
 .starOff {
-	color: #ccc;
+    color: #ccc;
 }
 
 .submit {
-	font-size: vars.$fs-md;
+    font-size: vars.$fs-md;
 }
