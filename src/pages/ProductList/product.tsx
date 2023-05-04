@@ -10,7 +10,7 @@ export interface Props {
 	product: IProduct;
 }
 
-function IProduct({ product: { id, img, title, info, price } }: Props) {
+function Product({ product: { id, img, title, info, price } }: Props) {
 	const { addToCart } = useCartContext();
 	const [quantity, setQuantity] = useState<number>(1);
 
@@ -56,4 +56,4 @@ function IProduct({ product: { id, img, title, info, price } }: Props) {
 	);
 }
 
-export default IProduct;
+export default Product;

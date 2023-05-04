@@ -1,5 +1,5 @@
 import React from 'react';
-import IProduct from './product';
+import Product from './product';
 import styles from './productList.module.scss';
 
 export interface Props {
@@ -14,7 +14,7 @@ function ProductList({ products }: Props) {
 			</div>
 			<div className={styles.productListGrid}>
 				{products.map((product) => {
-					return <IProduct product={product} key={product.id} />;
+					return <Product product={product} key={product.id} />;
 				})}
 			</div>
 		</section>
