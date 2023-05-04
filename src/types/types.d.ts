@@ -8,9 +8,11 @@ interface IProduct {
 }
 
 interface IComments {
-	id?: number;
+	id: number;
 	title: string;
 	message: string;
 	user: string;
 	rating: number;
 }
+
+type CreateCommentType = Omit<IComments, 'id'>;

@@ -5,7 +5,8 @@ import styles from './commentsForm.module.scss';
 export interface Props {
 	id: number;
 }
-//initial values
+
+//form initial values
 const formData = {
 	title: '',
 	message: '',
@@ -14,7 +15,7 @@ const formData = {
 };
 
 export default function CommentsForm({ id }: Props) {
-	const [data, setData] = useState<IComments>(formData);
+	const [data, setData] = useState<CreateCommentType>(formData);
 	const [rating, setRating] = useState(0);
 	const [hover, setHover] = useState(0);
 
@@ -27,7 +28,7 @@ export default function CommentsForm({ id }: Props) {
 		});
 	};
 
-	const postComment = async (id: number, data: IComments) => {
+	const postComment = async (id: number, data: CreateCommentType) => {
 		await fetch(`http://localhost:3000/api/products/${id}/comments`, {
 			method: 'POST',
 			headers: {
@@ -37,7 +38,7 @@ export default function CommentsForm({ id }: Props) {
 		});
 	};
 
-	const createComment = async (e: React.MouseEvent) => {
+	const handleCreateComent = async (e: React.MouseEvent) => {
 		e.preventDefault();
 		data.rating = rating;
 
@@ -83,7 +84,7 @@ export default function CommentsForm({ id }: Props) {
 				<input type='text' name='user' onChange={handleChange} />
 				<label htmlFor='message'>Tell Us More</label>
 				<textarea name='message' rows={3} onChange={handleChange} />
-				<Button className='btnFillToRight' onClick={createComment}>
+				<Button className='btnFillToRight' onClick={handleCreateComent}>
 					<span className={styles.submit}>Submit</span>
 				</Button>
 			</form>
