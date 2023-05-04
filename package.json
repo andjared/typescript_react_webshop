@@ -59,15 +59,10 @@
 		"prettier": "2.8.7",
 		"typescript-plugin-css-modules": "^4.2.3"
 	},
-	"husky": {
-		"hooks": {
-			"pre-commit": "lint-staged"
-		}
-	},
 	"lint-staged": {
 		"**/*.{js,jsx,ts,tsx}": [
-			"npx prettier --write",
-			"npx eslint --fix"
+			"npx eslint",
+			"npx prettier --write"
 		]
 	}
 }

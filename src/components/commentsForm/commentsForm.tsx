@@ -5,7 +5,6 @@ import styles from './commentsForm.module.scss';
 export interface Props {
 	id: number;
 }
-
 //form initial values
 const formData = {
 	title: '',

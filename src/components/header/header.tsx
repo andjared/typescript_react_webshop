@@ -12,7 +12,6 @@ export interface Props {
 
 function Header({ products }: Props) {
 	const [isSearchActive, setIsSearchActive] = useState<boolean>(false);
-
 	const { totalCartItemsAmount } = useCartContext();
 	const total = totalCartItemsAmount();
 

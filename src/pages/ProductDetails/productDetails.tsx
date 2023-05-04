@@ -48,7 +48,7 @@ function ProductDetails({ products }: Props) {
 		setQuantity((prev) => prev + 1);
 	};
 
-	const decreaseQuantity = () => {
+	const decreaseQuantity = (): void => {
 		if (quantity > 1) {
 			setQuantity((prev) => prev - 1);
 		}
@@ -90,14 +90,15 @@ function ProductDetails({ products }: Props) {
 			</article>
 			<div className={styles.reviews}>
 				<h4>Reviews</h4>
-				{comments.length && !isFormVisible ? (
-					<div>
-						<ShowComments comments={comments} />
-					</div>
+				{!comments.length && !isFormVisible ? (
+					<div>There is no reviews for this product</div>
 				) : (
-					!isFormVisible && <div>There is no reviews for this product</div>
+					comments.length && (
+						<div>
+							<ShowComments comments={comments} />
+						</div>
+					)
 				)}
-
 				<div>
 					<Button
 						onClick={handleFormVisibility}
@@ -111,7 +112,6 @@ function ProductDetails({ products }: Props) {
 								: 'Be the first to write a review'}
 						</span>
 					</Button>
-
 					{(hasTransitionedIn || isFormVisible) && (
 						<div
 							className={`${styles.form} ${hasTransitionedIn && styles.in} ${

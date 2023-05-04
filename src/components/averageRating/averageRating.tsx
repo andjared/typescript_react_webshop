@@ -32,7 +32,6 @@ export default function AverageRating({ id }: Props) {
 				console.log(err);
 			}
 		};
-
 		getComments(id);
 	}, [id]);
 

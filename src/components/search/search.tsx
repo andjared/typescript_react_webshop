@@ -35,8 +35,8 @@ function Search({ handleSearch, products }: Props) {
 				</Button>
 			</div>
 			{filtered.length > 0 && searchQuery !== ''
-				? filtered.slice(0, 5).map((result) => {
-						const { title, id } = result;
+				? filtered.slice(0, 5).map((product) => {
+						const { title, id } = product;
 						return (
 							<div key={id} className={styles.searchResults}>
 								<Button className='searchResultBtn' onClick={handleSearch}>
