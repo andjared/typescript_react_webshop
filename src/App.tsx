@@ -30,14 +30,22 @@ const App = () => {
 				<Header products={products} />
 				<main>
 					<Routes>
-						<Route path='/' element={<ProductList products={products} />} />
+						<Route
+							path='/'
+							element={<ProductList products={products} />}
+						/>
 						<Route
 							path='/productDetails'
 							element={
-								products.length && <ProductDetails products={products} />
+								products.length && (
+									<ProductDetails products={products} />
+								)
 							}
 						/>
-						<Route path='/cart' element={<Cart products={products} />} />
+						<Route
+							path='/cart'
+							element={<Cart products={products} />}
+						/>
 					</Routes>
 				</main>
 			</CartContextProvider>

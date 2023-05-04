@@ -54,10 +54,7 @@ export default function AverageRating({ id }: Props) {
 						</span>
 					);
 				})}
-				<span className={styles.numOfReviews}>
-					{' '}
-					({numberOfReviews})
-				</span>
+				<span className={styles.numOfReviews}>({numberOfReviews})</span>
 			</div>
 		);
 	}

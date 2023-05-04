@@ -1,26 +1,26 @@
-@use "../../styles/vars.scss";
+@use '../../styles/vars.scss';
 
 .productList {
-  padding: 0 vars.$space-section-padding vars.$space-lg;
-  @media screen and (max-width: 1080px) {
-    padding: 0 vars.$space-xxl;
-  }
+	padding: 0 vars.$space-section-padding vars.$space-lg;
+	@media screen and (max-width: 1080px) {
+		padding: 0 vars.$space-xxl;
+	}
 }
 
 .productListHeading {
-  @include vars.flexCenter(row, center);
-  margin: vars.$space-lg 0;
-  padding: 0 vars.$space-xl;
+	@include vars.flexCenter(row, center);
+	margin: vars.$space-lg 0;
+	padding: 0 vars.$space-xl;
 }
 
 .productListTitle {
-  font-size: vars.$fs-xl;
-  text-align: center;
-  color: vars.$clr-main-text;
+	font-size: vars.$fs-xl;
+	text-align: center;
+	color: vars.$clr-main-text;
 }
 
 .productListGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: vars.$space-xxl;
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+	gap: vars.$space-xxl;
 }

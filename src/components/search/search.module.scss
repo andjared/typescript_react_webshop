@@ -1,33 +1,33 @@
-@use "../../styles/vars.scss";
+@use '../../styles/vars.scss';
 
 .search {
-  position: absolute;
-  @include vars.flexCenter(column, center);
-  top: 100%;
-  width: 100%;
-  padding: vars.$space-md vars.$space-xl;
-  z-index: 1;
-  background-color: vars.$clr-background;
-  color: vars.$clr-text-secondary;
-  box-shadow: 0 -1px #e7e7e7 inset;
+	position: absolute;
+	@include vars.flexCenter(column, center);
+	top: 100%;
+	width: 100%;
+	padding: vars.$space-md vars.$space-xl;
+	z-index: 1;
+	background-color: vars.$clr-background;
+	color: vars.$clr-text-secondary;
+	box-shadow: 0 -1px #e7e7e7 inset;
 }
 
 .searchInner {
-  @include vars.flexCenter(row, space-between);
-  gap: vars.$space-sm;
-  width: 100%;
-  padding: vars.$space-sm;
+	@include vars.flexCenter(row, space-between);
+	gap: vars.$space-sm;
+	width: 100%;
+	padding: vars.$space-sm;
 }
 
 .searchInput {
-  width: 100%;
-  border: none;
-  &::placeholder {
-    font-size: vars.$fs-md;
-  }
+	width: 100%;
+	border: none;
+	&::placeholder {
+		font-size: vars.$fs-md;
+	}
 }
 
 .searchResults {
-  align-self: flex-start;
-  padding: vars.$space-xxs vars.$space-md;
+	align-self: flex-start;
+	padding: vars.$space-xxs vars.$space-md;
 }
