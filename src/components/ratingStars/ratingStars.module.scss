@@ -1,0 +1,17 @@
+@use '../../styles/vars.scss';
+
+.rating {
+    @include vars.flexStart(row, space-around);
+}
+
+.star {
+    font-size: vars.$fs-lg;
+}
+
+.starOn {
+    color: vars.$clr-stars;
+}
+
+.starOff {
+    color: #ccc;
+}

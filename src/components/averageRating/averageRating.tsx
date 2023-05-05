@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import RatingStars from '../ratingStars/ratingStars';
 import styles from './averageRating.module.scss';
 
 export interface Props {
@@ -37,24 +38,12 @@ export default function AverageRating({ id }: Props) {
 
     if (!numberOfReviews) {
         return null;
-    } else {
-        return (
-            <div className={styles.rating}>
-                {[...Array(5)].map((_, index) => {
-                    index += 1;
-                    return (
-                        <span
-                            key={index}
-                            className={`${
-                                index <= rating ? styles.starOn : styles.starOff
-                            }`}
-                        >
-                            <span className={styles.star}>&#9733;</span>
-                        </span>
-                    );
-                })}
-                <span className={styles.numOfReviews}>({numberOfReviews})</span>
-            </div>
-        );
     }
+
+    return (
+        <div className={styles.rating}>
+            <RatingStars rating={rating} />
+            <span className={styles.numOfReviews}>({numberOfReviews})</span>
+        </div>
+    );
 }

@@ -1,4 +1,5 @@
 import React from 'react';
+import RatingStars from '../ratingStars/ratingStars';
 import styles from './showComments.module.scss';
 
 export interface Props {
@@ -14,25 +15,7 @@ export default function ShowComments({ comments }: Props) {
                     <div key={id} className={styles.comment}>
                         <div className={styles.commentHeading}>
                             <h4 className={styles.commentTitle}>{title}</h4>
-                            <div className={styles.rating}>
-                                {[...Array(5)].map((_, index) => {
-                                    index += 1;
-                                    return (
-                                        <span
-                                            key={index}
-                                            className={`${
-                                                index <= rating
-                                                    ? styles.starOn
-                                                    : styles.starOff
-                                            }`}
-                                        >
-                                            <span className={styles.star}>
-                                                &#9733;
-                                            </span>
-                                        </span>
-                                    );
-                                })}
-                            </div>
+                            <RatingStars rating={rating} />
                         </div>
                         <p className={styles.commentMessage}>{message}</p>
                         <span className={styles.commentUser}>{user}</span>
