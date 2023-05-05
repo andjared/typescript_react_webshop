@@ -14,14 +14,14 @@ export interface Props {
 }
 
 function ProductDetails({ products }: Props) {
-    const { title } = useLocation().state;
+    const { state } = useLocation();
     const [isFormVisible, setIsFormVisible] = useState<boolean>(false);
     const product = products.find(
-        (product: IProduct) => product.title === title
+        (product: IProduct) => product.title === state.title
     );
 
     //destructure product properties
-    const { id, info, description, price, img } = product!;
+    const { id, info, description, price, img, title } = product!;
     const [comments, setComments] = useState<IComments[]>([]);
     const hasTransitionedIn = useMountTransition(isFormVisible, 500);
 
