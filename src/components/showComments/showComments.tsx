@@ -27,7 +27,6 @@ export default function ShowComments({ comments }: Props) {
                                             }`}
                                         >
                                             <span className={styles.star}>
-                                                {' '}
                                                 &#9733;
                                             </span>
                                         </span>

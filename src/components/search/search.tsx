@@ -28,11 +28,11 @@ function Search({ handleSearch, products }: Props) {
                 <SearchIcon size={28} />
                 <input
                     className={styles.searchInput}
-                    type='text'
-                    placeholder='Search...'
+                    type="text"
+                    placeholder="Search..."
                     onChange={(e) => handleSearchQuery(e)}
                 />
-                <Button className='searchCloseBtn' onClick={handleSearch}>
+                <Button className="searchCloseBtn" onClick={handleSearch}>
                     <X size={28} />
                 </Button>
             </div>
@@ -42,7 +42,7 @@ function Search({ handleSearch, products }: Props) {
                       return (
                           <div key={id} className={styles.searchResults}>
                               <Button
-                                  className='searchResultBtn'
+                                  className="searchResultBtn"
                                   onClick={handleSearch}
                               >
                                   <Link

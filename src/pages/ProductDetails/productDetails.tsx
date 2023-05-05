@@ -87,7 +87,7 @@ function ProductDetails({ products }: Props) {
                             <span>${price}</span>
                         </div>
                         <Button
-                            className='btnFillToRight'
+                            className="btnFillToRight"
                             onClick={handleAddInCart}
                         >
                             Add to Cart
@@ -109,7 +109,7 @@ function ProductDetails({ products }: Props) {
                 <div>
                     <Button
                         onClick={handleFormVisibility}
-                        className='handleCommentsFormBtn'
+                        className="handleCommentsFormBtn"
                     >
                         <span>
                             {isFormVisible

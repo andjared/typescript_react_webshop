@@ -29,10 +29,10 @@ function Header({ products }: Props) {
                     <Menu size={28} />
                 </div>
                 <div className={styles.navbarTitle}>
-                    <Link to='/'>Jewelry Store</Link>
+                    <Link to="/">Jewelry Store</Link>
                 </div>
                 <div className={styles.navbarIcons}>
-                    <Button className='navbarSearchBtn' onClick={handleSearch}>
+                    <Button className="navbarSearchBtn" onClick={handleSearch}>
                         <SearchIcon size={28} />
                     </Button>
                     <div className={styles.navbarCartIcon}>
@@ -43,7 +43,7 @@ function Header({ products }: Props) {
                                 </span>
                             </div>
                         )}
-                        <Link to='/cart'>
+                        <Link to="/cart">
                             <ShoppingBag size={28} />
                         </Link>
                     </div>

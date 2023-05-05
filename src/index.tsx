@@ -7,7 +7,7 @@ const root = ReactDOM.createRoot(
     document.getElementById('root') as HTMLElement
 );
 root.render(
-    <BrowserRouter basename='/typescript_react_webshop'>
+    <BrowserRouter basename="/typescript_react_webshop">
         <App />
     </BrowserRouter>
 );

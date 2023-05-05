@@ -25,17 +25,17 @@ const App = () => {
     }, []);
 
     return (
-        <div className='App'>
+        <div className="App">
             <CartContextProvider>
                 <Header products={products} />
                 <main>
                     <Routes>
                         <Route
-                            path='/'
+                            path="/"
                             element={<ProductList products={products} />}
                         />
                         <Route
-                            path='/productDetails'
+                            path="/productDetails"
                             element={
                                 products.length && (
                                     <ProductDetails products={products} />
@@ -43,7 +43,7 @@ const App = () => {
                             }
                         />
                         <Route
-                            path='/cart'
+                            path="/cart"
                             element={<Cart products={products} />}
                         />
                     </Routes>

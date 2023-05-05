@@ -47,7 +47,7 @@ function Product({ product: { id, img, title, info, price } }: Props) {
             </div>
             <div className={styles.productBtns}>
                 <Button
-                    className='btnFillToRight'
+                    className="btnFillToRight"
                     onClick={() => addToCart(id, quantity)}
                 >
                     Add to Cart

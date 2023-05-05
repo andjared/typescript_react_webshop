@@ -54,7 +54,7 @@ export default function CommentsForm({ id }: Props) {
                         index += 1;
                         return (
                             <button
-                                type='button'
+                                type="button"
                                 key={index}
                                 className={`${
                                     index <= (hover || rating)
@@ -72,18 +72,18 @@ export default function CommentsForm({ id }: Props) {
                 </div>
             </div>
             <form className={styles.commentsForm}>
-                <label htmlFor='title'>Title</label>
+                <label htmlFor="title">Title</label>
                 <input
-                    type='text'
-                    name='title'
+                    type="text"
+                    name="title"
                     className={styles.commentTitle}
                     onChange={handleChange}
                 />
-                <label htmlFor='user'>Your Name</label>
-                <input type='text' name='user' onChange={handleChange} />
-                <label htmlFor='message'>Tell Us More</label>
-                <textarea name='message' rows={3} onChange={handleChange} />
-                <Button className='btnFillToRight' onClick={handleCreateComent}>
+                <label htmlFor="user">Your Name</label>
+                <input type="text" name="user" onChange={handleChange} />
+                <label htmlFor="message">Tell Us More</label>
+                <textarea name="message" rows={3} onChange={handleChange} />
+                <Button className="btnFillToRight" onClick={handleCreateComent}>
                     <span className={styles.submit}>Submit</span>
                 </Button>
             </form>

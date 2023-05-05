@@ -45,7 +45,7 @@ function CartItem({ product: { id, img, title, info, price } }: Props) {
                         decreaseQuantity={decreaseQuantity}
                     />
                     <Button
-                        className='removeFromCartBtn'
+                        className="removeFromCartBtn"
                         onClick={handleRemove}
                     >
                         Remove

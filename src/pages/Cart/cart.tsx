@@ -29,7 +29,7 @@ function Cart({ products }: Props) {
         <section className={styles.cart}>
             {totalCartItemsAmount() === 0 ? (
                 <div className={styles.cartRedirect}>
-                    Your cart is empty. Browse products <Link to='/'>here</Link>
+                    Your cart is empty. Browse products <Link to="/">here</Link>
                     .
                 </div>
             ) : (
@@ -37,7 +37,7 @@ function Cart({ products }: Props) {
                     {items.map((product) => {
                         return <CartItem product={product} key={product.id} />;
                     })}
-                    <Button className='cartPaymentBtn'>
+                    <Button className="cartPaymentBtn">
                         <span>Checkout</span>
                         <span className={styles.separatorDot}></span>
                         <span>${totalPrice()}</span>

@@ -15,14 +15,14 @@ function QuantityHandler({
 }: Props) {
     return (
         <div className={styles.quantityHandler}>
-            <Button className='quantityHandlerBtn' onClick={decreaseQuantity}>
+            <Button className="quantityHandlerBtn" onClick={decreaseQuantity}>
                 -
             </Button>
             <input
                 placeholder={quantity}
                 className={styles.quantityHandlerInput}
             />
-            <Button className='quantityHandlerBtn' onClick={increaseQuantity}>
+            <Button className="quantityHandlerBtn" onClick={increaseQuantity}>
                 +
             </Button>
         </div>
