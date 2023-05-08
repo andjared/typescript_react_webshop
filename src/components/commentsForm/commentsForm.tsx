@@ -37,7 +37,7 @@ export default function CommentsForm({ id }: Props) {
         });
     };
 
-    const handleCreateComent = async (e: React.MouseEvent) => {
+    const handleCreateComment = async (e: React.MouseEvent) => {
         e.preventDefault();
         data.rating = rating;
 
@@ -83,7 +83,10 @@ export default function CommentsForm({ id }: Props) {
                 <input type="text" name="user" onChange={handleChange} />
                 <label htmlFor="message">Tell Us More</label>
                 <textarea name="message" rows={3} onChange={handleChange} />
-                <Button className="btnFillToRight" onClick={handleCreateComent}>
+                <Button
+                    className="btnFillToRight"
+                    onClick={handleCreateComment}
+                >
                     <span className={styles.submit}>Submit</span>
                 </Button>
             </form>
