@@ -1,0 +1,24 @@
+@use '../../styles/vars.scss';
+
+.results {
+    align-self: flex-start;
+}
+
+.result {
+    padding: vars.$space-xs vars.$space-md;
+}
+
+.link {
+    padding: vars.$space-sm;
+    width: 100%;
+    border: none;
+    outline: none;
+    color: vars.$clr-text-secondary;
+    background-color: transparent;
+    transition: vars.$transition-all;
+    font-size: vars.$fs-md;
+}
+
+.link:hover {
+    color: vars.$clr-main-text;
+}

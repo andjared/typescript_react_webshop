@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import { Search as SearchIcon, X } from 'react-feather';
 import Button from '../button/button';
+import SearchResults from '../searchResults/searchResults';
 import styles from './search.module.scss';
 
 export interface Props {
@@ -30,39 +30,19 @@ function Search({ handleSearch, products }: Props) {
                     className={styles.searchInput}
                     type="text"
                     placeholder="Search..."
-                    onChange={(e) => handleSearchQuery(e)}
+                    onChange={handleSearchQuery}
                 />
                 <Button className="searchCloseBtn" onClick={handleSearch}>
                     <X size={28} />
                 </Button>
             </div>
-            {filtered.length > 0 && searchQuery !== ''
-                ? filtered.slice(0, 5).map((product) => {
-                      const { title, id } = product;
-                      return (
-                          <div key={id} className={styles.searchResults}>
-                              <Button
-                                  className="searchResultBtn"
-                                  onClick={handleSearch}
-                              >
-                                  <Link
-                                      to={'/productDetails'}
-                                      state={{
-                                          title,
-                                      }}
-                                  >
-                                      {title}
-                                  </Link>
-                              </Button>
-                          </div>
-                      );
-                  })
-                : !filtered.length &&
-                  searchQuery !== '' && (
-                      <div className={styles.searchResults}>
-                          No search results for <span>{searchQuery}</span>
-                      </div>
-                  )}
+            {searchQuery && (
+                <SearchResults
+                    filtered={filtered}
+                    searchQuery={searchQuery}
+                    handleSearch={handleSearch}
+                />
+            )}
         </div>
     );
 }

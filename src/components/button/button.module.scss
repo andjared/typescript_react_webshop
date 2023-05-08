@@ -13,21 +13,6 @@
     @include vars.flexCenter(row, center);
 }
 
-.searchResultBtn {
-    padding: vars.$space-sm;
-    width: 100%;
-    border: none;
-    outline: none;
-    color: vars.$clr-text-secondary;
-    background-color: transparent;
-    transition: vars.$transition-all;
-    font-size: vars.$fs-md;
-}
-
-.searchResultBtn:hover {
-    color: vars.$clr-main-text;
-}
-
 .quantityHandlerBtn {
     background-color: transparent;
     color: vars.$clr-text-secondary;
