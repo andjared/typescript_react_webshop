@@ -12,14 +12,14 @@ export interface Props {
 function CartItem({ product: { id, img, title, info, price } }: Props) {
     const { removeFromCart, getCartItemQuantity, addToCart } = useCartContext();
 
+    const quantity: number = getCartItemQuantity(id);
+
     const increaseQuantity = (): void => {
-        const quantity = getCartItemQuantity(id) + 1;
-        addToCart(id, quantity);
+        addToCart(id, quantity + 1);
     };
 
     const decreaseQuantity = (): void => {
-        const quantity = getCartItemQuantity(id) - 1;
-        removeFromCart(id, quantity);
+        removeFromCart(id, quantity - 1);
     };
 
     const handleRemove = (): void => {
@@ -40,7 +40,7 @@ function CartItem({ product: { id, img, title, info, price } }: Props) {
                 <p className={styles.cartItemInfo}>{info}</p>
                 <div className={styles.cartItemQuantity}>
                     <QuantityHandler
-                        quantity={String(getCartItemQuantity(id))}
+                        quantity={`${quantity}`}
                         increaseQuantity={increaseQuantity}
                         decreaseQuantity={decreaseQuantity}
                     />
