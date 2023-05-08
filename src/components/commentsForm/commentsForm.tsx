@@ -5,8 +5,8 @@ import styles from './commentsForm.module.scss';
 export interface Props {
     id: number;
 }
-//form initial values
-const formData = {
+
+const initialFormData = {
     title: '',
     message: '',
     user: '',
@@ -14,7 +14,7 @@ const formData = {
 };
 
 export default function CommentsForm({ id }: Props) {
-    const [data, setData] = useState<CreateCommentType>(formData);
+    const [data, setData] = useState<CreateCommentType>(initialFormData);
     const [rating, setRating] = useState(0);
     const [hover, setHover] = useState(0);
 
