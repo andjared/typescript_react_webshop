@@ -16,7 +16,7 @@ function Cart({ products }: Props) {
         Boolean(cartItems[product.id])
     );
 
-    const totalPrice = (): number => {
+    const calculatePrice = (): number => {
         //extract price for each item based on amount in cart and then calculate sum
         const total = items
             .map((item) => Number(item.price) * cartItems[item.id])
@@ -24,6 +24,8 @@ function Cart({ products }: Props) {
 
         return total;
     };
+
+    const totalPrice = calculatePrice();
 
     if (!items.length)
         return (
@@ -43,7 +45,7 @@ function Cart({ products }: Props) {
             <Button className="cartPaymentBtn">
                 <span>Checkout</span>
                 <span className={styles.separatorDot}></span>
-                <span>${totalPrice()}</span>
+                <span>${totalPrice}</span>
             </Button>
         </section>
     );
