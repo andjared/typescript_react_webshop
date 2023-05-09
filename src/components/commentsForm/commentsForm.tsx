@@ -16,7 +16,6 @@ const initialFormData = {
 
 export default function CommentsForm({ id }: Props) {
     const [data, setData] = useState<CreateCommentType>(initialFormData);
-    const [newRating, setNewRating] = useState<number>(0);
 
     const handleChange = (
         e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -28,7 +27,6 @@ export default function CommentsForm({ id }: Props) {
     };
 
     const handleRating = (newRating: number) => {
-        setNewRating(newRating);
         setData({ ...data, rating: newRating });
     };
 
@@ -54,7 +52,7 @@ export default function CommentsForm({ id }: Props) {
                 <span>Rate this product </span>
                 <RatingStars
                     interactive
-                    rating={newRating}
+                    rating={data.rating}
                     handleRating={handleRating}
                 />
             </div>

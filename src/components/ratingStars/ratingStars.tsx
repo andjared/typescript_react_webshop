@@ -15,7 +15,7 @@ export default function RatingStars({
     const [hover, setHover] = useState<number>(0);
 
     const handleClick = (index: number) => {
-        handleRating!(index);
+        handleRating?.(index);
     };
 
     const handleMouseEnter = (index: number) => {
