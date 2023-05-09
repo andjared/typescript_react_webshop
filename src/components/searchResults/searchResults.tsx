@@ -22,8 +22,7 @@ export default function SearchResults({
 
     return (
         <div className={styles.results}>
-            {filtered.slice(0, 5).map((product) => {
-                const { id, title } = product;
+            {filtered.slice(0, 5).map(({ id, title }) => {
                 return (
                     <div key={id} className={styles.result}>
                         <span className={styles.link} onClick={handleSearch}>

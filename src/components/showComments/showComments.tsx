@@ -9,8 +9,7 @@ export interface Props {
 export default function ShowComments({ comments }: Props) {
     return (
         <article className={styles.container}>
-            {comments.map((comment) => {
-                const { id, title, user, message, rating } = comment;
+            {comments.map(({ id, title, user, message, rating }) => {
                 return (
                     <div key={id} className={styles.comment}>
                         <div className={styles.commentHeading}>

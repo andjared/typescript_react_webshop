@@ -19,7 +19,7 @@ function Cart({ products }: Props) {
     const calculatePrice = (): number => {
         //extract price for each item based on amount in cart and then calculate sum
         const total = items
-            .map((item) => Number(item.price) * cartItems[item.id])
+            .map(({ price, id }) => Number(price) * cartItems[id])
             .reduce((acc, curr) => acc + curr, 0);
 
         return total;
