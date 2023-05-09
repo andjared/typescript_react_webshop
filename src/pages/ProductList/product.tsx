@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import Button from '../../components/button/button';
 import QuantityHandler from '../../components/quantityHandler/quantityHandler';
 import AverageRating from '../../components/averageRating/averageRating';
+import DynamicImage from '../../components/dynamicImage/dynamicImage';
 import { useCartContext } from '../../context/CartContext';
 import styles from './product.module.scss';
 
@@ -34,7 +35,7 @@ function Product({ product: { id, img, title, info, price } }: Props) {
                     }}
                     key={id}
                 >
-                    <img src={require(`../../assets${img}`)} alt={title} />
+                    <DynamicImage path={img} title={title} />
                 </Link>
             </div>
             <div className={styles.productContent}>

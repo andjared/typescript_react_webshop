@@ -5,6 +5,7 @@ import QuantityHandler from '../../components/quantityHandler/quantityHandler';
 import CommentsForm from '../../components/commentsForm/commentsForm';
 import AverageRating from '../../components/averageRating/averageRating';
 import ShowComments from '../../components/showComments/showComments';
+import DynamicImage from '../../components/dynamicImage/dynamicImage';
 import { useCartContext } from '../../context/CartContext';
 import useMountTransition from '../../useMountTransition';
 import styles from './productDetails.module.scss';
@@ -68,7 +69,7 @@ function ProductDetails({ products }: Props) {
         <section className={styles.productDetails}>
             <article className={styles.product}>
                 <div className={styles.productImage}>
-                    <img src={require(`../../assets${img}`)} alt={title} />
+                    <DynamicImage path={img} title={title} />
                 </div>
                 <div className={styles.productContent}>
                     <h3 className={styles.productTitle}>{title}</h3>

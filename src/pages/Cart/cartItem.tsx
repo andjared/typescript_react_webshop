@@ -3,6 +3,7 @@ import { useCartContext } from '../../context/CartContext';
 import QuantityHandler from '../../components/quantityHandler/quantityHandler';
 import AverageRating from '../../components/averageRating/averageRating';
 import Button from '../../components/button/button';
+import DynamicImage from '../../components/dynamicImage/dynamicImage';
 import styles from './cartItem.module.scss';
 
 export interface Props {
@@ -30,7 +31,7 @@ function CartItem({ product: { id, img, title, info, price } }: Props) {
     return (
         <article className={styles.cartItem}>
             <div className={styles.cartItemImage}>
-                <img src={require(`../../assets${img}`)} alt={title} />
+                <DynamicImage path={img} title={title} />
             </div>
             <div className={styles.cartItemContent}>
                 <h4 className={styles.cartItemTitle}>{title}</h4>
