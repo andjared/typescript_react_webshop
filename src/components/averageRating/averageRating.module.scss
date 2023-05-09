@@ -3,22 +3,10 @@
 .rating {
     grid-column: -1/-1;
     justify-self: end;
-    @include vars.flexStart(row, flex-start);
+    @include vars.flexCenter(row, flex-start);
+    gap: vars.$space-xs;
 }
 
 .numOfReviews {
-    margin-left: vars.$space-xs;
     color: vars.$clr-text-secondary;
 }
-
-// .star {
-//     font-size: vars.$fs-md;
-// }
-
-// .starOn {
-//     color: vars.$clr-stars;
-// }
-
-// .starOff {
-//     color: #ccc;
-// }

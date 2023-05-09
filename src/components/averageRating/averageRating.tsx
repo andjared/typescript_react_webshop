@@ -42,8 +42,8 @@ export default function AverageRating({ id }: Props) {
 
     return (
         <div className={styles.rating}>
-            <RatingStars rating={rating} />
-            <span className={styles.numOfReviews}>({numberOfReviews})</span>
+            <RatingStars rating={rating} interactive={false} />
+            <div className={styles.numOfReviews}>({numberOfReviews})</div>
         </div>
     );
 }

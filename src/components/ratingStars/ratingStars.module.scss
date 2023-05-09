@@ -1,7 +1,16 @@
 @use '../../styles/vars.scss';
 
 .rating {
-    @include vars.flexStart(row, space-around);
+    @include vars.flexStart(row, flex-start);
+}
+
+.rating button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: vars.$fs-lg;
+    transition: vars.$transition-all;
 }
 
 .star {

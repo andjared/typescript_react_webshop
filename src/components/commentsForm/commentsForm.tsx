@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Button from '../button/button';
 import styles from './commentsForm.module.scss';
+import RatingStars from '../ratingStars/ratingStars';
 
 export interface Props {
     id: number;
@@ -15,8 +16,7 @@ const initialFormData = {
 
 export default function CommentsForm({ id }: Props) {
     const [data, setData] = useState<CreateCommentType>(initialFormData);
-    const [rating, setRating] = useState(0);
-    const [hover, setHover] = useState(0);
+    const [newRating, setNewRating] = useState<number>(0);
 
     const handleChange = (
         e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -25,6 +25,11 @@ export default function CommentsForm({ id }: Props) {
             ...data,
             [e.target.name]: e.target.value,
         });
+    };
+
+    const handleRating = (newRating: number) => {
+        setNewRating(newRating);
+        setData({ ...data, rating: newRating });
     };
 
     const postComment = async (id: number, data: CreateCommentType) => {
@@ -39,8 +44,6 @@ export default function CommentsForm({ id }: Props) {
 
     const handleCreateComment = async (e: React.MouseEvent) => {
         e.preventDefault();
-        data.rating = rating;
-
         await postComment(id, data);
     };
 
@@ -49,27 +52,11 @@ export default function CommentsForm({ id }: Props) {
             <h4 className={styles.heading}>We appreaciate your feedback!</h4>
             <div className={styles.rating}>
                 <span>Rate this product </span>
-                <div>
-                    {[...Array(5)].map((_, index) => {
-                        index += 1;
-                        return (
-                            <button
-                                type="button"
-                                key={index}
-                                className={`${
-                                    index <= (hover || rating)
-                                        ? styles.starOn
-                                        : styles.starOff
-                                }`}
-                                onClick={() => setRating(index)}
-                                onMouseEnter={() => setHover(index)}
-                                onMouseLeave={() => setHover(rating)}
-                            >
-                                <span>&#9733;</span>
-                            </button>
-                        );
-                    })}
-                </div>
+                <RatingStars
+                    interactive
+                    rating={newRating}
+                    handleRating={handleRating}
+                />
             </div>
             <form className={styles.commentsForm}>
                 <label htmlFor="title">Title</label>

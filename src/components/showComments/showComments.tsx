@@ -14,7 +14,7 @@ export default function ShowComments({ comments }: Props) {
                     <div key={id} className={styles.comment}>
                         <div className={styles.commentHeading}>
                             <h4 className={styles.commentTitle}>{title}</h4>
-                            <RatingStars rating={rating} />
+                            <RatingStars rating={rating} interactive={false} />
                         </div>
                         <p className={styles.commentMessage}>{message}</p>
                         <span className={styles.commentUser}>{user}</span>
