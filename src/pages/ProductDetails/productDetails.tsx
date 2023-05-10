@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import Button from '../../components/button/button';
 import QuantityHandler from '../../components/quantityHandler/quantityHandler';
@@ -15,15 +15,18 @@ export interface Props {
 }
 
 function ProductDetails({ products }: Props) {
+    const [comments, setComments] = useState<IComments[]>([]);
+    const [quantity, setQuantity] = useState<number>(1);
+    const { addToCart } = useCartContext();
     const { state } = useLocation();
     const [isFormVisible, setIsFormVisible] = useState<boolean>(false);
-    const product = products.find(
-        (product: IProduct) => product.title === state.title
-    );
+
+    const product = useMemo(() => {
+        products.find((product: IProduct) => product.title === state.title);
+    }, [products, state]);
 
     //destructure product properties
     const { id, info, description, price, img, title } = product!;
-    const [comments, setComments] = useState<IComments[]>([]);
     const hasTransitionedIn = useMountTransition(isFormVisible, 500);
 
     useEffect(() => {
@@ -43,9 +46,6 @@ function ProductDetails({ products }: Props) {
 
         getComments(id);
     }, [id]);
-
-    const { addToCart } = useCartContext();
-    const [quantity, setQuantity] = useState<number>(1);
 
     const increaseQuantity = (): void => {
         setQuantity((prev) => prev + 1);
