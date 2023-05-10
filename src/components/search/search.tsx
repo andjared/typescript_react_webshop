@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { Search as SearchIcon, X } from 'react-feather';
 import Button from '../button/button';
 import SearchResults from '../searchResults/searchResults';
@@ -16,11 +16,13 @@ function Search({ handleSearch, products }: Props) {
         setSearchQuery(e.target.value);
     };
 
-    const filtered: IProduct[] = products.filter((product) =>
-        product.title
-            .toLocaleLowerCase()
-            .includes(searchQuery.toLocaleLowerCase())
-    );
+    const filtered: IProduct[] = useMemo(() => {
+        return products.filter((product) =>
+            product.title
+                .toLocaleLowerCase()
+                .includes(searchQuery.toLocaleLowerCase())
+        );
+    }, [products, searchQuery]);
 
     return (
         <div className={styles.search}>
