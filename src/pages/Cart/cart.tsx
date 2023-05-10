@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { useCartContext } from '../../context/CartContext';
 import Button from '../../components/button/button';
@@ -12,9 +12,9 @@ export interface Props {
 function Cart({ products }: Props) {
     const { cartItems } = useCartContext();
 
-    const items: IProduct[] = products.filter((product) =>
-        Boolean(cartItems[product.id])
-    );
+    const items: IProduct[] = useMemo(() => {
+        return products.filter((product) => Boolean(cartItems[product.id]));
+    }, [products, cartItems]);
 
     const calculatePrice = (): number => {
         //extract price for each item based on amount in cart and then calculate sum
