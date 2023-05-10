@@ -25,7 +25,7 @@ function Cart({ products }: Props) {
         return total;
     };
 
-    const totalPrice = calculatePrice();
+    const totalPrice = useMemo(() => calculatePrice(), [items]);
 
     if (!items.length)
         return (
