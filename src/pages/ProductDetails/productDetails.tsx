@@ -1,13 +1,11 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import Button from '../../components/button/button';
 import QuantityHandler from '../../components/quantityHandler/quantityHandler';
-import CommentsForm from '../../components/commentsForm/commentsForm';
 import AverageRating from '../../components/averageRating/averageRating';
-import ShowComments from '../../components/showComments/showComments';
 import DynamicImage from '../../components/dynamicImage/dynamicImage';
+import Reviews from '../../components/reviews/reviews';
 import { useCartContext } from '../../context/CartContext';
-import useMountTransition from '../../useMountTransition';
 import styles from './productDetails.module.scss';
 
 export interface Props {
@@ -15,37 +13,20 @@ export interface Props {
 }
 
 function ProductDetails({ products }: Props) {
-    const [comments, setComments] = useState<IComments[]>([]);
+    // const [comments, setComments] = useState<IComments[]>([]);
     const [quantity, setQuantity] = useState<number>(1);
     const { addToCart } = useCartContext();
     const { state } = useLocation();
-    const [isFormVisible, setIsFormVisible] = useState<boolean>(false);
+    // const [isFormVisible, setIsFormVisible] = useState<boolean>(false);
 
     const product = useMemo(() => {
-        products.find((product: IProduct) => product.title === state.title);
+        return products.find(
+            (product: IProduct) => product.title === state.title
+        );
     }, [products, state]);
 
     //destructure product properties
     const { id, info, description, price, img, title } = product!;
-    const hasTransitionedIn = useMountTransition(isFormVisible, 500);
-
-    useEffect(() => {
-        const getComments = async (id: number) => {
-            try {
-                const res = await fetch(
-                    `http://localhost:3000/api/products/${id}/comments`
-                );
-
-                const data = await res.json();
-
-                setComments(data);
-            } catch (err) {
-                console.log(err);
-            }
-        };
-
-        getComments(id);
-    }, [id]);
 
     const increaseQuantity = (): void => {
         setQuantity((prev) => prev + 1);
@@ -59,10 +40,6 @@ function ProductDetails({ products }: Props) {
 
     const handleAddInCart = (): void => {
         addToCart(id, quantity);
-    };
-
-    const handleFormVisibility = (): void => {
-        setIsFormVisible(!isFormVisible);
     };
 
     return (
@@ -96,41 +73,7 @@ function ProductDetails({ products }: Props) {
                     </div>
                 </div>
             </article>
-            <div className={styles.reviews}>
-                <h4>Reviews</h4>
-                {!comments.length && !isFormVisible ? (
-                    <div>There is no reviews for this product</div>
-                ) : (
-                    comments.length && (
-                        <div>
-                            <ShowComments comments={comments} />
-                        </div>
-                    )
-                )}
-                <div>
-                    <Button
-                        onClick={handleFormVisibility}
-                        className="handleCommentsFormBtn"
-                    >
-                        <span>
-                            {isFormVisible
-                                ? 'Close'
-                                : comments.length
-                                ? 'Write New Review'
-                                : 'Be the first to write a review'}
-                        </span>
-                    </Button>
-                    {(hasTransitionedIn || isFormVisible) && (
-                        <div
-                            className={`${styles.form} ${
-                                hasTransitionedIn && styles.in
-                            } ${isFormVisible && styles.visible}`}
-                        >
-                            <CommentsForm id={id} />
-                        </div>
-                    )}
-                </div>
-            </div>
+            <Reviews id={id} />
         </section>
     );
 }
