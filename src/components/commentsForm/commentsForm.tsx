@@ -17,19 +17,6 @@ const initialFormData = {
 export default function CommentsForm({ id }: Props) {
     const [data, setData] = useState<CreateCommentType>(initialFormData);
 
-    const handleChange = (
-        e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-    ): void => {
-        setData({
-            ...data,
-            [e.target.name]: e.target.value,
-        });
-    };
-
-    const handleRating = (newRating: number) => {
-        setData({ ...data, rating: newRating });
-    };
-
     const postComment = async (id: number, data: CreateCommentType) => {
         await fetch(`http://localhost:3000/api/products/${id}/comments`, {
             method: 'POST',
@@ -43,6 +30,19 @@ export default function CommentsForm({ id }: Props) {
     const handleCreateComment = async (e: React.MouseEvent) => {
         e.preventDefault();
         await postComment(id, data);
+    };
+
+    const handleChange = (
+        e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    ): void => {
+        setData({
+            ...data,
+            [e.target.name]: e.target.value,
+        });
+    };
+
+    const handleRating = (newRating: number) => {
+        setData({ ...data, rating: newRating });
     };
 
     return (

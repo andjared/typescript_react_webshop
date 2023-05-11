@@ -13,20 +13,17 @@ export interface Props {
 }
 
 function ProductDetails({ products }: Props) {
-    // const [comments, setComments] = useState<IComments[]>([]);
     const [quantity, setQuantity] = useState<number>(1);
     const { addToCart } = useCartContext();
     const { state } = useLocation();
-    // const [isFormVisible, setIsFormVisible] = useState<boolean>(false);
+    const { title, comments } = state;
 
     const product = useMemo(() => {
-        return products.find(
-            (product: IProduct) => product.title === state.title
-        );
-    }, [products, state]);
+        return products.find((product: IProduct) => product.title === title);
+    }, [products, title]);
 
     //destructure product properties
-    const { id, info, description, price, img, title } = product!;
+    const { id, info, description, price, img } = product!;
 
     const increaseQuantity = (): void => {
         setQuantity((prev) => prev + 1);
@@ -50,7 +47,7 @@ function ProductDetails({ products }: Props) {
                 </div>
                 <div className={styles.productContent}>
                     <h3 className={styles.productTitle}>{title}</h3>
-                    <AverageRating id={id} />
+                    {comments.length && <AverageRating comments={comments} />}
                     <div className={styles.productInfo}>{info}</div>
                     <div className={styles.productDescription}>
                         {description}

@@ -1,40 +1,19 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import RatingStars from '../ratingStars/ratingStars';
 import styles from './averageRating.module.scss';
 
 export interface Props {
-    id: number;
+    comments: IComments[];
 }
 
-export default function AverageRating({ id }: Props) {
-    const [rating, setRating] = useState<number>(0);
-    const [numberOfReviews, setNumberOfReviews] = useState<number>(0);
+export default function AverageRating({ comments }: Props) {
+    const numberOfReviews = comments.length;
 
-    useEffect(() => {
-        const getComments = async (id: number) => {
-            try {
-                const res = await fetch(
-                    `http://localhost:3000/api/products/${id}/comments`
-                );
-                if (res.ok) {
-                    const data = await res.json();
-
-                    setNumberOfReviews(data.length);
-
-                    const averageRating =
-                        data.reduce(
-                            (acc: number, curr: IComments) => acc + curr.rating,
-                            0
-                        ) / data.length;
-
-                    setRating(averageRating);
-                }
-            } catch (err) {
-                console.log(err);
-            }
-        };
-        getComments(id);
-    }, [id]);
+    const rating =
+        comments.reduce(
+            (acc: number, curr: IComments) => acc + curr.rating,
+            0
+        ) / comments.length;
 
     if (!numberOfReviews) {
         return null;

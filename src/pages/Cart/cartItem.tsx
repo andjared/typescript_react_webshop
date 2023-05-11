@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useCartContext } from '../../context/CartContext';
 import QuantityHandler from '../../components/quantityHandler/quantityHandler';
 import AverageRating from '../../components/averageRating/averageRating';
@@ -11,8 +11,27 @@ export interface Props {
 }
 
 function CartItem({ product: { id, img, title, info, price } }: Props) {
-    const { removeFromCart, getCartItemQuantity, addToCart } = useCartContext();
+    const [comments, setComments] = useState<IComments[]>([]);
 
+    useEffect(() => {
+        const getComments = async (id: number) => {
+            try {
+                const res = await fetch(
+                    `http://localhost:3000/api/products/${id}/comments`
+                );
+
+                const data = await res.json();
+
+                setComments(data);
+            } catch (err) {
+                console.log(err);
+            }
+        };
+
+        getComments(id);
+    }, []);
+
+    const { removeFromCart, getCartItemQuantity, addToCart } = useCartContext();
     const quantity: number = getCartItemQuantity(id);
 
     const increaseQuantity = (): void => {
@@ -35,7 +54,7 @@ function CartItem({ product: { id, img, title, info, price } }: Props) {
             </div>
             <div className={styles.cartItemContent}>
                 <h4 className={styles.cartItemTitle}>{title}</h4>
-                <AverageRating id={id} />
+                {comments.length && <AverageRating comments={comments} />}
 
                 <span className={styles.cartItemPrice}>${price}</span>
                 <p className={styles.cartItemInfo}>{info}</p>

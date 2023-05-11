@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Button from '../../components/button/button';
 import QuantityHandler from '../../components/quantityHandler/quantityHandler';
@@ -12,8 +12,28 @@ export interface Props {
 }
 
 function Product({ product: { id, img, title, info, price } }: Props) {
-    const { addToCart } = useCartContext();
+    const [comments, setComments] = useState<IComments[]>([]);
     const [quantity, setQuantity] = useState<number>(1);
+
+    useEffect(() => {
+        const getComments = async (id: number) => {
+            try {
+                const res = await fetch(
+                    `http://localhost:3000/api/products/${id}/comments`
+                );
+
+                const data = await res.json();
+
+                setComments(data);
+            } catch (err) {
+                console.log(err);
+            }
+        };
+
+        getComments(id);
+    }, []);
+
+    const { addToCart } = useCartContext();
 
     const increaseQuantity = (): void => {
         setQuantity((prev) => prev + 1);
@@ -32,6 +52,7 @@ function Product({ product: { id, img, title, info, price } }: Props) {
                     to={'/productDetails'}
                     state={{
                         title,
+                        comments,
                     }}
                     key={id}
                 >
@@ -41,7 +62,7 @@ function Product({ product: { id, img, title, info, price } }: Props) {
             <div className={styles.productContent}>
                 <h3 className={styles.productTitle}>{title}</h3>
                 <div className={styles.productRating}>
-                    <AverageRating id={id} />
+                    {comments.length && <AverageRating comments={comments} />}
                 </div>
                 <p className={styles.productInfo}>{info}</p>
                 <span className={styles.productPrice}>${price}</span>
