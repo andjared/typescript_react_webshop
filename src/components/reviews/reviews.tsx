@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import ShowComments from '../../components/showComments/showComments';
 import CommentsForm from '../../components/commentsForm/commentsForm';
 import Button from '../../components/button/button';
@@ -7,30 +7,12 @@ import styles from './reviews.module.scss';
 
 export interface Props {
     id: number;
+    comments: IComments[];
 }
 
-export default function Reviews({ id }: Props) {
-    const [comments, setComments] = useState<IComments[]>([]);
+export default function Reviews({ comments, id }: Props) {
     const [isFormVisible, setIsFormVisible] = useState<boolean>(false);
     const hasTransitionedIn = useMountTransition(isFormVisible, 500);
-
-    useEffect(() => {
-        const getComments = async (id: number) => {
-            try {
-                const res = await fetch(
-                    `http://localhost:3000/api/products/${id}/comments`
-                );
-
-                const data = await res.json();
-
-                setComments(data);
-            } catch (err) {
-                console.log(err);
-            }
-        };
-
-        getComments(id);
-    }, [id]);
 
     const handleFormVisibility = (): void => {
         setIsFormVisible(!isFormVisible);

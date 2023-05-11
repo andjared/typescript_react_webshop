@@ -70,7 +70,7 @@ function ProductDetails({ products }: Props) {
                     </div>
                 </div>
             </article>
-            <Reviews id={id} />
+            <Reviews comments={comments} id={id} />
         </section>
     );
 }

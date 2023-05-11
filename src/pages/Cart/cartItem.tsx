@@ -1,35 +1,20 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useCartContext } from '../../context/CartContext';
 import QuantityHandler from '../../components/quantityHandler/quantityHandler';
 import AverageRating from '../../components/averageRating/averageRating';
 import Button from '../../components/button/button';
 import DynamicImage from '../../components/dynamicImage/dynamicImage';
 import styles from './cartItem.module.scss';
+import useFetch from '../../useFetch';
 
 export interface Props {
     product: IProduct;
 }
 
 function CartItem({ product: { id, img, title, info, price } }: Props) {
-    const [comments, setComments] = useState<IComments[]>([]);
-
-    useEffect(() => {
-        const getComments = async (id: number) => {
-            try {
-                const res = await fetch(
-                    `http://localhost:3000/api/products/${id}/comments`
-                );
-
-                const data = await res.json();
-
-                setComments(data);
-            } catch (err) {
-                console.log(err);
-            }
-        };
-
-        getComments(id);
-    }, []);
+    const comments = useFetch<IComments[]>(
+        `http://localhost:3000/api/products/${id}/comments`
+    );
 
     const { removeFromCart, getCartItemQuantity, addToCart } = useCartContext();
     const quantity: number = getCartItemQuantity(id);
@@ -54,7 +39,7 @@ function CartItem({ product: { id, img, title, info, price } }: Props) {
             </div>
             <div className={styles.cartItemContent}>
                 <h4 className={styles.cartItemTitle}>{title}</h4>
-                {comments.length && <AverageRating comments={comments} />}
+                {comments?.length && <AverageRating comments={comments} />}
 
                 <span className={styles.cartItemPrice}>${price}</span>
                 <p className={styles.cartItemInfo}>{info}</p>

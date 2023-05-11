@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Button from '../../components/button/button';
 import QuantityHandler from '../../components/quantityHandler/quantityHandler';
 import AverageRating from '../../components/averageRating/averageRating';
 import DynamicImage from '../../components/dynamicImage/dynamicImage';
 import { useCartContext } from '../../context/CartContext';
+import useFetch from '../../useFetch';
 import styles from './product.module.scss';
 
 export interface Props {
@@ -12,26 +13,11 @@ export interface Props {
 }
 
 function Product({ product: { id, img, title, info, price } }: Props) {
-    const [comments, setComments] = useState<IComments[]>([]);
+    const comments = useFetch<IComments[]>(
+        `http://localhost:3000/api/products/${id}/comments`
+    );
+
     const [quantity, setQuantity] = useState<number>(1);
-
-    useEffect(() => {
-        const getComments = async (id: number) => {
-            try {
-                const res = await fetch(
-                    `http://localhost:3000/api/products/${id}/comments`
-                );
-
-                const data = await res.json();
-
-                setComments(data);
-            } catch (err) {
-                console.log(err);
-            }
-        };
-
-        getComments(id);
-    }, []);
 
     const { addToCart } = useCartContext();
 
@@ -62,7 +48,7 @@ function Product({ product: { id, img, title, info, price } }: Props) {
             <div className={styles.productContent}>
                 <h3 className={styles.productTitle}>{title}</h3>
                 <div className={styles.productRating}>
-                    {comments.length && <AverageRating comments={comments} />}
+                    {comments?.length && <AverageRating comments={comments} />}
                 </div>
                 <p className={styles.productInfo}>{info}</p>
                 <span className={styles.productPrice}>${price}</span>
