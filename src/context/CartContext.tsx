@@ -7,7 +7,6 @@ export type CartProps = {
 type CartContextProps = {
     addToCart: (id: number, quantity: number) => void;
     removeFromCart: (id: number, quantity: number) => void;
-    getCartItemQuantity: (id: number) => number;
     totalCartItemsAmount: () => number;
     cartItems: CartProps;
 };
@@ -37,17 +36,6 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
         }));
     };
 
-    const getCartItemQuantity = (id: number) => {
-        let itemAmount = 0;
-
-        for (const item in cartItems) {
-            if (Number(item) === id && cartItems[item] > 0) {
-                itemAmount += cartItems[item];
-            }
-        }
-        return itemAmount;
-    };
-
     const totalCartItemsAmount = () => {
         let totalAmount = 0;
         for (const item in cartItems) {
@@ -63,7 +51,6 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
         removeFromCart,
         cartItems,
         totalCartItemsAmount,
-        getCartItemQuantity,
     };
 
     return (

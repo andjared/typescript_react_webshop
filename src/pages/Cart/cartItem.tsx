@@ -16,8 +16,9 @@ function CartItem({ product: { id, img, title, info, price } }: Props) {
         `http://localhost:3000/api/products/${id}/comments`
     );
 
-    const { removeFromCart, getCartItemQuantity, addToCart } = useCartContext();
-    const quantity: number = getCartItemQuantity(id);
+    const { removeFromCart, addToCart, cartItems } = useCartContext();
+
+    const quantity: number = cartItems[id];
 
     const increaseQuantity = (): void => {
         addToCart(id, quantity + 1);
