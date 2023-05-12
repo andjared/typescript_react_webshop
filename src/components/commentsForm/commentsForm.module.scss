@@ -1,7 +1,7 @@
 @use '../../styles/vars.scss';
 
 .heading {
-    font-size: fs-md;
+    font-size: vars.$fs-md;
 }
 
 .commentsForm {
@@ -10,8 +10,7 @@
     gap: vars.$space-sm;
 }
 
-.commentsForm input,
-.commentsForm textarea {
+.inputBase {
     padding: vars.$space-sm vars.$space-md;
     border: 1px solid rgba(vars.$clr-text-secondary, 0.2);
     outline: none;

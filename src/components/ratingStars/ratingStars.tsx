@@ -33,7 +33,7 @@ export default function RatingStars({
                 return (
                     <button
                         key={index}
-                        className={`${
+                        className={`${styles.btn} ${
                             index <= (hover || rating)
                                 ? styles.starOn
                                 : styles.starOff

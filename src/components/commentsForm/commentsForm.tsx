@@ -61,13 +61,23 @@ export default function CommentsForm({ id }: Props) {
                 <input
                     type="text"
                     name="title"
-                    className={styles.commentTitle}
+                    className={styles.inputBase}
                     onChange={handleChange}
                 />
                 <label htmlFor="user">Your Name</label>
-                <input type="text" name="user" onChange={handleChange} />
+                <input
+                    type="text"
+                    name="user"
+                    className={styles.inputBase}
+                    onChange={handleChange}
+                />
                 <label htmlFor="message">Tell Us More</label>
-                <textarea name="message" rows={3} onChange={handleChange} />
+                <textarea
+                    name="message"
+                    rows={3}
+                    onChange={handleChange}
+                    className={styles.inputBase}
+                />
                 <Button
                     className="btnFillToRight"
                     onClick={handleCreateComment}
