@@ -4,10 +4,22 @@
 <p><b>Tech Stack: TypeScript, React, SCSS </p>
 
 <p>State Managment: React Context</p>
+  
+---
+<div>
+  Currently works only on localhost while simultaneously api https://github.com/pekac/jewerly-dummy-api is running on localhost:3000, expected to be deployed in future.
+</div>
 
 ---
+  <div>
+    <img src="https://github.com/devicons/devicon/blob/master/icons/typescript/typescript-original.svg" title="TypeScript" alt="TypeScript" width="40" height="40"/>&nbsp;
+<img src="https://github.com/devicons/devicon/blob/master/icons/react/react-original.svg" title="React" alt="React" width="40" height="40" />&nbsp
+    <img src="https://github.com/devicons/devicon/blob/master/icons/sass/sass-original.svg" title="Sass" alt="Sass" width="40" height="40" />&nbsp
 
-<p>Published on GH Pages: https://andjared.github.io/typescript_react_webshop/ </p>
+   </div>
+</div>
+  
+
 </div>
 
 ---
