@@ -7,9 +7,21 @@
   
 ---
 <div>
-  Currently works only on localhost while simultaneously api https://github.com/pekac/jewerly-dummy-api is running on localhost:3000, expected to be deployed in future.
+  <h1>Setup and instalation </h1>
+  <h2> </h2>
+<p>Run ~ git clone https://github.com/pekac/jewerly-dummy-api ~</p>  
+<p>Navigate to project directory and run ~ npm run start:dev ~ to start server locally </p> 
+  <p>Run ~ git clone https://github.com/andjared/typescript_react_webshop.git ~ </p>
+  <p>Run ~ npm start ~ to start the project</p>
 </div>
-
+---
+<div>
+  Designed and implemented a simple and complete front end solution for webshop.
+  Solution consists of three parts: app, admin and api.
+  
+Implemented features such as filtering items, managing cart items, managing desired
+quantity, posting comments, etc.
+</div>
 ---
   <div>
     <img src="https://github.com/devicons/devicon/blob/master/icons/typescript/typescript-original.svg" title="TypeScript" alt="TypeScript" width="40" height="40"/>&nbsp;
