@@ -1,9 +1,19 @@
 <div>
 <h2>TypeScript React Webshop </h2>
-
-<p><b>Tech Stack: TypeScript, React, SCSS </p>
-
+<p>Designed and implemented a simple and complete front end solution for webshop.</p>
+  <p>Solution consists of three parts: app, admin and api.</p>
+  <p>Implemented features such as filtering items, managing cart items, managing desired quantity, posting comments, etc. 
+</p>
 <p>State Managment: React Context</p>
+  
+---
+  
+  <div>
+    <img src="https://github.com/devicons/devicon/blob/master/icons/typescript/typescript-original.svg" title="TypeScript" alt="TypeScript" width="40" height="40"/>&nbsp;
+<img src="https://github.com/devicons/devicon/blob/master/icons/react/react-original.svg" title="React" alt="React" width="40" height="40" />&nbsp
+    <img src="https://github.com/devicons/devicon/blob/master/icons/sass/sass-original.svg" title="Sass" alt="Sass" width="40" height="40" />&nbsp
+
+   </div>
   
 ---
 <div>
@@ -22,13 +32,7 @@
 Implemented features such as filtering items, managing cart items, managing desired
 quantity, posting comments, etc.
 </div>
----
-  <div>
-    <img src="https://github.com/devicons/devicon/blob/master/icons/typescript/typescript-original.svg" title="TypeScript" alt="TypeScript" width="40" height="40"/>&nbsp;
-<img src="https://github.com/devicons/devicon/blob/master/icons/react/react-original.svg" title="React" alt="React" width="40" height="40" />&nbsp
-    <img src="https://github.com/devicons/devicon/blob/master/icons/sass/sass-original.svg" title="Sass" alt="Sass" width="40" height="40" />&nbsp
 
-   </div>
 </div>
   
 
