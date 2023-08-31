@@ -24,14 +24,6 @@
   <p>Run ~ git clone https://github.com/andjared/typescript_react_webshop.git ~ </p>
   <p>Run ~ npm start ~ to start the project</p>
 </div>
----
-<div>
-  Designed and implemented a simple and complete front end solution for webshop.
-  Solution consists of three parts: app, admin and api.
-  
-Implemented features such as filtering items, managing cart items, managing desired
-quantity, posting comments, etc.
-</div>
 
 </div>
   
